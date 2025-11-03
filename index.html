@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京都8天7夜深度漫步 (網頁版)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 載入 Font Awesome (用於圖示) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 載入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 自訂字體 */
+        body {
+            font-family: 'Noto Sans TC', 'Arimo', sans-serif;
+            background-color: #f9f6f0; /* 柔和的米色背景 */
+            color: #4a4a4a;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Arimo', 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            color: #8a0303; /* 統一的深紅色標題 */
+        }
+        .mono-font {
+            font-family: 'Azeret Mono', monospace;
+        }
+        
+        /* 導覽列陰影 */
+        .navbar-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* 內容卡片樣式 */
+        .content-card {
+            background-color: #fffaf1;
+            border: 1px solid #f0eade;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+            overflow: hidden; /* 確保圓角效果 */
+        }
+        
+        /* 景點介紹卡片 */
+        .detail-tile {
+            background-color: #f4f0e6;
+            border: 1px solid #e4e1d9;
+            border-radius: 12px;
+            overflow: hidden; /* 確保圖片圓角生效 */
+            display: flex; /* 使用 flex 佈局 */
+            flex-direction: column; /* 垂直排列 */
+            height: 100%; /* 確保卡片等高 */
+        }
+        .detail-tile .p-5 {
+            flex-grow: 1; /* 讓文字內容區域填滿剩餘空間 */
+        }
+        
+        /* 景點介紹列表圖示 */
+        .detail-tile li {
+            position: relative;
+            padding-left: 35px; /* 預留圖示空間 */
+        }
+        .detail-tile li i {
+            position: absolute;
+            left: 5px;
+            top: 6px; /* 微調圖示垂直位置 */
+            font-size: 20px;
+            color: #8a0303;
+        }
+
+        /* 照片位置佔位符 */
+        .photo-placeholder {
+            aspect-ratio: 16 / 10; /* 調整照片長寬比 */
+            background-color: #f4f0e6; /* 輕微的底色 */
+            border: 2px dashed #d1c9ba; /* 虛線邊框 */
+            border-radius: 0.5rem; /* 圓角 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #a19a8a;
+            transition: all 0.2s ease-in-out;
+        }
+        .photo-placeholder:hover {
+            background-color: #e9e4d9;
+            border-color: #b3ab9a;
+            color: #8a0303;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. 頂部標題與導覽列 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md navbar-shadow">
+        <!-- ... existing header code ... -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl md:text-3xl">⛩️ 京都8天7夜深度漫步</h1>
+                <!-- 漢堡選單按鈕 (手機版) -->
+                <button id="menu-toggle" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 導覽連結 -->
+            <nav id="menu-links" class="hidden md:block pb-3">
+                <ul class="flex flex-col md:flex-row md:flex-wrap md:space-x-4 space-y-2 md:space-y-0 text-sm md:text-base">
+                    <li><a href="#preparation" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">事前準備</a></li>
+                    <li><a href="#day1" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 1: 奈良</a></li>
+                    <li><a href="#day2" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 2: 嵐山</a></li>
+                    <li><a href="#day3" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 3: 東山經典</a></li>
+                    <li><a href="#day4" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 4: 天橋立</a></li>
+                    <li><a href="#day5" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 5: 伏見稻荷</a></li>
+                    <li><a href="#day6" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 6: 北山秘境</a></li>
+                    <li><a href="#day7" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 7: 銀閣寺</a></li>
+                    <li><a href="#day8" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 8: 歸途</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. 頁面主體內容 -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mt-6">
+
+        <!-- Section: 封面 -->
+        <!-- ... existing cover section ... -->
+        <section class="content-card mb-12">
+            <div class="h-64 md:h-96 bg-cover bg-center rounded-t-lg" style="background-image: linear-gradient(rgba(255, 250, 241, 0.4), rgba(255, 250, 241, 0.4)), url('https://images.unsplash.com/photo-1528133418036-b6c3829b3b27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzY&ixlib=rb-4.0.3&q=80&w=1080');">
+            </div>
+            <div class="p-8 text-center">
+                <h1 class="text-4xl md:text-5xl">日本京都8天7夜</h1>
+                <p class="text-2xl md:text-3xl mt-2">深度漫步旅遊手冊</p>
+                <p class="mono-font text-lg md:text-xl mt-4 text-gray-700">2026.02.04 - 2026.02.11</p>
+            </div>
+        </section>
+
+        <!-- Section: 事前準備 -->
+        <!-- ... existing preparation section ... -->
+        <section id="preparation" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">事前準備與相關資料</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 航班資訊 -->
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4 flex items-center"><i class="fas fa-plane-departure w-8 mr-3 text-red-700"></i>航班資訊 (長榮)</h3>
+                    <ul class="space-y-2 text-base">
+                        <li><strong>去程 (2/4):</strong> <span class="mono-font text-red-800">BR134</span></li>
+                        <li>06:35 桃園 (TPE) → 10:00 神戶 (UKB)</li>
+                        <li><strong>回程 (2/11):</strong> <span class="mono-font text-red-800">BR177</span></li>
+                        <li>10:55 關西 (KIX) → 13:10 桃園 (TPE)</li>
+                    </ul>
+                </div>
+                <!-- 住宿資訊 -->
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4 flex items-center"><i class="fas fa-hotel w-8 mr-3 text-red-700"></i>住宿資訊</h3>
+                    <ul class="space-y-2 text-base">
+                        <li><strong>飯店:</strong> CHISUN PREMIUM京都九條</li>
+                        <li><strong>期間:</strong> 2026/2/4 - 2/11 (共7晚)</li>
+                        <li><strong>優勢:</strong> 近京都車站、東福寺站、九条站</li>
+                        <li><strong>地址:</strong> 京都市南区東九条上御霊町15-1</li>
+                    </ul>
+                </div>
+                <!-- 天氣與行前準備 -->
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4 flex items-center"><i class="fas fa-cloud-sun w-8 mr-3 text-red-700"></i>天氣與行前準備</h3>
+                    <ul class="space-y-2 text-base">
+                        <li><strong>天氣:</strong> 2月初為冬季最冷 (0°C-9°C)，偶有降雪</li>
+                        <li><strong>穿著:</strong> 保暖大衣、毛衣、圍巾、手套、帽子</li>
+                        <li><strong>必備:</strong> 暖暖包、保暖衣物</li>
+                        <li><strong>網路:</strong> 預購日本上網SIM卡或Wi-Fi分享器</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 交通票券 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4"><i class="fas fa-ticket w-8 mr-3 text-red-700"></i>核心票券 ①: ICOCA卡</h3>
+                    <p class="text-base mb-3"><strong>定位:</strong> 主力交通卡 (如同悠遊卡)。</p>
+                    <ul class="list-disc list-inside space-y-2 text-base">
+                        <li>用於支付所有非JR的交通 (巴士、地鐵、私鐵)。</li>
+                        <li><strong>使用日期:</strong> Day 1, 2, 3, 6, 7</li>
+                        <li><strong>範圍:</strong> 神戶港Liner、阪神/近鐵、京都市營巴士、地鐵、京阪本線、叡山電車等。</li>
+                    </ul>
+                </div>
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4"><i class="fas fa-passport w-8 mr-3 text-red-700"></i>核心票券 ②: 關西廣域鐵路周遊券</h3>
+                    <p class="text-base mb-3"><strong>定位:</strong> 強烈推薦的省錢利器。</p>
+                    <ul class="list-disc list-inside space-y-2 text-base">
+                        <li><strong>啟用策略:</strong> Day 4 (2/7) 啟用，至 Day 8 (2/11) 結束。</li>
+                        <li><strong>效益:</strong> 完美涵蓋兩趟最昂貴的JR交通 (天橋立特急、HARUKA機場特快車)。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Day 1 -->
+        <section id="day1" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 1 (2/4): 抵達神戶．直奔奈良</h2>
+            <!-- 每日行程卡片 -->
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 1 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <!-- 左欄: 行程文字 -->
+                    <div class="p-6 md:p-8">
+                        <!-- 景點 -->
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">東大寺 (大佛殿)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">興福寺 (國寶館、阿修羅像)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">奈良公園 (與鹿互動)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">春日大社參道</li>
+                        </ul>
+                        <!-- 交通 -->
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>機場→奈良 (建議):</strong> <strong>11:07</strong> 神戶機場 → (Port Liner) → <strong>11:25</strong> 三宮 (步行) → <strong>11:32</strong> 阪神三宮 → (阪神快速急行) → <strong>12:50</strong> <strong>近鐵奈良站</strong></li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>奈良→京都 (建議):</strong> <strong>16:48</strong> 近鐵奈良站 → (近鐵京都線 急行) → <strong>17:36</strong> <strong>京都車站</strong> (抵達後步行或轉車至飯店)</li>
+                        </ul>
+                        <!-- 餐飲 -->
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> 志津香 (釜飯)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>點心:</strong> 中谷堂 (艾草麻糬)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 京都拉麵小路 (京都車站)</li>
+                        </ul>
+                    </div>
+                    <!-- 右欄: 圖片 -->
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1526481280643-3318ac464d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzY&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 興福寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1628108509349-8c4c8100b9c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="興福寺五重塔" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">興福寺 (Kofuku-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 奈良時代最有權勢的藤原氏家族的寺廟。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 寺院的象徵是日本第二高的「五重塔」。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 「國寶館」是絕對的精華所在。館內收藏了大量奈良時期的佛教藝術珍品，其中最著名的就是「阿修羅像」。這尊可追溯至西元734年的「乾漆夾纻」工藝塑像，其三頭六臂的造型與溫和、年輕且表情生動的面容，展現了極高的藝術成就。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 東大寺 -->
+                        <div class="detail-tile">
+                             <img src="https://images.unsplash.com/photo-1594532986423-96b651d083b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="東大寺大佛殿" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">東大寺 (Todai-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 由聖武天皇於8世紀下令興建，作為日本60多個國分寺的總寺院，是世界文化遺產。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 「大佛殿」是目前世界上最大的木造建築（雖經重建，規模僅為原來的2/3），殿中供奉著15公尺高的「奈良大佛」（盧舍那佛）。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 穿過「南大門」（日本最大的寺廟山門，13世紀重建），務必欣賞兩側高達8公尺、由運慶、快慶兩位大師雕刻的「金剛力士像」，其肌肉線條與張力令人震撼。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 春日大社 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1625141113203-c8e5c8a417a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="春日大社的燈籠" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">春日大社</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 為了守護平城京而創建，也是藤原氏的守護神社。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 位於原始森林中的獨特氛圍，以及信徒捐贈的三千多座石燈籠與銅製燈籠。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 走在通往本殿的參道上，兩旁佈滿青苔的石燈籠與古木相映成趣，營造出神秘莊嚴的氣氛。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 1 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 1 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <!-- Photo Placeholder 1 -->
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <!-- Photo Placeholder 2 -->
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <!-- Photo Placeholder 3 -->
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <!-- Photo Placeholder 4 -->
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Section: Day 2 -->
+        <section id="day2" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 2 (2/5): 嵐山靜謐清晨行</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 2 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">嵐山竹林步道 (清晨是最佳時機)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">天龍寺 (曹源池庭園)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">渡月橋</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 深入嵯峨野地區 (如常寂光寺、祇王寺)。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往:</strong> 京都車站 → (JR嵯峨野線) → 嵯峨嵐山站</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回:</strong> 嵯峨嵐山站 → (JR) → 京都車站 → (地鐵) → 九条站</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>咖啡:</strong> % ARABICA Kyoto Arashiyama</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> 嵯峨とうふ 稲 (豆腐料理)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 東洋亭 (百年漢堡排)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1542052125-306e00e0843A?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzc&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 嵐山竹林步道 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1542052125-306e00e0843A?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzc&ixlib=rb-4.0.3&q=80&w=1080" alt="嵐山竹林步道" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">嵐山竹林步道</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 嵐山最具代表性的景觀之一。參天的野宮竹高聳入雲，陽光從竹葉間隙灑落，形成夢幻的光影。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 除了視覺享受，更重要的是「聽覺」。風吹過竹林的沙沙聲，被日本環境省評選為「日本最值得保留的100種聲音」之一。清晨或傍晚遊客稀少時，最能感受其靜謐與神秘的氛圍。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 天龍寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1593442404097-a7d0160a2ab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="天龍寺曹源池庭園" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">天龍寺 (Tenryu-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 名列世界文化遺產，位居京都五山之首。由足利尊氏為紀念後醍醐天皇而建。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 由著名禪師「夢窗疏石」國師所設計的「曹源池庭園」，是日本最早的史跡特別名勝。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 「曹源池庭園」是必看精華。它巧妙地將遠方的嵐山、龜山作為庭園背景（日式庭園的「借景」手法），創造出雄偉而寧靜的景觀，是日本庭園藝術的巔峰之作。從「大方丈」的廊下欣賞庭園是最佳角度。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 2 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 2 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 3 -->
+        <section id="day3" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 3 (2/6): 京都東山經典漫遊</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 3 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">清水寺 (清水舞台)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">二年坂、三年坂</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">八坂神社 (祇園)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">祇園花見小路 (傍晚)</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 繞道至更有氛圍的「石塀小路」。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往:</strong> 「九条河原町」巴士站 → (市營巴士207號) →「清水道」站</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回:</strong> 「祇園四条」站 → (京阪本線) →「東福寺」站</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> ひさご (Hisago) (親子丼)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>點心:</strong> 茶寮都路里 (抹茶聖代)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 十二段家 (涮涮鍋)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1597510343116-293673c6810a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzc&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 清水寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1597510343116-293673c6810a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzc&ixlib=rb-4.0.3&q=80&w=1080" alt="清水寺舞台" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">清水寺 (Kiyomizu-dera)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 始建於西元798年，是京都最古老的寺院之一，為世界文化遺產。日本諺語「從清水舞台跳下去」意指「破釜沉舟」。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 寺院最著名的「清水舞台」，這座懸空的舞台由139根巨大櫸木支撐，未使用一根釘子，完全依靠木工接榫技術建成，可俯瞰京都市景。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 寺內的「音羽之瀧」三道泉水也總是大排長龍，據說分別代表學業、戀愛與長壽。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 石塀小路 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1545607936-cf45d3e4a7b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="石塀小路" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">石塀小路 (Ishibei-koji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 形成於明治末期至大正時代，路面鋪設的石板，據說有部分來自1970年代停止運營的京都市電車的鋪路石。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 兩側是傳統的町屋木牆，呈現出大正浪漫時代的光影氛圍。相較於二年坂、三年坂的喧囂，石塀小路更為隱密高雅。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 傍晚時分燈火亮起，更能感受京都特有的日式風情。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 八坂神社 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1588102319760-afe6a1f81005?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="八坂神社的燈籠" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">八坂神社 (Yasaka Shrine)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 位於祇園中心，是全日本約三千座八坂神社的總本社，被京都人暱稱為「祇園さん」(祇園先生)。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 京都夏季盛事「祇園祭」的舉辦地。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 正殿南側的「舞殿」，掛滿了由祇園商家奉納的燈籠，夜晚點亮時非常壯觀，是八坂神社的標誌性景觀。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 3 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 3 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 4 -->
+        <section id="day4" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 4 (2/7): 日本海絕景 (天橋立/伊根)</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 4 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">天橋立 (日本三景之一)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">觀景台「股のぞき」(胯下窺看)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">伊根舟屋 (寧靜漁村)</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 在伊根漁村小路漫步，感受海潮氣息。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (JR Pass 啟用)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往 (建議):</strong> <strong>07:32</strong> 京都車站 → (特急 橋立城崎1号) → <strong>08:47</strong> 福知山 (轉乘)</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>08:55</strong> 福知山 → (丹後接力1号) → <strong>09:33</strong> <strong>天橋立車站</strong></li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回 (建議):</strong> <strong>18:09</strong> 天橋立車站 → (特急 橋立8号) → <strong>20:21</strong> <strong>京都車站</strong></li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> はしだて茶屋 (海鮮丼)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 舟屋食堂 (伊根)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1559868356-d86952e4f00d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzgw&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 天橋立 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1559868356-d86952e4f00d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzgw&ixlib=rb-4.0.3&q=80&w=1080" alt="天橋立" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">天橋立 (Amanohashidate)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 與廣島的宮島、宮城的松島並列為「日本三景」。其名源於日本神話，被譽為是神明往來天地間的橋樑。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 一個長約3.6公里、佈滿松樹的沙洲，分隔了宮津灣與阿蘇海。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 最特別的觀賞方式是「股のぞき」(胯下窺看)。在觀景台（如傘松公園）背對沙洲，彎腰從兩腿之間倒著看，天地顛倒的景象會讓沙洲看起來像是漂浮在空中的青龍，奇景令人難忘。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 伊根舟屋 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1616231902017-06da1b349f48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="伊根舟屋" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">伊根舟屋 (Ine Funaya)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 位於伊根灣的寧靜小漁村，2005年被指定為日本「重要傳統建築物群保存地區」。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 當地居民發展出獨特的「舟屋」建築，目前仍存有約230間。這種建築一樓是停放漁船的船庫（通向大海），二樓則是生活起居的空間，彷彿是浮在海上的日式平房。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 搭乘「伊根灣遊覽船」從海上欣賞舟屋並排的壯麗景色，是體驗伊根魅力的最佳方式。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 4 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 4 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 5 -->
+        <section id="day5" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 5 (2/8): 伏見稻荷深度巡禮</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 5 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">光明院 (虹の苔寺，隱藏景點)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">東福寺 (通天橋)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">伏見稻荷大社 (千本鳥居)</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 進行「お山巡り」環山參拜 (2-3小時)，感受靈氣。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (JR Pass)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往:</strong> 步行至「東福寺」站</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6">「東福寺」站 → (JR奈良線) →「稻荷」站 (僅一站)</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回:</strong> 「稻荷」站 → (JR) →「東福寺」站</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> 祢ざめ家 (Nezameya) (鰻魚飯)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 弘商店 (人氣燒肉)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1546197116-2c1a1961b69f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzgw&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 光明院 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="光明院庭園" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">光明院 (Komyoin)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 創立於1391年，是東福寺的塔頭寺院（附屬小寺）之一，是一個鮮為人知的隱藏版景點。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 因庭園中美麗的苔蘚而聞名，被暱稱為「虹の苔寺」(彩虹苔寺)。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 由昭和名作庭家「重森三玲」設計的枯山水庭園「波心庭」。最棒的體驗是在寺院的廊下靜坐，面對庭園，享受一段不被打擾的寧靜時光。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 東福寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1594903310069-a9b0a1d6f1c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="東福寺通天橋" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">東福寺 (Tofuku-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 京都五山之一，是臨濟宗東福寺派的大本山。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 橫跨在洗玉澗溪谷上的「通天橋」是寺院的象徵（雖然冬季非楓葉季，但橋身建築仍值得一看）。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 由「重森三玲」打造的「方丈庭園」。東、西、南、北四個庭園風格迥異：東庭以圓柱石塊排成北斗七星；南庭以巨石與砂紋展現仙人島嶼；西庭以杜鵑花叢修剪出棋盤格；北庭則以青苔和石頭排出漸層的棋盤格，是近代枯山水的傑作。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 伏見稻荷大社 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1546197116-2c1a1961b69f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzgw&ixlib=rb-4.0.3&q=80&w=1080" alt="伏見稻荷大社千本鳥居" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">伏見稻荷大社 (Fushimi Inari)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 全日本約三萬座稻荷神社的總本宮，主祀掌管穀物與商業的稻荷大神。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 以數千座朱紅色的「千本鳥居」聞名於世。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 大多數遊客只會走到「奧社奉拜所」。真正的深度體驗是進行「お山巡り」(環山參拜)，走完稻荷山全境。全程約需2-3小時，沿途會經過熊鷹社、長者社等眾多小神社，能帶您遠離人群，感受稻荷山的靈氣與莊嚴。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 5 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 5 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 6 -->
+        <section id="day6" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 6 (2/9): 北山秘境一日遊</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 6 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">叡山電車 (山林風景)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">貴船神社 (結緣、水占卜)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">鞍馬溫泉 (天然硫磺溫泉)</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 在露天溫泉「峰麓の湯」中，徹底釋放旅途的疲勞。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往:</strong> 東福寺站 → (京阪) → 出町柳站 → (叡山) → 貴船口站</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回:</strong> 鞍馬/貴船口站 → (叡山) → 出町柳站 → (京阪) → 東福寺站</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> ひろ文 (Hirobun) (冬季鍋物)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>點心:</strong> 貴船倶楽部 (抹茶甜點)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 京都勝牛 (炸牛排)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1545299443-34e2b0c03a1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzMw&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 貴船神社 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1545299443-34e2b0c03a1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzMw&ixlib=rb-4.0.3&q=80&w=1080" alt="貴船神社石階參道" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">貴船神社 (Kifune Shrine)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 位於京都市北方的山谷中，是全日本約500座貴船神社的總本社，主祀掌管水的神明「高靇神」，自古以來便是祈雨的聖地。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 這裡據說是「繪馬」(木製許願牌) 的發源地（古時祈雨獻黑馬、祈晴獻白馬，後改為木板畫）。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> ① 通往本宮的「石階參道」，兩旁林立的朱紅色獻燈燈籠，在冬季若遇積雪點燈，景色如夢似幻。 ② 獨特的「水占みくじ」(水占卜)，將空白的籤紙放入聖水中，文字便會浮現。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 鞍馬溫泉 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1540555197843-d6f513f56e02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="鞍馬露天溫泉" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">鞍馬溫泉 (Kurama Onsen)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 位於鞍馬山中，是京都市內唯一的天然硫磺溫泉。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 以其露天溫泉「峰麓の湯」最受歡迎。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 結束多天的步行行程後，一邊泡在溫暖的泉水中，一邊欣賞優美的山林景色，呼吸著清新的空氣，是療癒身心、洗去疲憊的最佳方式。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 6 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 6 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 7 -->
+        <section id="day7" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 7 (2/10): 東山銀閣．哲學之道</h2>
+            <div class="content-card shadow-lg">
+                <!-- ... existing Day 7 content ... -->
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6">
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">銀閣寺 (侘寂之美)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">哲學之道 (悠閒漫步)</li>
+                            <li class="relative before:content-['⛩️'] before:absolute before:-left-6">南禪寺 (水路閣)</li>
+                            <li class="relative before:content-['💡'] before:absolute before:-left-6"><strong>漫步心法:</strong> 在哲學之道旁的咖啡廳坐下，享受京都的緩慢時光。</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                        <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往:</strong> 「九条河原町」巴士站 → (巴士) →「銀閣寺道」站</li>
+                            <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回:</strong> 地鐵「蹴上」站 → (東西線) → 烏丸御池 → (烏丸線) →「九条」站</li>
+                        </ul>
+                        <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-utensils w-8 mr-3"></i>餐飲</h3>
+                        <ul class="list-none space-y-2 ml-6 text-base">
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>午餐:</strong> おめん (Omen) (烏龍麵)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>點心:</strong> よーじやカフェ (Yojiya Cafe)</li>
+                            <li class="relative before:content-['🍵'] before:absolute before:-left-6"><strong>晚餐:</strong> 名代とんかつ かつくら (豬排)</li>
+                        </ul>
+                    </div>
+                    <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1590214898337-321d7c4a03e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzMw&ixlib=rb-4.0.3&q=80&w=1080');">
+                    </div>
+                </div>
+                <!-- 景點深度介紹 -->
+                <div class="p-6 md:p-8 border-t-2 border-red-50">
+                    <h4 class="text-2xl mb-6 font-bold">景點深度介紹</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 銀閣寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1590214898337-321d7c4a03e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzAzNzYxNzMw&ixlib=rb-4.0.3&q=80&w=1080" alt="銀閣寺" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">銀閣寺 (Ginkaku-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 正式名稱為「慈照寺」，由室町幕府第8代將軍足利義政於1482年建造，模仿其祖父的「金閣寺」而建。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 雖名為「銀閣」，但並未如金閣寺般貼上銀箔。這種未完成的狀態，反而被視為日本「侘寂 (Wabi-Sabi)」美學（在不完美中發現美）的代表。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 庭園中的「銀沙灘」(Ginsyadan) 枯山水，以及一個巨大的圓錐體砂堆「向月台」(Kogetsudai)，其設計據說是用來在夜晚反射月光。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 哲學之道 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1552097734-a111a41e389e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="哲學之道" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">哲學之道 (Philosopher's Path)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 一條沿著琵琶湖疏水渠道、長約2公里的小徑。其名稱來源於京都大學哲學教授「西田幾多郎」，據說他每日都會在此冥想散步。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 連接了銀閣寺與南禪寺區域。冬季雖然沒有櫻花，但沿途的流水聲、古樸的石板路，以及途經的法然院等小寺廟，使其成為享受京都緩慢時光的最佳地點。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 南禪寺 -->
+                        <div class="detail-tile">
+                            <img src="https://images.unsplash.com/photo-1589417838-831039801a61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTV8&ixlib=rb-4.0.3&q=80&w=1080" alt="南禪寺水路閣" class="w-full h-40 object-cover">
+                            <div class="p-5">
+                                <h3 class="text-xl mb-3">南禪寺 (Nanzen-ji)</h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li><i class="fas fa-history"></i><strong>由來:</strong> 氣勢宏偉的寺院，位列京都五山之上，是日本禪宗的最高寺廟。</li>
+                                    <li><i class="fas fa-square-check"></i><strong>特色:</strong> 寺院內的「水路閣」(Suirokaku) 是明治時代的建築，用於將琵琶湖的湖水引入京都市區。</li>
+                                    <li><i class="fas fa-star"></i><strong>必看:</strong> 古代寺廟的木造建築與近代工業的紅磚拱門水道橋（由田邊朔郎設計）並存，這種奇妙的融合營造出獨特的視覺衝擊，是攝影的熱門地點。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEW PHOTO ALBUM SECTION FOR DAY 7 === -->
+            <div class="content-card shadow-lg mt-8">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl mb-6 font-bold flex items-center">
+                        <i class="fas fa-images w-8 mr-3"></i>Day 7 旅途相簿 (照片回憶)
+                    </h3>
+                    <p class="text-gray-600 mb-6">您可以在此處放置您在網路上查詢到的參考照片，或旅途中拍攝的精彩照片。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div class="text-center">
+                                <i class="fas fa-camera text-3xl"></i>
+                                <p class="text-sm mt-2">照片位置</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Day 8 -->
+        <section id="day8" class="mb-12 scroll-mt-28">
+            <!-- ... existing Day 8 content ... -->
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 8 (2/11): 晨光歸途</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 回程航班 -->
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4 flex items-center"><i class="fas fa-plane-arrival w-8 mr-3 text-red-700"></i>回程航班 (10:55 起飛)</h3>
+                    <ul class="space-y-2 text-base">
+                        <li><strong>航班:</strong> <span class="mono-font text-red-800">BR177</span> (長榮航空)</li>
+                        <li><strong>時間:</strong> 10:55 關西 (KIX) → 13:10 桃園 (TPE)</li>
+                        <li class="text-red-700 font-bold text-lg pt-2">!! 提醒: 務必於 08:55 前抵達關西機場</li>
+                    </ul>
+                </div>
+                <!-- 機場交通 -->
+                <div class="content-card p-6">
+                    <h3 class="text-2xl mb-4 flex items-center"><i class="fas fa-train-tram w-8 mr-3 text-red-700"></i>機場交通 (JR Pass 最後一日)</h3>
+                    <ul class="space-y-2 text-base">
+                        <li><strong>建議班次:</strong> <strong>07:13</strong> 京都車站 → (HARUKA 7 特急) → <strong>08:51</strong> <strong>關西機場</strong></li>
+                        <li><strong>票券:</strong> 使用 <strong>關西廣域鐵路周遊券</strong> (HARUKA 自由席)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
+        <p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
+    </footer>
+
+    <!-- JavaScript: 漢堡選單控制 -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('menu-links');
+            menu.classList.toggle('hidden');
+        });
+
+        // 點擊連結後自動收合選單 (手機版)
+        document.querySelectorAll('#menu-links a').forEach(function(anchor) {
+            anchor.addEventListener('click', function() {
+                if (window.innerWidth < 768) { // 768px 是 md 的斷點
+                    document.getElementById('menu-links').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
