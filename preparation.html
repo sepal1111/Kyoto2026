@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>京都8天7夜深度漫步 (主頁)</title>
-    
+    <title>事前準備 | 京都8天7夜</title>
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- 載入 Font Awesome (用於圖示) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <!-- 載入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- 載入共用樣式表 -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 共享樣式 */
+        body {
+            font-family: 'Noto Sans TC', 'Arimo', sans-serif;
+            background-color: #f9f6f0;
+            color: #4a4a4a;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Arimo', 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            color: #8a0303;
+        }
+        .mono-font { font-family: 'Azeret Mono', monospace; }
+        .navbar-shadow { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+        .content-card {
+            background-color: #fffaf1;
+            border: 1px solid #f0eade;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+        /* ... (styles from original file) ... */
+    </style>
 </head>
 <body class="antialiased">
 
@@ -25,7 +43,7 @@
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md navbar-shadow">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <h1 class="text-2xl md:text-3xl">⛩️ 京都8天7夜深度漫步</h1>
+                <a href="index.html" class="text-2xl md:text-3xl"><h1>⛩️ 京都8天7夜深度漫步</h1></a>
                 <!-- 漢堡選單按鈕 (手機版) -->
                 <button id="menu-toggle" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
                     <i class="fas fa-bars text-xl"></i>
@@ -34,8 +52,7 @@
             <!-- 導覽連結 -->
             <nav id="menu-links" class="hidden md:block pb-3">
                 <ul class="flex flex-col md:flex-row md:flex-wrap md:space-x-4 space-y-2 md:space-y-0 text-sm md:text-base">
-                    <!-- 將 'preparation' 連結改為 'index.html' 並設為 active -->
-                    <li><a href="index.html" class="block py-2 px-3 rounded-md bg-red-50 text-red-700 font-bold">事前準備</a></li>
+                    <li><a href="preparation.html" class="block py-2 px-3 rounded-md bg-red-50 text-red-700 font-bold">事前準備</a></li>
                     <li><a href="day1.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 1: 奈良</a></li>
                     <li><a href="day2.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 2: 嵐山</a></li>
                     <li><a href="day3.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 3: 東山經典</a></li>
@@ -52,19 +69,8 @@
     <!-- 2. 頁面主體內容 -->
     <main class="container mx-auto p-4 sm:p-6 lg:p-8 mt-6">
 
-        <!-- Section: 封面 -->
-        <section class="content-card mb-12">
-            <div class="h-64 md:h-96 bg-cover bg-center rounded-t-lg" style="background-image: linear-gradient(rgba(255, 250, 241, 0.4), rgba(255, 250, 241, 0.4)), url('https://image.ganref.jp/photos/members/hiropon_/787dd0541219356460f297d0bd199703_4.jpg');">
-            </div>
-            <div class="p-8 text-center">
-                <h1 class="text-4xl md:text-5xl">日本京都8天7夜</h1>
-                <p class="text-2xl md:text-3xl mt-2">深度漫步旅遊手冊</p>
-                <p class="mono-font text-lg md:text-xl mt-4 text-gray-700">2026.02.04 - 2026.02.11</p>
-            </div>
-        </section>
-
         <!-- Section: 事前準備 -->
-        <section id="preparation" class="mb-12 scroll-mt-28">
+        <section id="preparation" class="mb-12">
             <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">事前準備與相關資料</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 航班資訊 -->

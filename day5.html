@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: 伏見稻荷 | 京都8天7夜深度漫步</title>
+    
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 載入 Font Awesome (用於圖示) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 載入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display.swap" rel="stylesheet">
+    
+    <!-- 載入共用樣式表 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- 1. 頂部標題與導覽列 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md navbar-shadow">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl md:text-3xl">⛩️ 京都8天7夜深度漫步</h1>
+                <!-- 漢堡選單按鈕 (手機版) -->
+                <button id="menu-toggle" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 導覽連結 -->
+            <nav id="menu-links" class="hidden md:block pb-3">
+                <ul class="flex flex-col md:flex-row md:flex-wrap md:space-x-4 space-y-2 md:space-y-0 text-sm md:text-base">
+                    <li><a href="index.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">事前準備</a></li>
+                    <li><a href="day1.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 1: 奈良</a></li>
+                    <li><a href="day2.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 2: 嵐山</a></li>
+                    <li><a href="day3.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 3: 東山經典</a></li>
+                    <li><a href="day4.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 4: 天橋立</a></li>
+                    <li><a href="day5.html" class="block py-2 px-3 rounded-md bg-red-50 text-red-700 font-bold">Day 5: 伏見稻荷</a></li>
+                    <li><a href="day6.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 6: 北山秘境</a></li>
+                    <li><a href="day7.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 7: 銀閣寺</a></li>
+                    <li><a href="day8.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 8: 歸途</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. 頁面主體內容 -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mt-6">
+
+        <!-- ======================================================================================= -->
+        <!-- Section: Day 5 -->
+        <!-- ======================================================================================= -->
+        <section id="day5" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 5 (2/8): 伏見稻荷深度巡禮</h2>
+            
+            <div id="day-slider" class="slider-container">
+                
+                <div class="slider-wrapper">
+                    
+                    <!-- === Slide 1 (day5.1): 行程總覽 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2">
+                                <!-- 左欄: 行程文字 -->
+                                <div class="p-6 md:p-8">
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6">
+                                        <li class="relative before:content-['🤫'] before:absolute before:-left-6">光明院 (虹之苔寺)</li>
+                                        <li class="relative before:content-['🍁'] before:absolute before:-left-6">東福寺 (通天橋)</li>
+                                        <li class="relative before:content-['⛩️'] before:absolute before:-left-6">伏見稻荷大社 (環山參拜)</li>
+                                    </ul>
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (JR Pass)</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往 (飯店→東福寺):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li>飯店 → (步行) →「<strong>東福寺</strong>」站 (約 10-15 分鐘)</li>
+                                                <li>(光明院與東福寺皆在步行範圍內)</li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>景點間 (東福寺→稻荷):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li>「<strong>東福寺</strong>」站 → (JR 奈良線) →「<strong>稻荷</strong>」站 (僅 1 站)</li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回 (稻荷→飯店):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li>「<strong>稻荷</strong>」站 → (JR 奈良線) →「<strong>東福寺</strong>」站 (僅 1 站)</li>
+                                                <li>→ (步行) → 飯店</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 右欄: 圖片 -->
+                                <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1528132646252-083f8b34c2d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080');">
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 1 -->
+
+                    <!-- === Slide 2 (day5.2): 景點深度介紹 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-book-open w-8 mr-3"></i>景點深度介紹
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <!-- 光明院 -->
+                                    <div class="detail-tile">
+                                        <img src="https://images.unsplash.com/photo-1596707374391-717d80501a5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="光明院" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">光明院 (Komyoin)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 1391 年建立的東福寺塔頭（附屬寺院）之一。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 由近代造園大師「重森三玲」打造的枯山水庭園「波心之庭」，因青苔與紅葉交織的絕景，被稱為「虹の苔寺」(彩虹苔寺)。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 這裡是遠離東福寺喧囂的隱藏版景點。最棒的體驗是坐在寺院的廊下，面對庭園靜靜冥想，感受光影在青苔與奇石間的變化。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 東福寺 -->
+                                    <div class="detail-tile">
+                                         <img src="https://images.unsplash.com/photo-1593811166543-c6c6a67f1b62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="東福寺" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">東福寺 (Tofuku-ji)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 1236 年由攝政關白九條道家下令興建，是臨濟宗東福寺派的大本山，京都五山之一。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 以日本最古老、最大的「三門」（國寶）和壯觀的紅葉溪谷聞名。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 1.「通天橋」：橫跨在「洗玉澗」溪谷上的廊橋，雖然冬季沒有紅葉，但從橋上眺望溪谷的景致依然壯觀。 2.「方丈庭園」：由「重森三玲」打造的近代枯山水傑作，以北斗七星、棋盤格等現代元素重新詮釋禪宗庭園。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 伏見稻荷大社 -->
+                                    <div class="detail-tile">
+                                        <img src="https://images.unsplash.com/photo-1546190757-f6f3b7331e87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="伏見稻荷大社" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">伏見稻荷大社</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 創建於 711 年，是日本全國約三萬座稻荷神社的總本宮，主管五穀豐收與商業繁盛。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 外國遊客人氣第一的景點，以數千座綿延不絕的朱紅色「千本鳥居」聞名於世。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 真正的精華是「お山巡り」(環山參拜)。花 2-3 小時走完稻荷山上的步道，沿途會經過無數小神社、鳥居和俯瞰京都的「四ツ辻」觀景點。這能帶您遠離山腳下的人潮，感受稻荷山的靈性。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 2 -->
+
+                    <!-- === Slide 3 (day5.3): 推薦餐廳 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-utensils w-8 mr-3"></i>Day 5 推薦餐廳與地圖
+                                </h3>
+                                <div class="space-y-6">
+                                    
+                                    <!-- 餐廳 1: 祢ざめ家 (Nezameya) -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>午餐:</strong> 祢ざめ家 (Nezameya)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <i class="fas fa-map-location-dot text-2xl"></i>
+                                                <p class="text-sm mt-1">Google Map 嵌入位置</p>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                                <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                    <li>位於伏見稻荷大社正門口的百年老店，據說是豐臣秀吉御賜的店名。</li>
+                                                    <li><strong>特色菜單:</strong> 鰻魚飯 (炭火現烤)、稻荷壽司、豆皮烏龍麵。</li>
+                                                    <li>[請填入更多介紹...]</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 餐廳 2: 弘商店 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>晚餐:</strong> 弘商店 (京都車站附近)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <i class="fas fa-map-location-dot text-2xl"></i>
+                                                <p class="text-sm mt-1">Google Map 嵌入位置</p>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                                <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                    <li>京都知名和牛燒肉店「弘」的系列店，CP值高，人氣旺盛。</li>
+                                                    <li><strong>特色菜單:</strong> 當日嚴選和牛拼盤 (弘の盛り合わせ)、生拌牛肉 (ユッケ)。</li>
+                                                    <li>[請填入更多介紹...]</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 3 -->
+
+                </div> <!-- /slider-wrapper -->
+
+                <!-- 滑動按鈕 -->
+                <button class="slide-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
+                <!-- 滑動指示點 -->
+                <div class="slider-dots">
+                    <!-- JavaScript 將會自動生成指示點 -->
+                </div>
+                
+            </div> <!-- /slider-container -->
+            
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
+        <p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
+    </footer>
+
+    <!-- JavaScript: 漢堡選單控制 -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('menu-links');
+            menu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#menu-links a').forEach(function(anchor) {
+            anchor.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    document.getElementById('menu-links').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    
+    <!-- 載入滑動功能 JavasScript -->
+    <script src="slider.js"></script>
+    <script>
+        // 初始化這個頁面的滑動器
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSlider('day-slider');
+        });
+    </script>
+
+</body>
+</html>

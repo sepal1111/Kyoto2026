@@ -1,0 +1,170 @@
+/* 京都8天7夜深度漫步 - 共用樣式表 (style.css)
+*/
+
+/* === 1. 基本字體與背景設定 === */
+body {
+    font-family: 'Noto Sans TC', 'Arimo', sans-serif;
+    background-color: #f9f6f0; /* 柔和的米色背景 */
+    color: #4a4a4a;
+}
+h1, h2, h3, h4 {
+    font-family: 'Arimo', 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    color: #8a0303; /* 統一的深紅色標題 */
+}
+.mono-font {
+    font-family: 'Azeret Mono', monospace;
+}
+
+/* === 2. 導覽列 === */
+.navbar-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* === 3. 內容卡片 === */
+.content-card {
+    background-color: #fffaf1;
+    border: 1px solid #f0eade;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+    overflow: hidden; /* 確保圓角效果 */
+}
+
+/* === 4. 景點介紹卡片 (DayX.2) === */
+.detail-tile {
+    background-color: #f4f0e6;
+    border: 1px solid #e4e1d9;
+    border-radius: 12px;
+    overflow: hidden; /* 確保圖片圓角生效 */
+    display: flex; /* 使用 flex 佈局 */
+    flex-direction: column; /* 垂直排列 */
+    height: 100%; /* 確保卡片等高 */
+}
+.detail-tile .p-5 {
+    flex-grow: 1; /* 讓文字內容區域填滿剩餘空間 */
+}
+
+/* 景點介紹列表圖示 */
+.detail-tile li {
+    position: relative;
+    padding-left: 35px; /* 預留圖示空間 */
+}
+.detail-tile li i {
+    position: absolute;
+    left: 5px;
+    top: 6px; /* 微調圖示垂直位置 */
+    font-size: 20px;
+    color: #8a0303;
+}
+
+/* === 5. 旅途相簿佔位符 (DayX.4) === */
+.photo-placeholder {
+    aspect-ratio: 16 / 10; /* 調整照片長寬比 */
+    background-color: #f4f0e6; /* 輕微的底色 */
+    border: 2px dashed #d1c9ba; /* 虛線邊框 */
+    border-radius: 0.5rem; /* 圓角 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #a19a8a;
+    transition: all 0.2s ease-in-out;
+}
+.photo-placeholder:hover {
+    background-color: #e9e4d9;
+    border-color: #b3ab9a;
+    color: #8a0303;
+}
+
+/* === 6. 餐廳地圖佔位符 (DayX.3) === */
+.map-placeholder {
+    aspect-ratio: 16 / 9; /* 16:9 比例 */
+    background-color: #f3f4f6; /* 淺灰色背景 */
+    border: 2px dashed #d1d5db; /* 虛線邊框 */
+    border-radius: 0.5rem; /* 圓角 */
+    display: flex;
+    flex-direction: column; /* 垂直排列圖示和文字 */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6b7280; /* 灰色文字 */
+    padding: 1rem;
+}
+
+
+/* === 7. 【新】卡片滑動功能樣式 (Slider) === */
+.slider-container {
+    overflow: hidden; /* 隱藏超出範圍的卡片 */
+    width: 100%;
+    position: relative;
+}
+
+.slider-wrapper {
+    display: flex; /* 讓所有卡片水平排列 */
+    transition: transform 0.3s ease-in-out; /* 滑動動畫 */
+}
+
+.slide {
+    width: 100%; /* 每張卡片佔滿容器寬度 */
+    flex-shrink: 0; /* 防止卡片被壓縮 */
+    box-sizing: border-box; /* 確保 padding 不會影響寬度計算 */
+    /* 在 Tailwind 中，我們會在 slide 內部再放 content-card，
+       所以這裡的 padding/margin 可以由 Tailwind 控制 */
+}
+
+/* 滑動按鈕 */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 2.75rem; /* 44px */
+    height: 2.75rem; /* 44px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a4a4a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.slide-btn:hover {
+    background-color: white;
+    color: #8a0303;
+    transform: translateY(-50%) scale(1.05);
+}
+.slide-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.prev-btn {
+    left: 0.75rem; /* 12px */
+}
+.next-btn {
+    right: 0.75rem; /* 12px */
+}
+
+/* 滑動指示點 (Dots) */
+.slider-dots {
+    position: absolute;
+    bottom: 1.25rem; /* 20px */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem; /* 8px */
+}
+.dot {
+    width: 0.75rem; /* 12px */
+    height: 0.75rem; /* 12px */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.dot.active {
+    background-color: #8a0303;
+}

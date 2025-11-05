@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: 奈良 | 京都8天7夜深度漫步</title>
+    
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 載入 Font Awesome (用於圖示) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 載入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display.swap" rel="stylesheet">
+    
+    <!-- 載入共用樣式表 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- 1. 頂部標題與導覽列 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md navbar-shadow">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl md:text-3xl">⛩️ 京都8天7夜深度漫步</h1>
+                <!-- 漢堡選單按鈕 (手機版) -->
+                <button id="menu-toggle" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 導覽連結 -->
+            <nav id="menu-links" class="hidden md:block pb-3">
+                <ul class="flex flex-col md:flex-row md:flex-wrap md:space-x-4 space-y-2 md:space-y-0 text-sm md:text-base">
+                    <li><a href="index.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">事前準備</a></li>
+                    <li><a href="day1.html" class="block py-2 px-3 rounded-md bg-red-50 text-red-700 font-bold">Day 1: 奈良</a></li>
+                    <li><a href="day2.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 2: 嵐山</a></li>
+                    <li><a href="day3.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 3: 東山經典</a></li>
+                    <li><a href="day4.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 4: 天橋立</a></li>
+                    <li><a href="day5.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 5: 伏見稻荷</a></li>
+                    <li><a href="day6.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 6: 北山秘境</a></li>
+                    <li><a href="day7.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 7: 銀閣寺</a></li>
+                    <li><a href="day8.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 8: 歸途</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. 頁面主體內容 -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mt-6">
+
+        <!-- ======================================================================================= -->
+        <!-- Section: Day 1 -->
+        <!-- ======================================================================================= -->
+        <section id="day1" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 1 (2/4): 抵達神戶．直奔奈良</h2>
+            
+            <div id="day-slider" class="slider-container">
+                
+                <div class="slider-wrapper">
+                    
+                    <!-- === Slide 1 (day1.1): 行程總覽 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2">
+                                <!-- 左欄: 行程文字 -->
+                                <div class="p-6 md:p-8">
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6">
+                                        <li class="relative before:content-['🦌'] before:absolute before:-left-6">奈良公園 (寄放行李)</li>
+                                        <li class="relative before:content-['🏛️'] before:absolute before:-left-6">東大寺 (大佛殿)</li>
+                                        <li class="relative before:content-['🏯'] before:absolute before:-left-6">興福寺 (國寶館)</li>
+                                        <li class="relative before:content-['⛩️'] before:absolute before:-left-6">春日大社 (參道)</li>
+                                    </ul>
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>機場→奈良 (直達):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li><strong>11:07</strong>「神戶機場」→ (Port Liner)</li>
+                                                <li><strong>11:32</strong>「神戶三宮(阪神)」→ (阪神/近鐵 快速急行)</li>
+                                                <li><strong>12:50</strong>「<strong>近鐵奈良</strong>」站 (一車直達)</li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>奈良→飯店:</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li><strong>16:48</strong>「近鐵奈良」→ (近鐵京都線 急行)</li>
+                                                <li><strong>17:36</strong>「<strong>京都</strong>」站 (步行至飯店)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 右欄: 圖片 -->
+                                <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/484427181_1140062317914061_4189024815605256867_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0q8n7oCZ8jUQ7kNvwHygHWm&_nc_oc=AdnnZBGiCtkF-j2yjUhNmtxx8B6KCSKV9FUj_AuofLbTRtRhsQZYVUyLFpSVkT7_nCNyzNbRA_aJk5X1tyEd7VgM&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=6nEHxKam2uZ1QA_UrhCAuQ&oh=00_AfiCBF6IvRZBWoDh0yguglg5XSlP1GS1B5YSogQNT6ADsA&oe=6910E37D');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-card shadow-lg mt-4 text-sm text-gray-600 text-center" style="height: 400px;"><iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d209946.78088152877!2d135.34536233973273!3d34.69462417120699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x60008867b926205d%3A0xa63c05ef944c705b!2z56We5oi25qmf5aC0IChVS0IpIDEgS29iZWt1a28sIENodW8gV2FyZCwgS29iZSwgSHlvZ28gNjUwLTAwNDjml6XmnKw!3m2!1d34.6350979!2d135.2267037!4m5!1s0x60013a29d1dd2621%3A0x540d42181874f344!2z6L-R6ZC15aWI6ImvLCDml6XmnKzjgJI2MzAtODIxNSBOYXJhLCDmnbHlkJHkuK3nlLoyOQ!3m2!1d34.684248499999995!2d135.8275275!5e0!3m2!1szh-TW!2stw!4v1762328066535!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div> <!-- /Slide 1 -->
+
+                    <!-- === Slide 2 (day1.2): 景點深度介紹 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-book-open w-8 mr-3"></i>景點深度介紹
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <!-- 興福寺 -->
+                                    <div class="detail-tile">
+                                        <img src="https://lh6.googleusercontent.com/proxy/lGyV6clUsmmmtnvc8JxRCSPy2_dvDTLvne7yxuo7iH_fIYU3w6cq2z7SOcnLvJvUDoaLvnuJiETxtDd-UgN1NcJjKvBXS-tYp9ry7iI" alt="興福寺" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">興福寺 (Kofuku-ji)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 始建於 669 年，是法相宗的大本山，曾是奈良和平安時代最具權勢的寺廟之一。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 以其五重塔 (日本第二高古塔) 和豐富的佛教藝術收藏聞名。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 「國寶館」是精華所在，收藏了大量天平時代的佛教雕刻，尤其是「阿修羅像」，其三頭六臂的憂鬱神情極具震撼力，是日本佛教藝術的頂峰之作。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 東大寺 -->
+                                    <div class="detail-tile">
+                                         <img src="https://static.amanaimages.com/imgroom/cen3tzG4fTr7Gtw1PoeRer/02834/02834000052.jpg" alt="東大寺" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">東大寺 (Todai-ji)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 由聖武天皇於 8 世紀中葉下令建造，旨在祈求國家安定。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 華嚴宗大本山，是世界上最大的木造建築（大佛殿）。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 「大佛殿」及其中的「奈良大佛」(盧舍那佛)，高達 15 公尺，氣勢磅礴。入口處的「南大門」也不容錯過，兩側的「金剛力士像」是日本最著名的雕刻之一，神情威武生動。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 奈良公園 -->
+                                    <div class="detail-tile">
+                                        <img src="https://static.amanaimages.com/imgroom/cen3tzG4fTr7Gtw1PoeRer/01597/01597023907.webp" alt="奈良公園" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">奈良公園 (Nara Park)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 成立於 1880 年，是一座廣闊的都市公園，囊括了東大寺、興福寺、春日大社等主要景點。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 約有 1,200 隻野生梅花鹿棲息於此，被視為「春日大神的使者」而受到尊敬。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 與鹿群互動是獨特的體驗（可購買鹿仙貝餵食）。傍晚時分在公園內漫步，光影透過古老樹林灑落，氣氛極佳。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-card shadow-lg mt-4 text-sm text-gray-600 text-center" style="height: 400px;"><iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d6561.731312158714!2d135.83189969865015!3d34.68333996414475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e2!4m5!1s0x60013a29d1dd2621%3A0x540d42181874f344!2z5pel5pys5aWI6Imv57ij5aWI6Imv5biCIE5pc2hpbWlrYWRvY2hvLCDov5HpkLXlpYjoia8!3m2!1d34.684248499999995!2d135.8275275!4m5!1s0x60013988b23decb3%3A0x11830f4737834593!2z5pel5pys5aWI6Imv57ij5aWI6Imv5biCIE5vYm9yacWNamljaMWNLCA0OCDoiIjnpo_lr7o!3m2!1d34.6828983!2d135.83116289999998!4m5!1s0x60013990f91570e9%3A0x802a25db25e31110!2z5p2x5aSn5a-6IOWNl-Wkp-mWgDQwNi0xIFpvc2hpY2hvLCBOYXJhLCA2MzAtODIxMeaXpeacrA!3m2!1d34.6858076!2d135.83987679999998!4m5!1s0x600139eaac1986c5%3A0x89555f7165eb2b83!2z5pel5pys5aWI6Imv57ij5aWI6Imv5biCIEthc3VnYW5vY2hvLCDmmKXml6XlpKfnpL4g5ZyL5a-25q6_!3m2!1d34.681458!2d135.8465716!5e0!3m2!1szh-TW!2stw!4v1762328544417!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div> <!-- /Slide 2 -->
+
+                    <!-- === Slide 3 (day1.3): 推薦餐廳 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-utensils w-8 mr-3"></i>Day 1 推薦餐廳與地圖
+                                </h3>
+                                <div class="space-y-6">
+                                    
+                                    <!-- 餐廳 1: 志津香 釜飯 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>午餐:</strong> 志津香 釜飯 (公園店)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.825645016752!2d135.8343645768354!3d34.68434968408823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001398fd1be157f%3A0x7ddfe13766598a81!2z5b-X5rSl6aaZIOWFrOWckuW6lw!5e0!3m2!1szh-TW!2stw!4v1762327465161!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 space-y-3">
+                                                <!-- 照片放置區 -->
+                                                <img src="https://pic.pimg.tw/marukoharuko/1397949088-2537209906.jpg" alt="志津香 釜飯" class="w-full h-60 object-cover rounded-lg">
+                                                <!-- 文字介紹 -->
+                                                <div>
+                                                    <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                    <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                        <li>奈良著名的釜飯老店，米飯吸滿高湯精華。</li>
+                                                        <li><strong>特色菜單:</strong> 奈良七種釜飯（蝦、蟹、鰻魚、雞肉等）。</li>
+                                                        <li>許多人造訪奈良時必吃的日本傳統釜飯「志津香」在奈良縣內共有公園店與大宮店兩家店舖，公園店坐落於近鐵奈良站往東大寺的方向，離東大寺步行不到5分鐘距離，對於遊客來說非常便利。店家在接受點餐後才會開始上鍋炊煮，可以吃到最新鮮的現做料理，雖然等待時間稍久，不過耐心等待都是有價值的，因為鍋裡的每一粒米飯都吸滿了美味高湯，還能吃的到些許微焦香脆的鍋巴。依據每季食材狀況還會推出特別菜單，這也是為什麼許多人對志津香深深著迷的原因之一！</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 餐廳 2: 中谷堂 艾草麻糬 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>點心:</strong> 中谷堂 (高速搗麻糬)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.9208366421076!2d135.8263245768353!3d34.68194738421726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001398812073c9b%3A0xca16527bbdfdc288!2z5Lit6LC35aCC!5e0!3m2!1szh-TW!2stw!4v1762327639352!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 space-y-3">
+                                                <!-- 照片放置區 -->
+                                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/a2/73/da/photo0jpg.jpg?w=1400&h=-1&s=1" alt="中谷堂 艾草麻糬" class="w-full h-60 object-cover rounded-lg">
+                                                <!-- 文字介紹 -->
+                                                <div>
+                                                    <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                    <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                        <li>以電視冠軍聞名的高速搗麻糬表演。</li>
+                                                        <li><strong>特色菜單:</strong> 艾草麻糬 (よもぎ餅)，外皮Q彈，內餡紅豆甜而不膩。</li>
+                                                        <li>中谷堂是日本奈良知名的和菓子店，以高速搗麻糬表演和美味的艾草紅豆麻糬聞名。該店以傳統技法、嚴選食材（如佐賀糯米、北海道十勝紅豆、愛媛艾草）製作出軟Q又香甜的麻糬。遊客常被師傅們默契十足、高速率性的搗麻糬過程吸引，這也是中谷堂最受歡迎的亮點之一。 </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 餐廳 3: 京都拉麵小路 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>晚餐:</strong> 京都拉麵小路 (京都車站)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.837902799999!2d135.75542497684307!3d34.985724767864504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001089a3a451a29%3A0x8aa203d50015c17c!2z5Lqs6YO95ouJ6bq15bCP6Lev!5e0!3m2!1szh-TW!2stw!4v1762327842794!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 space-y-3">
+                                                <!-- 照片放置區 -->
+                                                <img src="https://wow-japan.com/wp-content/uploads/2023/06/PXL_20220922_030506489.MP_.jpg" alt="京都拉麵小路" class="w-full h-60 object-cover rounded-lg">
+                                                <!-- 文字介紹 -->
+                                                <div>
+                                                    <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                    <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                        <li>位於京都車站伊勢丹百貨10樓，集合日本各地人氣拉麵。</li>
+                                                        <li><strong>特色菜單:</strong> 博多一幸舍 (豚骨)、ますたに (背脂醬油)、東大 (德島系)。</li>
+                                                        <li>京都拉麵小路(Kyoto Ramen Koji)位在京都車站10樓，是以拉麵為主題的美食區，匯聚了9家日本全國各地受歡迎的拉麵店。從京都當地名店到札幌、富士、博多等拉麵知名的地區，不只旅客，也是日本許多拉麵迷愛到訪的地方。營業時間則從早上11:00一直到晚上22:00 (21:30為最後點餐時間)。</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 3 -->
+
+                </div> <!-- /slider-wrapper -->
+
+                <!-- 滑動按鈕 -->
+                <button class="slide-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
+                <!-- 滑動指示點 -->
+                <div class="slider-dots">
+                    <!-- JavaScript 將會自動生成指示點 -->
+                </div>
+                
+            </div> <!-- /slider-container -->
+            
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
+        <p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
+    </footer>
+
+    <!-- JavaScript: 漢堡選單控制 -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('menu-links');
+            menu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#menu-links a').forEach(function(anchor) {
+            anchor.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    document.getElementById('menu-links').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    
+    <!-- 載入滑動功能 JavasScript -->
+    <script src="slider.js"></script>
+    <script>
+        // 初始化這個頁面的滑動器
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSlider('day-slider');
+        });
+    </script>
+
+</body>
+</html>

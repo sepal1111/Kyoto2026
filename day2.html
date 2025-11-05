@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: 嵐山 | 京都8天7夜深度漫步</title>
+    
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 載入 Font Awesome (用於圖示) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 載入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display.swap" rel="stylesheet">
+    
+    <!-- 載入共用樣式表 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- 1. 頂部標題與導覽列 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md navbar-shadow">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl md:text-3xl">⛩️ 京都8天7夜深度漫步</h1>
+                <!-- 漢堡選單按鈕 (手機版) -->
+                <button id="menu-toggle" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- 導覽連結 -->
+            <nav id="menu-links" class="hidden md:block pb-3">
+                <ul class="flex flex-col md:flex-row md:flex-wrap md:space-x-4 space-y-2 md:space-y-0 text-sm md:text-base">
+                    <li><a href="index.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">事前準備</a></li>
+                    <li><a href="day1.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 1: 奈良</a></li>
+                    <li><a href="day2.html" class="block py-2 px-3 rounded-md bg-red-50 text-red-700 font-bold">Day 2: 嵐山</a></li>
+                    <li><a href="day3.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 3: 東山經典</a></li>
+                    <li><a href="day4.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 4: 天橋立</a></li>
+                    <li><a href="day5.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 5: 伏見稻荷</a></li>
+                    <li><a href="day6.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 6: 北山秘境</a></li>
+                    <li><a href="day7.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 7: 銀閣寺</a></li>
+                    <li><a href="day8.html" class="block py-2 px-3 rounded-md hover:bg-red-50 hover:text-red-700">Day 8: 歸途</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. 頁面主體內容 -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mt-6">
+
+        <!-- ======================================================================================= -->
+        <!-- Section: Day 2 -->
+        <!-- ======================================================================================= -->
+        <section id="day2" class="mb-12 scroll-mt-28">
+            <h2 class="text-3xl md:text-4xl mb-6 pb-3 border-b-2 border-red-100">Day 2 (2/5): 嵐山靜謐清晨行</h2>
+            
+            <div id="day-slider" class="slider-container">
+                
+                <div class="slider-wrapper">
+                    
+                    <!-- === Slide 1 (day2.1): 行程總覽 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2">
+                                <!-- 左欄: 行程文字 -->
+                                <div class="p-6 md:p-8">
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-map-signs w-8 mr-3"></i>景點</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6">
+                                        <li class="relative before:content-['🎋'] before:absolute before:-left-6">嵐山竹林步道</li>
+                                        <li class="relative before:content-['🏯'] before:absolute before:-left-6">天龍寺 (曹源池庭園)</li>
+                                        <li class="relative before:content-['🌉'] before:absolute before:-left-6">渡月橋</li>
+                                        <li class="relative before:content-['🐒'] before:absolute before:-left-6">(可選) 嵐山猴子公園</li>
+                                    </ul>
+                                    <h3 class="text-2xl mb-4 flex items-center"><i class="fa-solid fa-train w-8 mr-3"></i>交通 (ICOCA)</h3>
+                                    <ul class="list-none space-y-2 mb-6 ml-6 text-base">
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>前往 (飯店→嵐山):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li>飯店 → (步行) →「<strong>京都</strong>」站</li>
+                                                <li>→ (JR 嵯峨野線) →「<strong>嵯峨嵐山</strong>」站 (約 17 分鐘)</li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative before:content-['🚍'] before:absolute before:-left-6"><strong>返回 (嵐山→飯店):</strong>
+                                            <ul class="list-disc ml-5 mt-1 space-y-1">
+                                                <li>「<strong>嵯峨嵐山</strong>」站 → (JR 嵯峨野線) →「<strong>京都</strong>」站</li>
+                                                <li>→ (地鐵烏丸線) →「<strong>九条</strong>」站 → (步行) → 飯店</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 右欄: 圖片 -->
+                                <div class="h-64 md:h-auto min-h-[300px] w-full bg-cover bg-center rounded-b-lg md:rounded-b-none md:rounded-r-lg" style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080');">
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 1 -->
+
+                    <!-- === Slide 2 (day2.2): 景點深度介紹 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-book-open w-8 mr-3"></i>景點深度介紹
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <!-- 嵐山竹林步道 -->
+                                    <div class="detail-tile">
+                                        <img src="https://images.unsplash.com/photo-1520057211155-a41c107a7ea2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="嵐山竹林步道" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">嵐山竹林步道</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 自平安時代以來就是貴族們的別墅聖地，這片竹林長期以來備受珍視。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 數萬根高聳的竹子遮天蔽日，陽光從縫隙中灑落，營造出神秘而靜謐的氛圍。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 步道本身就是重點。清晨遊客稀少時，是體驗的最佳時機。聆聽風吹過竹林的沙沙聲（被評選為「日本最值得保留的100種聲音」之一），感受光影變化。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 天龍寺 -->
+                                    <div class="detail-tile">
+                                         <img src="https://images.unsplash.com/photo-1593811166543-c6c6a67f1b62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="天龍寺" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">天龍寺 (Tenryu-ji)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 1339年由足利尊氏將軍為後醍醐天皇祈福而建，是臨濟宗天龍寺派的大本山。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 被列為世界文化遺產，是京都五山之首，地位崇高。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 由夢窗疏石設計的「曹源池庭園」。這是日本最早的「借景式庭園」之一，巧妙地將嵐山和龜山作為庭園的背景，創造出無限延伸的視覺效果，是日本庭園藝術的巔峰之作。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 渡月橋 -->
+                                    <div class="detail-tile">
+                                        <img src="https://images.unsplash.com/photo-1578499238321-0a18386c91a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0Nzg5fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fDE3MzM5NDE5OTd8&ixid=rb-4.0.3&q=80&w=1080" alt="渡月橋" class="w-full h-40 object-cover">
+                                        <div class="p-5">
+                                            <h3 class="text-xl mb-3">渡月橋 (Togetsukyo Bridge)</h3>
+                                            <ul class="space-y-3 text-sm">
+                                                <li><i class="fas fa-history"></i><strong>由來:</strong> 最初建於平安時代，目前的橋樑於 1934 年重建。據說因龜山上皇看見月亮在橋上空移動，猶如「渡橋」一般而得名。</li>
+                                                <li><i class="fas fa-square-check"></i><strong>特色:</strong> 嵐山的地標，橫跨在桂川上，橋身為木造結構（橋墩為鋼筋混凝土），完美融入周圍的自然景觀。</li>
+                                                <li><i class="fas fa-star"></i><strong>必看:</strong> 站在橋上欣賞桂川兩岸的開闊景色。冬季的嵐山雖然蕭瑟，但更顯清幽，若幸運遇上雪景，水墨畫般的景色令人難忘。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 2 -->
+
+                    <!-- === Slide 3 (day2.3): 推薦餐廳 === -->
+                    <div class="slide p-1">
+                        <div class="content-card shadow-lg">
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-2xl mb-6 font-bold flex items-center">
+                                    <i class="fas fa-utensils w-8 mr-3"></i>Day 2 推薦餐廳與地圖
+                                </h3>
+                                <div class="space-y-6">
+                                    
+                                    <!-- 餐廳 1: % ARABICA -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>咖啡:</strong> % ARABICA Kyoto Arashiyama</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <i class="fas fa-map-location-dot text-2xl"></i>
+                                                <p class="text-sm mt-1">Google Map 嵌入位置</p>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                                <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                    <li>嵐山打卡必到的咖啡店，位於渡月橋畔，景色絕佳。</li>
+                                                    <li><strong>特色菜單:</strong> 拿鐵 (Latte)、西班牙拿鐵 (Spanish Latte)。</li>
+                                                    <li>[請填入更多介紹...]</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 餐廳 2: 嵯峨とうふ 稲 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>午餐:</strong> 嵯峨とうふ 稲 (豆腐料理)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <i class="fas fa-map-location-dot text-2xl"></i>
+                                                <p class="text-sm mt-1">Google Map 嵌入位置</p>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                                <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                    <li>位於天龍寺對面，提供精緻的豆腐懷石料理。</li>
+                                                    <li><strong>特色菜單:</strong> 野宮御膳、嵐山御膳（湯豆腐、豆皮等）。</li>
+                                                    <li>[請填入更多介紹...]</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 餐廳 3: 東洋亭 -->
+                                    <div>
+                                        <h4 class="text-xl font-semibold relative before:content-['🍵'] before:absolute before:-left-7"><strong>晚餐:</strong> 東洋亭 (百年漢堡排)</h4>
+                                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Left: Map -->
+                                            <div class="map-placeholder">
+                                                <i class="fas fa-map-location-dot text-2xl"></i>
+                                                <p class="text-sm mt-1">Google Map 嵌入位置</p>
+                                            </div>
+                                            <!-- Right: Details -->
+                                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                                <h5 class="text-base font-semibold mb-2">餐廳介紹與特色菜單</h5>
+                                                <ul class="list-disc list-inside text-sm space-y-1 text-gray-700">
+                                                    <li>創業於1897年的百年洋食老店，位於京都車站 Porta 地下街。</li>
+                                                    <li><strong>特色菜單:</strong> 百年漢堡排 (アルミ包みハンバーグ)，用鋁箔紙包覆烘烤，肉汁飽滿。</li>
+                                                    <li>[請填S-19...]</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Slide 3 -->
+
+                </div> <!-- /slider-wrapper -->
+
+                <!-- 滑動按鈕 -->
+                <button class="slide-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
+                <!-- 滑動指示點 -->
+                <div class="slider-dots">
+                    <!-- JavaScript 將會自動生成指示點 -->
+                </div>
+                
+            </div> <!-- /slider-container -->
+            
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
+        <p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
+    </footer>
+
+    <!-- JavaScript: 漢堡選單控制 -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('menu-links');
+            menu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#menu-links a').forEach(function(anchor) {
+            anchor.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    document.getElementById('menu-links').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    
+    <!-- 載入滑動功能 JavasScript -->
+    <script src="slider.js"></script>
+    <script>
+        // 初始化這個頁面的滑動器
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSlider('day-slider');
+        });
+    </script>
+
+</body>
+</html>
