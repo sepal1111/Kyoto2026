@@ -93,33 +93,34 @@
                                 </div>
                     </div>
                 </div>
-            </div> <!-- /Slide 1 -->
-            
-        </section>
-
-    </main>
-
-    <!-- 頁尾 -->
-    <footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
-        <p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
-    </footer>
-
-    <!-- JavaScript: 漢堡選單控制 -->
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            var menu = document.getElementById('menu-links');
-            menu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('#menu-links a').forEach(function(anchor) {
-            anchor.addEventListener('click', function() {
-                if (window.innerWidth < 768) {
-                    document.getElementById('menu-links').classList.add('hidden');
-                }
-            });
-        });
-    </script>
+            </div>
+            <!-- /Slide 1 -->
+        </div>
     
-    <!-- Day 8 不需要 slider.js -->
+</section>
+
+</main>
+
+<!-- 頁尾 -->
+<footer class="text-center p-8 mt-12 bg-gray-100 border-t border-gray-200">
+<p class="text-gray-600">旅途愉快 | Enjoy your deep stroll through Kyoto!</p>
+</footer>
+
+<!-- JavaScript: 漢堡選單控制 -->
+<script>
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    var menu = document.getElementById('menu-links');
+    menu.classList.toggle('hidden');
+});
+document.querySelectorAll('#menu-links a').forEach(function(anchor) {
+    anchor.addEventListener('click', function() {
+        if (window.innerWidth < 768) {
+            document.getElementById('menu-links').classList.add('hidden');
+        }
+    });
+});
+</script>
+
 
 </body>
 </html>
