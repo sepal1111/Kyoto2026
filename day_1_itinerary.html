@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 行程規劃 (2/4)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設置 Inter 字體為主要字體，增加可讀性 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* 定義卡片樣式 */
+        .route-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6">
+    <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
+        <div class="flex space-x-2 px-4 whitespace-nowrap">
+            <!-- 總覽 (New Link) -->
+            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- Day 1 (Active) -->
+            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 1</a>
+            <!-- Day 2 -->
+            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
+            <!-- Day 3 to Day 8 (Placeholder) -->
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 3</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 4</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 5</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 6</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 7</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 8</a>
+        </div>
+    </div>
+    
+    <!-- 主容器：限制最大寬度，適合手機螢幕 -->
+    <div class="max-w-xl mx-auto px-4 sm:px-0">
+        <!-- 頁面標題 -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="mr-2">📅</span> Day 1 (2/4)：神戶 → 奈良 → 京都
+            </h1>
+            <h2 class="text-xl text-gray-600 mt-1">
+                主要任務：移動與奈良重點觀光
+            </h2>
+        </header>
+
+        <!-- 區塊一：本日交通路線總覽 -->
+        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+            <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
+                <span class="mr-2">🚄</span> 本日交通路線總覽
+            </h3>
+            
+            <p class="text-gray-700 mb-4">
+                本日移動路線：<strong>神戶機場 (UKB) → 奈良觀光區 → CHISUN PREMIUM 京都九條</strong> 飯店。
+            </p>
+
+            <!-- 關鍵數據列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">⏱️ 總交通時長：</span>
+                    <span>約 <strong>2 小時 45 分鐘</strong> (純搭乘時間)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
+                    <span>約 <strong>¥2,040</strong> (神戶→奈良 + 奈良→京都)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">🎯 最終目的地：</span>
+                    <span><strong>CHISUN PREMIUM 京都九條</strong> 飯店</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
+                    <span>利用阪神/近鐵線路直達奈良，下午五點前從奈良出發前往京都。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊二：神戶機場 → 奈良：分步導航 -->
+        <div class="route-card">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">✈️</span> 神戶機場 → 奈良：分步導航
+            </h3>
+
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
+                <div class="border-l-4 border-sky-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚈 抵達神戶與 Port Liner
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> 神戶機場 (UKB) → <strong>三宮站</strong> (Sannomiya)<br>
+                        <span class="font-bold text-blue-700">交通：</span> 輕軌 (Port Liner)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 新交通港灣人工島線 普通<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>18 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥340</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 在<strong>三宮站</strong> (Sannomiya) 下車。
+                    </p>
+                </div>
+
+                <!-- 步驟 2: Sannomiya Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚶 步行至阪神三宮站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">指示：</span> 離開 Port Liner 站區後，依照指示牌步行至<strong>阪神三宮站</strong> (Hanshin Sannomiya)。<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong>。
+                    </p>
+                </div>
+
+                <!-- 步驟 3: Sannomiya -> Kintetsu Nara (關鍵段) -->
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🦌 阪神三宮站 → 近鐵奈良站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">交通：</span> 電車 (直通)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 阪神本線 <strong>快速急行</strong> → <strong>近鐵奈良線</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 17 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> 約 <span class="text-red-600 font-extrabold">¥1,060</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 尋找開往<strong>近鐵奈良</strong>方向的快速急行列車，通常無需換乘即可直達，是前往奈良最方便的電車路線。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊三：奈良下午觀光行程 (景點資訊) -->
+        <div class="route-card bg-pink-50 border-t-4 border-pink-500">
+            <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
+                <span class="mr-2">⛩️</span> 奈良下午觀光行程 (景點資訊)
+            </h3>
+            
+            <p class="text-sm text-gray-600 italic mb-4">
+                *抵達<strong>近鐵奈良站</strong>後，從 2 號出口出站，奈良公園和東大寺方向步行約 5-10 分鐘即可抵達。*
+            </p>
+
+            <!-- 景點列表 -->
+            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
+                <li>
+                    <span class="font-bold text-pink-600">東大寺 (Todai-ji)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong> (大佛殿參觀)<br>
+                        <span class="font-bold text-pink-700">必看：</span>世界最大木造建築與大佛。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">奈良公園 (Nara Park)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong> (穿越公園)<br>
+                        <span class="font-bold text-pink-700">必看：</span>與溫馴的奈良鹿互動。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">春日大社 (Kasuga Taisha)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong> (含參道步行)<br>
+                        <span class="font-bold text-pink-700">必看：</span>著名的石燈籠與吊燈籠。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">興福寺 (Kofuku-ji) - 時間彈性</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong> (五重塔外觀)<br>
+                        <span class="font-bold text-pink-700">備註：</span>如果時間緊迫，可只在奈良公園遠眺五重塔，節省時間。
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- 區塊四：傍晚移動：奈良 → 京都飯店 -->
+        <div class="route-card bg-red-50 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+                <span class="mr-2">🛌</span> 傍晚移動：奈良 → 京都飯店
+            </h3>
+            
+            <!-- 交通步驟 -->
+            <div class="space-y-3 text-gray-700">
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
+                    <span class="ml-2">從景點步行回 <strong>近鐵奈良站</strong> (Kintetsu Nara Station)。</span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
+                    <span class="ml-2">
+                        前往 <strong>近鐵京都站</strong> (Kyoto Station)。
+                        <br>
+                        <span class="font-bold text-blue-700">交通：</span> 電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>近鐵奈良線急行</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>55 分鐘</strong>
+                        <br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥640</span> (亦可選擇特急列車，需加購特急券)
+                    </span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
+                    <span class="ml-2">抵達京都車站後，從<strong>八條口</strong> (Hachijo Exit, 南側) 出站，步行約 <strong>7-10 分鐘</strong>至 <strong>CHISUN PREMIUM 京都九條</strong> 飯店辦理入住手續。</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 區塊五：餐點規劃 (Meals) - 已移至最下方 -->
+        <div class="route-card bg-lime-50 border-t-4 border-lime-500">
+            <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
+                <span class="mr-2">🍽️</span> 餐點規劃
+            </h3>
+            
+            <!-- 午餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                午餐：志津香 釜飯 (公園店)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 奈良地區知名的釜飯名店，口味清淡，鄰近奈良公園。<br>
+                <span class="font-bold text-blue-700">備註：</span> 人氣店鋪，建議在 11:30 前前往排隊，以節省時間。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 點心 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                點心：中谷堂 (高速搗麻糬)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 位於近鐵奈良車站附近商店街，以現場高速搗麻糬聞名，麻糬口感軟糯。<br>
+                <span class="font-bold text-blue-700">地點：</span> 奈良商店街中，可順路經過。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 晚餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                晚餐：京都拉麵小路 (京都車站)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">建議：</span> 位於京都車站**伊勢丹百貨 10 樓**，集合多家日本各地特色拉麵，選擇多元。<br>
+                <span class="font-bold text-blue-700">備註：</span> 抵達京都車站後可直接前往，用餐完畢後步行回飯店距離近。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+        </div>
+    </div>
+</body>
+</html>

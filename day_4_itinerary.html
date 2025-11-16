@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 行程規劃 (2/7)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設置 Inter 字體為主要字體，增加可讀性 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* 定義卡片樣式 */
+        .route-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6">
+    <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
+        <div class="flex space-x-2 px-4 whitespace-nowrap">
+            <!-- 總覽 (New Link) -->
+            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- Day 1 -->
+            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
+            <!-- Day 2 -->
+            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
+            <!-- Day 3 -->
+            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
+            <!-- Day 4 (Active) -->
+            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 4</a>
+            <!-- Day 5 to Day 8 (Placeholder) -->
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 5</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 6</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 7</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 8</a>
+        </div>
+    </div>
+    
+    <!-- 主容器：限制最大寬度，適合手機螢幕 -->
+    <div class="max-w-xl mx-auto px-4 sm:px-0">
+        <!-- 頁面標題 -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="mr-2">📅</span> Day 4 (2/7)：天橋立與伊根舟屋
+            </h1>
+            <h2 class="text-xl text-gray-600 mt-1">
+                主要任務：前往「日本三景」之一的宮津灣
+            </h2>
+        </header>
+
+        <!-- 區塊一：本日交通路線總覽 -->
+        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+            <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
+                <span class="mr-2">🚆</span> 本日交通路線總覽
+            </h3>
+            
+            <p class="text-gray-700 mb-4">
+                本日移動路線：<strong>京都 → 天橋立 (特急火車) → 傘松公園/伊根舟屋 (公車/船) → 京都</strong>。
+            </p>
+
+            <!-- 關鍵數據列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">⏱️ 單程時長：</span>
+                    <span>約 <strong>2 小時 1 分鐘</strong> (不含轉乘等待)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
+                    <span>約 <strong>¥12,000+</strong> (火車往返+當地交通, 依票券而異)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">🎯 票券建議：</span>
+                    <span>建議購買 <strong>JR 關西廣域鐵路周遊券</strong> 或 <strong>天橋立伊根周遊券</strong>，以節省費用。</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
+                    <span>本日行程極為緊湊，務必準時搭乘早班特急列車。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊二：去程：京都 → 天橋立：分步導航 -->
+        <div class="route-card">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🌅</span> 去程：京都 → 天橋立：火車時刻
+            </h3>
+
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: Hotel -> Kyoto Station Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 飯店 → JR 京都車站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>10 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">備註：</span> 請務必於 <strong>07:00</strong> 前抵達車站，預留找月台時間。
+                    </p>
+                </div>
+
+                <!-- 步驟 2: Kyoto -> Fukuchiyama Limited Express -->
+                <div class="border-l-4 border-sky-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 京都 → 福知山 (轉乘)
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>京都</strong> 站 → <strong>福知山</strong> 站<br>
+                        <span class="font-bold text-blue-700">交通：</span> 特急列車 (JR)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>特急 城崎 1 号</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 15 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥3,400</span> (含特急券與基本運費)<br>
+                        <span class="font-bold text-blue-700">時刻：</span> <strong>07:32 發車 → 08:47 抵達</strong>
+                    </p>
+                </div>
+
+                <!-- 步驟 3: Fukuchiyama -> Amanohashidate (KTR) -->
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🌊 福知山 → 天橋立
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>福知山</strong> 站 → <strong>天橋立</strong> 站<br>
+                        <span class="font-bold text-blue-700">交通：</span> 京都丹後鐵道 (KTR)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>丹後接力 1 号</strong> (普通列車或觀光列車)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>38 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥1,420</span> (若為觀光列車可能需額外費用)<br>
+                        <span class="font-bold text-blue-700">時刻：</span> <strong>08:55 發車 → 09:33 抵達</strong> (僅 8 分鐘轉乘時間，請注意!)
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 區塊三：天橋立觀光行程 (景點資訊) -->
+        <div class="route-card bg-pink-50 border-t-4 border-pink-500">
+            <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
+                <span class="mr-2">⛩️</span> 天橋立觀光行程
+            </h3>
+            
+            <p class="text-sm text-gray-600 font-bold mb-4">
+                抵達天橋立站後，建議先前往傘松公園觀景，再返回碼頭搭船。
+            </p>
+
+            <!-- 景點列表 -->
+            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
+                <li>
+                    <span class="font-bold text-pink-600">智恩寺 文殊堂 & 天橋立沙洲 (南側)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>出站後步行可達，智恩寺是著名的求智慧寺廟。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">天橋立棧橋 (搭船) → 一之宮棧橋</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">交通：</span> 觀光船<br>
+                        <span class="font-bold text-pink-700">時長：</span> 約 <strong>12 分鐘</strong><br>
+                        <span class="font-bold text-pink-700">備註：</span> 建議搭船過海灣，可節省體力。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">傘松公園 (Kasamatsu Park)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">交通：</span> 纜車或吊椅<br>
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">必看：</span> 天橋立北側展望台，著名的「胯下觀景」必試。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">伊根舟屋群 (Ine Funaya)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">交通：</span> 丹後海陸交通公車<br>
+                        <span class="font-bold text-pink-700">時長：</span> 約 <strong>1 小時</strong> (單程公車)<br>
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">備註：</span> 於<strong>傘松公園</strong>下山後，搭公車前往伊根，務必注意公車班次（冬季班次較少）。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">丹後觀光鐵道 (彈性行程)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">備註：</span> 若時間允許，可選擇搭乘觀光列車如「青松號」或「赤松號」，體驗沿海風光（需事先查閱時刻表及預約）。
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- 區塊四：回程：天橋立 → 京都：火車時刻 -->
+        <div class="route-card bg-red-50 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+                <span class="mr-2">🛌</span> 傍晚回程：天橋立 → 京都
+            </h3>
+            
+            <!-- 交通步驟 -->
+            <div class="space-y-3 text-gray-700">
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
+                    <span class="ml-2">從伊根/傘松公園搭乘公車回到 <strong>天橋立站</strong>。</span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
+                    <span class="ml-2">
+                        搭乘特急列車直達京都。
+                        <br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>天橋立</strong> 站 → <strong>京都</strong> 站
+                        <br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>特急 橋立 8 号</strong> (直達)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>2 小時 12 分鐘</strong>
+                        <br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥4,000+</span> (依據座位等級)
+                        <br>
+                        <span class="font-bold text-blue-700">時刻：</span> <strong>18:09 發車 → 20:21 抵達</strong>
+                    </span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
+                    <span class="ml-2">抵達京都車站後，步行回 <strong>CHISUN PREMIUM 京都九條</strong> 飯店。</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 區塊五：餐點規劃 (Meals) -->
+        <div class="route-card bg-lime-50 border-t-4 border-lime-500">
+            <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
+                <span class="mr-2">🍽️</span> 餐點規劃
+            </h3>
+            
+            <!-- 午餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                午餐：Suginoya 本格手打ちうどん すぎのや
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 天橋立地區知名烏龍麵店，主打手工烏龍麵與日式料理。<br>
+                <span class="font-bold text-blue-700">備註：</span> 建議在上午景點結束後，步行前往用餐。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 點心/輕食 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                點心/輕食：橋立茶屋 (はしだて茶屋)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 位於天橋立沙洲中間處，提供輕食、甜點與咖啡，是休息的好地方。<br>
+                <span class="font-bold text-blue-700">地點：</span> 位於天橋立沙洲上，適合騎自行車或步行穿越時休憩。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 晚餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                晚餐 (18:00前)：宮魚魚水產 (TOTOMART)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">建議：</span> 位於天橋立站附近，提供新鮮海產的販賣與用餐區，可在此享用新鮮海鮮。<br>
+                <span class="font-bold text-blue-700">備註：</span> 由於需趕 18:09 的火車，請務必在 17:00-17:30 之間開始用餐。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+        </div>
+    </div>
+</body>
+</html>

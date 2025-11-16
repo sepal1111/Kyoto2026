@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 行程規劃 (2/5)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設置 Inter 字體為主要字體，增加可讀性 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* 定義卡片樣式 */
+        .route-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6">
+    <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
+        <div class="flex space-x-2 px-4 whitespace-nowrap">
+            <!-- 總覽 (New Link) -->
+            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- Day 1 -->
+            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
+            <!-- Day 2 (Active) -->
+            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 2</a>
+            <!-- Day 3 to Day 8 (Placeholder) -->
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 3</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 4</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 5</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 6</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 7</a>
+            <a href="#" class="px-3 py-1 text-sm font-medium rounded-full text-gray-400 bg-gray-100 cursor-default">Day 8</a>
+        </div>
+    </div>
+    
+    <!-- 主容器：限制最大寬度，適合手機螢幕 -->
+    <div class="max-w-xl mx-auto px-4 sm:px-0">
+        <!-- 頁面標題 -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="mr-2">📅</span> Day 2 (2/5)：京都嵐山經典一日遊
+            </h1>
+            <h2 class="text-xl text-gray-600 mt-1">
+                主要任務：參觀天龍寺、竹林與渡月橋
+            </h2>
+        </header>
+
+        <!-- 區塊一：本日交通路線總覽 -->
+        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+            <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
+                <span class="mr-2">🚄</span> 本日交通路線總覽
+            </h3>
+            
+            <p class="text-gray-700 mb-4">
+                本日移動路線：<strong>CHISUN PREMIUM 京都九條 → 嵐山地區 → 飯店</strong> (使用 JR 線是最快選擇)。
+            </p>
+
+            <!-- 關鍵數據列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">⏱️ 單程時長：</span>
+                    <span>約 <strong>35 分鐘</strong> (含步行)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
+                    <span>約 <strong>¥480</strong> (JR 往返)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">🎯 抵達目標：</span>
+                    <span>JR <strong>嵯峨嵐山站</strong> (Saga-Arashiyama)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
+                    <span>嵐山景點之間以步行為主，建議穿著舒適鞋子。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊二：飯店 → 嵐山：分步導航 (去程) -->
+        <div class="route-card">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🌅</span> 飯店 → 嵐山：分步導航
+            </h3>
+
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: Hotel -> Kyoto Station Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至京都車站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 京都車站</strong> (Kyoto Station)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>7-10 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">指示：</span> 從八條口 (南側) 進入車站。
+                    </p>
+                </div>
+
+                <!-- 步驟 2: Kyoto -> Saga-Arashiyama JR Line -->
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 京都車站 → 嵯峨嵐山站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>嵯峨野線</strong> (或稱山陰本線)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>16 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 找尋開往 <strong>嵯峨嵐山</strong>、**亀岡** 或 **園部** 方向的列車。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊三：嵐山一日觀光行程 (景點資訊) -->
+        <div class="route-card bg-pink-50 border-t-4 border-pink-500">
+            <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
+                <span class="mr-2">🎋</span> 嵐山一日觀光行程
+            </h3>
+            
+            <p class="text-sm text-gray-600 italic mb-4">
+                *抵達 <strong>JR 嵯峨嵐山站</strong>後，步行約 10 分鐘進入嵐山主要景區，建議按照以下順序遊覽以節省體力。*
+            </p>
+
+            <!-- 景點列表 -->
+            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
+                <li>
+                    <span class="font-bold text-pink-600">天龍寺 (Tenryu-ji)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>嵐山地區最重要的寺院，世界遺產，曹源池庭園是必看重點。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">嵐山竹林步道 & 野宮神社</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>從天龍寺北門出去即可直通竹林。**野宮神社**位於竹林中，是求良緣、學業的神社。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">渡月橋 (Togetsukyo Bridge)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong> (含拍照)<br>
+                        <span class="font-bold text-pink-700">特色：</span>嵐山的象徵，橫跨桂川，風景壯闊。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">嵐山岩田山猴子公園 (彈性行程)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong> (含上下山)<br>
+                        <span class="font-bold text-pink-700">備註：</span>需約 30 分鐘上坡路段，體力消耗較大。山頂可俯瞰京都市景，並觀看野生猴群。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">友禪的光林 (Kimono Forest)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>位於 **嵐電嵐山站** (Randen Arashiyama) 內，是數百根友禪花色圓柱組成的小徑，適合拍照。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">周邊散步：嵐山商店街 & 小徑</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">停留時間：</span>彈性 (午餐或下午茶)<br>
+                        <span class="font-bold text-pink-700">備註：</span>推薦參觀**寶嚴院** (天龍寺周邊，視開放季節)，以及沿著商店街尋找小吃。
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- 區塊四：傍晚移動：嵐山 → 京都飯店 (回程) -->
+        <div class="route-card bg-red-50 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+                <span class="mr-2">🛌</span> 傍晚移動：嵐山 → 京都飯店
+            </h3>
+            
+            <!-- 交通步驟 -->
+            <div class="space-y-3 text-gray-700">
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
+                    <span class="ml-2">從嵐山觀光區步行回 <strong>JR 嵯峨嵐山站</strong> (Saga-Arashiyama)。</span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
+                    <span class="ml-2">
+                        前往 <strong>JR 京都車站</strong> (Kyoto Station)。
+                        <br>
+                        <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>嵯峨野線</strong> (往京都方向)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>16 分鐘</strong>
+                        <br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span>
+                    </span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
+                    <span class="ml-2">抵達京都車站後，步行回 **CHISUN PREMIUM 京都九條** 飯店。</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 區塊五：餐點規劃 (Meals) - 已移至最下方 -->
+        <div class="route-card bg-lime-50 border-t-4 border-lime-500">
+            <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
+                <span class="mr-2">🍽️</span> 餐點規劃
+            </h3>
+            
+            <!-- 午餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                午餐：嵐山よしむら (Arashiyama Yoshimura)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 著名蕎麥麵店，可透過窗戶欣賞渡月橋與桂川美景。<br>
+                <span class="font-bold text-blue-700">備註：</span> 人氣店鋪，建議在 11:30 前前往排隊，以節省時間。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 點心 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                點心：古都芋本舖 (Kotoimo Honpo)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> 嵐山人氣甜點店，以烤地瓜和紫芋冰淇淋聞名。<br>
+                <span class="font-bold text-blue-700">地點：</span> 位於嵐山商店街主路上，步行可達。
+            </p>
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+
+            <!-- 晚餐 -->
+            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
+                晚餐：推薦選項 (京都車站周邊)
+            </h4>
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">建議：</span> 考量回程便利性，推薦在 **JR 京都車站** 周邊用餐。<br>
+                <span class="font-bold text-blue-700">選項 A：</span> 京都車站伊勢丹百貨 10 樓「拉麵小路」(集合多家日本各地拉麵)。<br>
+                <span class="font-bold text-blue-700">選項 B：</span> **八條口** (靠近飯店側) 有許多居酒屋和特色餐廳，選擇較多且接近飯店。
+            </p>
+            <!-- 晚餐是推薦選項，所以連結放在說明下方，可點擊編輯填入地圖網址 -->
+            <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                🗺️ 地圖連結 (待填)
+            </a>
+        </div>
+    </div>
+</body>
+</html>
