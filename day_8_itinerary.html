@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8 行程規劃 (2/11)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設置 Inter 字體為主要字體，增加可讀性 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* 定義卡片樣式 */
+        .route-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6">
+    <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
+        <div class="flex space-x-2 px-4 whitespace-nowrap">
+            <!-- 總覽 (New Link) -->
+            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- Day 1 -->
+            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
+            <!-- Day 2 -->
+            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
+            <!-- Day 3 -->
+            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
+            <!-- Day 4 -->
+            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 4</a>
+            <!-- Day 5 -->
+            <a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 5</a>
+            <!-- Day 6 -->
+            <a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 6</a>
+            <!-- Day 7 -->
+            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
+            <!-- Day 8 (Active) -->
+            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 8</a>
+        </div>
+    </div>
+    
+    <!-- 主容器：限制最大寬度，適合手機螢幕 -->
+    <div class="max-w-xl mx-auto px-4 sm:px-0">
+        <!-- 頁面標題 -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="mr-2">📅</span> Day 8 (2/11)：飯店 → 關西機場 (KIX)
+            </h1>
+            <h2 class="text-xl text-gray-600 mt-1">
+                主要任務：準時前往機場，搭乘 BR177 班機
+            </h2>
+        </header>
+
+        <!-- 區塊一：航班與時間總覽 -->
+        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+            <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
+                <span class="mr-2">✈️</span> 航班與時間總覽
+            </h3>
+            
+            <p class="text-gray-700 mb-4">
+                回程航班：<strong>BR177</strong> (10:55 KIX 發車)
+            </p>
+
+            <!-- 關鍵數據列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">⏱️ 建議出發時間：</span>
+                    <span><strong>07:00</strong> 前從飯店出發 (需預留充足的 check-in 時間)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💰 交通費用：</span>
+                    <span>約 <strong>¥3,400+</strong> (Haruka 特急列車費用)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">🎯 建議交通：</span>
+                    <span>JR <strong>關空特快 Haruka</strong> 列車 (最快)</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
+                    <span>請於**出發前**確認**Haruka**的時刻表，確保有足夠的彈性時間。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 區塊二：飯店 → 關西機場：分步導航 -->
+        <div class="route-card">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🚂</span> 飯店 → 關西機場：分步導航 (Haruka)
+            </h3>
+
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: Hotel -> Kyoto Station Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至京都車站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 京都車站</strong> (Kyoto Station)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>7-10 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">指示：</span> 從<strong>八條口</strong> (南側) 進入車站，找尋 JR <strong>特急 Haruka</strong> 的月台。
+                    </p>
+                </div>
+
+                <!-- 步驟 2: Kyoto -> KIX Haruka Limited Express -->
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> ✈️ 京都車站 → 關西機場 (KIX)
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>京都站</strong> → <strong>關西國際機場</strong> (KIX)<br>
+                        <span class="font-bold text-blue-700">交通：</span> JR 特急列車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>關空特快 Haruka</strong> (はるか)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 20 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥3,400</span> (自由座/普通席)<br>
+                        <span class="font-bold text-blue-700">建議班次：</span> 建議搭乘 <strong>07:30</strong> 左右的班次，確保 09:00 前抵達機場。
+                    </p>
+                </div>
+                
+                <!-- 步驟 3: KIX Check-in -->
+                <div class="border-l-4 border-pink-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🛫 抵達機場與 Check-in
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">指示：</span> 抵達 KIX 後，依循指示牌前往**第一航廈 (T1)** 辦理長榮航空 (BR) 的登機手續。<br>
+                        <span class="font-bold text-blue-700">預計抵達：</span> 約 <strong>09:00</strong><br>
+                        <span class="font-bold text-blue-700">備註：</span> 國際線建議提前 2 小時報到。
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 區塊三：最終確認清單 (Checklist) -->
+        <div class="route-card bg-lime-50 border-t-4 border-lime-500">
+            <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
+                <span class="mr-2">✅</span> 最終確認清單
+            </h3>
+            
+            <ul class="list-disc list-inside text-sm text-gray-700 ml-4 space-y-2">
+                <li>護照、機票、手機、錢包 (現金/信用卡)</li>
+                <li>飯店房間內是否有遺漏物品 (充電器、衣物)</li>
+                <li>行李是否已秤重，符合航空公司規定 (長榮 BR177)</li>
+                <li>**IC 卡/車票**內餘額是否足夠支付 Haruka 費用</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
