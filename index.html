@@ -25,7 +25,7 @@
 <body class="p-0 sm:p-6">
     <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
-        <div class="flex space-x-2 px-4 whitespace-nowrap">
+        <div class="flex space-x-2 px-4 whitespace-nowrap justify-center">
             <!-- 總覽 (New Link) -->
             <a href="index.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">總覽</a>
             <!-- Day 1 -->
@@ -59,7 +59,39 @@
             </h2>
         </header>
 
-        <!-- 區塊一：航班資訊 (Flight Details) -->
+        <!-- 區塊一：桃園機場 (TPE) 停車資訊 -->
+        <div class="route-card bg-cyan-50 border-t-4 border-cyan-500">
+            <h3 class="text-2xl font-semibold text-cyan-800 mb-4 flex items-center">
+                <span class="mr-2">🅿️</span> 台灣桃園機場 (TPE) 停車資訊
+            </h3>
+            
+            <p class="text-sm text-gray-600 font-bold mb-4">
+                出發前請將車輛停在以下特約停車場：
+            </p>
+
+            <!-- 停車資訊列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-24 text-cyan-600">特約銀行：</span>
+                    <span><strong>玉山銀行</strong></span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-24 text-cyan-600">停車場：</span>
+                    <span><strong>連勝停車場</strong></span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <span class="font-bold w-24 text-cyan-600">地址：</span>
+                    <span><strong>33745桃園市大園區平安路80號</strong></span>
+                </div>
+            </div>
+            
+            <!-- 地圖連結按鈕 -->
+            <a href="https://maps.app.goo.gl/UeD5YWFk3anYPHpF6" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-cyan-600 rounded-lg hover:bg-cyan-700 transition duration-150 shadow-md mt-4">
+                🗺️ 導航至連勝停車場
+            </a>
+        </div>
+
+        <!-- 區塊二：航班資訊 (Flight Details) -->
         <div class="route-card bg-blue-50 border-t-4 border-blue-500">
             <h3 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
                 <span class="mr-2">✈️</span> 航班資訊 (長榮航空 EVA Air)
@@ -76,11 +108,11 @@
                 </div>
                 <div class="flex items-center">
                     <span class="font-bold w-24 text-blue-600">起飛時間：</span>
-                    <span>06:35</span>
+                    <span><strong>06:35</strong></span>
                 </div>
                 <div class="flex items-center">
                     <span class="font-bold w-24 text-blue-600">抵達時間：</span>
-                    <span>10:00</span>
+                    <span><strong>10:00</strong></span>
                 </div>
             </div>
             
@@ -95,16 +127,16 @@
                 </div>
                 <div class="flex items-center">
                     <span class="font-bold w-24 text-blue-600">起飛時間：</span>
-                    <span>10:55</span>
+                    <span><strong>10:55</strong></span>
                 </div>
                 <div class="flex items-center">
                     <span class="font-bold w-24 text-blue-600">抵達時間：</span>
-                    <span>13:10</span>
+                    <span><strong>13:10</strong></span>
                 </div>
             </div>
         </div>
 
-        <!-- 區塊二：住宿資訊 (Accommodation) -->
+        <!-- 區塊三：住宿資訊 (Accommodation) -->
         <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
             <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
                 <span class="mr-2">🏨</span> 住宿資訊 (7 晚)
@@ -130,7 +162,9 @@
             </div>
         </div>
         
-        <!-- 區塊三：旅遊注意事項與準備 -->
+
+
+        <!-- 區塊四：旅遊注意事項與準備 -->
         <div class="route-card bg-red-50 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
                 <span class="mr-2">💡</span> 旅遊注意事項與準備
@@ -158,7 +192,7 @@
             </ul>
         </div>
         
-        <!-- 區塊四：每日行程連結 (Daily Itinerary Links) -->
+        <!-- 區塊五：每日行程連結 (Daily Itinerary Links) -->
         <div class="route-card bg-green-50 border-t-4 border-green-500">
             <h3 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
                 <span class="mr-2">📋</span> 每日行程 (點擊查看詳情)
@@ -167,14 +201,14 @@
                 *此處將連結至後續規劃的每日行程檔案*
             </p>
             <ul class="space-y-2 text-gray-700 font-medium">
-                <li><a href="day_1_itinerary.html" class="text-blue-500 hover:underline">Day 1 (2/4): 抵達神戶與前往奈良觀光</a></li>
-                <li><a href="day_2_itinerary.html" class="text-blue-500 hover:underline">Day 2 (2/5)：京都嵐山經典一日遊</a></li>
-                <li><a href="day_3_itinerary.html" class="text-blue-500 hover:underline">Day 3 (2/6)：清水寺、東山古街與祇園</a></li>
-                <li><a href="day_4_itinerary.html" class="text-blue-500 hover:underline">Day 4 (2/7)：天橋立與伊根舟屋</a></li>
-                <li><a href="day_5_itinerary.html" class="text-blue-500 hover:underline">Day 5 (2/8)：伏見稻荷與東福寺)</a></li>
-                <li><a href="day_6_itinerary.html" class="text-blue-500 hover:underline">Day 6 (2/9)：貴船、鞍馬健行與叡山電車</a></li>
-                <li><a href="day_7_itinerary.html" class="text-blue-500 hover:underline">Day 7 (2/10)：宇治與銀閣寺</a></li>
-                <li><a href="day_8_itinerary.html" class="text-blue-500 hover:underline">Day 8 (2/11)：飯店 → 關西機場 (KIX)</a></li>
+                <li><a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 1 (2/4): 抵達神戶與前往奈良觀光</a></li>
+                <li><a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 2 (2/5)：京都嵐山經典一日遊</a></li>
+                <li><a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 3 (2/6)：清水寺、東山古街與祇園</a></li>
+                <li><a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 4 (2/7)：天橋立與伊根舟屋</a></li>
+                <li><a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 5 (2/8)：伏見稻荷與東福寺)</a></li>
+                <li><a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 6 (2/9)：貴船、鞍馬健行與叡山電車</a></li>
+                <li><a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 7 (2/10)：宇治與銀閣寺</a></li>
+                <li><a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 8 (2/11)：飯店 → 關西機場 (KIX)</a></li>
             </ul>
         </div>
         
