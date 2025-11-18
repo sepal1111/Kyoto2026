@@ -60,7 +60,7 @@
         </header>
 
         <!-- 區塊一：本日交通路線總覽 -->
-        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+        <div class="route-card bg-blue-100 border-t-4 border-blue-500">
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
                 <span class="mr-2">🚄</span> 本日交通路線總覽
             </h3>
@@ -88,7 +88,7 @@
         </div>
 
         <!-- 區塊二：飯店 → 嵐山：分步導航 (去程) -->
-        <div class="route-card">
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
                 <span class="mr-2">🌅</span> 飯店 → 嵐山：分步導航
             </h3>
@@ -115,14 +115,15 @@
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>嵯峨野線</strong> (<strong>山陰本線</strong>)<br>
-<span class="font-bold text-blue-700">時長：</span> 約 <strong>16 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>16 分鐘</strong><br>
                         <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 找尋開往 <strong>嵯峨嵐山</strong>、**亀岡** 或 **園部** 方向的列車。
+                        <span class="font-bold text-blue-700">指示：</span> 找尋開往 <strong>嵯峨嵐山</strong>方向的列車。
                     </p>
                 </div>
             </div>
 			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/1wjG7ntkNo8UGkYN8" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-400 rounded-lg hover:bg-gray-700 transition duration-150 shadow-md mt-4">
+                <a href="https://maps.app.goo.gl/1wjG7ntkNo8UGkYN8" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                 🗺️ 路線圖
             </a>
             </div>
@@ -178,7 +179,7 @@
         </div>
 
         <!-- 區塊四：下午：京都鐵道博物館 -->
-        <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
                 <span class="mr-2">🚂</span> 下午：京都鐵道博物館 (Kyoto Railway Museum)
             </h3>
@@ -225,9 +226,62 @@
             </div>			
         </div>
 
+        <!-- 區塊二：神戶機場 → 奈良：分步導航 -->
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🚂</span> 京都鐵道博物館 (Kyoto Railway Museum)
+            </h3>
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚈 前往京都鐵道博物館
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span><strong> JR 嵯峨嵐山站 → 梅小路京都西站</strong><br>
+                        <span class="font-bold text-blue-700">交通：</span> JR 嵯峨野線<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong> 12 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥200</span><br>
+                    </p>
+                </div>
+
+                <!-- 步驟 2: Sannomiya Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚶 步行至梅小路公園（鐵道博物館在公園內） 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">指示：</span> 離開 梅小路京都西站 後，前往<strong>阪神三宮站</strong> (Hanshin Sannomiya)。<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong>。
+                    </p>
+                </div>
+
+                <!-- 步驟 3: Sannomiya -> Kintetsu Nara (關鍵段) -->
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🦌 阪神三宮站 → 近鐵奈良站
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">交通：</span> 電車 (直通)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 阪神本線 <strong>快速急行</strong> → <strong>近鐵奈良線</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 17 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> 約 <span class="text-red-600 font-extrabold">¥1,100</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 尋找開往<strong>快速急行近鐵奈良</strong>方向的快速急行列車，通常無需換乘即可直達，是前往奈良最方便的電車路線。
+                    </p>
+                </div>
+            </div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                🗺️ 路線圖
+            </a>
+            </div>
+        </div>        
+
 
         <!-- 區塊五：傍晚移動：博物館 → 京都飯店 (回程) -->
-        <div class="route-card bg-red-50 border-t-4 border-red-500">
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
                 <span class="mr-2">🛌</span> 傍晚移動：博物館 → 飯店
             </h3>

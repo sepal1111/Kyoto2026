@@ -60,7 +60,7 @@
         </header>
 
         <!-- 區塊一：本日交通路線總覽 -->
-        <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
+        <div class="route-card bg-blue-100 border-t-4 border-blue-500">
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
                 <span class="mr-2">🚄</span> 本日交通路線總覽
             </h3>
@@ -91,17 +91,17 @@
         </div>
 
         <!-- 區塊二：神戶機場 → 奈良：分步導航 -->
-        <div class="route-card">
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
-                <span class="mr-2">✈️</span> 神戶機場 → 奈良：分步導航
+                <span class="mr-2">✈️</span> 神戶機場 → 奈良
             </h3>
 
             <!-- 步驟容器 -->
             <div class="space-y-6">
                 <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
-                <div class="border-l-4 border-sky-500 pl-4">
+                <div class="border-l-4 border-red-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚈 抵達神戶與 Port Liner
+                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚈 抵達神戶與 Port Liner
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">區間：</span> 神戶機場 (UKB) → <strong>三宮站</strong> (Sannomiya)<br>
@@ -138,7 +138,9 @@
                     </p>
                 </div>
             </div>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-400 rounded-lg hover:bg-blue-700 transition duration-150 shadow-md mt-4">
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                 🗺️ 路線圖
             </a>
             </div>
@@ -187,41 +189,47 @@
             </ol>
         </div>
 
-        <!-- 區塊四：傍晚移動：奈良 → 京都飯店 -->
-        <div class="route-card bg-red-50 border-t-4 border-red-500">
-            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-                <span class="mr-2">🛌</span> 傍晚移動：奈良 → 京都飯店
+        <!-- 區塊四：奈良 → 京都飯店：分步導航 -->
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🚈</span> 奈良 → 京都飯店 🛌
             </h3>
-            
-            <!-- 交通步驟 -->
-            <div class="space-y-3 text-gray-700">
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從景點步行回 <strong>近鐵奈良站</strong> (Kintetsu Nara Station)。</span>
+
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
+                         🚈 前往京都飯店
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>近鐵奈良 → 京都</strong><br>
+                        <span class="font-bold text-blue-700">車種：</span> <span class="font-bold text-orange-400">近鐵京都線</span> <br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>57 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥ 760</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 在<strong>京都站</strong> 下車。
+                    </p>
                 </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
-                    <span class="ml-2">
-                        前往 <strong>烏丸線九条站</strong> (九条駅)。
-                        <br>
-                        <span class="font-bold text-blue-700">交通：</span> 電車<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>近鐵京都線急行國際會館</strong><br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>50 分鐘</strong>
-                        <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥980</span>
-                    </span>
-                </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
-                    <span class="ml-2">抵達京都車站後，從<strong>八條口</strong> (Hachijo Exit, 南側) 出站，步行約 <strong>7-10 分鐘</strong>至 <strong>CHISUN PREMIUM 京都九條</strong> 飯店辦理入住手續。</span>
+
+                <!-- 步驟 2: Sannomiya Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚶 步行至飯店 CHISUN PREMIUM 京都九條
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">指示：</span>抵達京都車站後，從<strong>八條口</strong> (Hachijo Exit, 南側) 出站，步行約 <strong>7-10 分鐘</strong>至 <strong>CHISUN PREMIUM 京都九條</strong> 飯店辦理入住手續。<br>
+                        <span class="font-bold text-blue-700">時間：</span> <strong>約 11 分鐘，約 800 公尺</strong><br>
+                    </p>
                 </div>
             </div>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/LvQPL7BnLU82dWTk7" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                <a href="hhttps://maps.app.goo.gl/pVb5GiGiX7N5pHuF9" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                 🗺️ 路線圖
             </a>
             </div>
-        </div>
+        </div>      
 
         <!-- 區塊五：餐點規劃 (Meals) - 已移至最下方 -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
