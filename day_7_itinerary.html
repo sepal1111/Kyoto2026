@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 7 行程規劃 (2/10)</title>
+    <title>Day 7 (2/10)：貴船、鞍馬健行與叡山電車</title>
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -52,200 +52,198 @@
         <!-- 頁面標題 -->
         <header class="text-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
-                <span class="mr-2">📅</span> Day 7 (2/10)：宇治與銀閣寺
+                <span class="mr-2">📅</span> Day 7 (2/10)：貴船、鞍馬健行與叡山電車
             </h1>
             <h2 class="text-xl text-gray-600 mt-1">
-                主要任務：探索宇治茶鄉與京都世界遺產
+                主要任務：體驗京都郊區山林健行，參拜貴船與鞍馬寺
             </h2>
         </header>
 
         <!-- 區塊一：本日交通路線總覽 -->
         <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
-                <span class="mr-2">🍵</span> 本日交通路線總覽
+                <span class="mr-2">🚞</span> 本日交通路線總覽
             </h3>
             
             <p class="text-gray-700 mb-4">
-                本日移動路線：<strong>飯店 → 東福寺站 (步行/JR) → 宇治 (JR) → 銀閣寺 (JR/公車) → 飯店 (公車)</strong>。
+                本日移動路線：<strong>飯店 → 九條河原町 (公車) → 七條站 (京阪線) → 貴船口 (叡山電車) → 鞍馬 (健行/叡電) → 飯店</strong>。
             </p>
 
             <!-- 關鍵數據列表 -->
             <div class="space-y-2">
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">⏱️ 單程時長：</span>
-                    <span>約 <strong>30-35 分鐘</strong> (飯店至宇治，含步行)</span>
+                    <span>約 <strong>55-65 分鐘</strong> (飯店至貴船口，含公車轉乘)</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
-                    <span>約 <strong>¥940</strong> (JR 往返+公車)</span>
+                    <span>約 <strong>¥1,150+</strong> (公車+京阪+叡電往返)</span>
                 </div>
                 <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-32 text-indigo-600">🎯 交通優勢：</span>
-                    <span>利用 JR <strong>奈良線</strong>快速往返<strong>宇治</strong>。避開<strong>京都車站</strong>擁擠，從<strong>東福寺站</strong>轉乘。</span>
+                    <span class="font-bold w-32 text-indigo-600">🎯 票券建議：</span>
+                    <span>建議考慮購買 <strong>叡山電車一日券</strong> (適用於公車/地鐵+叡電全線)。</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
-                    <span><strong>宇治</strong>景點密集，可將行李寄放在 JR <strong>宇治站</strong>。</span>
+                    <span>貴船至鞍馬的<strong>山林步道</strong>約 1 小時，坡度較大，務必穿著適合健行的鞋子。</span>
                 </div>
             </div>
         </div>
 
-        <!-- 區塊二：飯店 → 宇治：分步導航 (去程) -->
+        <!-- 區塊二：飯店 → 貴船口：分步導航 (去程) -->
         <div class="route-card">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
-                <span class="mr-2">🌅</span> 飯店 → 宇治：分步導航
+                <span class="mr-2">🌅</span> 飯店 → 貴船口：分步導航
             </h3>
 
             <!-- 步驟容器 -->
             <div class="space-y-6">
-                <!-- 步驟 1: Hotel -> Tofuku-ji Station Walk -->
+                <!-- 步驟 1: Hotel -> Kujo Kawaramachi Walk & Bus to Shichijo -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至東福寺站
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚌 飯店 → 七条京阪前
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 東福寺站</strong><br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>15-20 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">指示：</span> 沿著與 Day 5 相同的路線，步行至 **JR 東福寺站**月台。
+                        <span class="font-bold text-blue-700">區間：</span> <strong>九條河原町</strong> 公車站 → <strong>七条京阪前</strong> 公車站<br>
+                        <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 建議搭乘 <strong>207 號</strong>公車<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>10-15 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 在 <strong>七条京阪前</strong> 站下車，步行至京阪<strong>七條站</strong>。
                     </p>
                 </div>
 
-                <!-- 步驟 2: Tofuku-ji -> Uji JR Line -->
+                <!-- 步驟 2: Shichijo -> Demachiyanagi (Keihan Line) -->
                 <div class="border-l-4 border-green-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 東福寺站 → 宇治站
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚇 七条站 → 出町柳站 (轉乘)
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>JR 東福寺站</strong> → <strong>JR 宇治站</strong><br>
-                        <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>奈良線</strong> (みやこ路快速/快速)<br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>15 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 找尋開往<strong>奈良</strong>方向的快速列車。JR <strong>宇治站</strong>步行至<strong>平等院</strong>約 10 分鐘。
+                        <span class="font-bold text-blue-700">區間：</span> <strong>七条站</strong> → <strong>出町柳站</strong><br>
+                        <span class="font-bold text-blue-700">交通：</span> 京阪電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>京阪本線</strong> (特急/急行 皆可搭乘)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>10-15 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥280</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 於<strong>七條京阪前</strong>公車站下車後步行 3 分鐘至京阪<strong>七條站</strong>搭乘。
+                    </p>
+                </div>
+
+                <!-- 步驟 3: Demachiyanagi -> Kibune-guchi Eizan Line -->
+                <div class="border-l-4 border-sky-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🚞 出町柳 → 貴船口
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">交通：</span> 叡山電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>叡山本線</strong> (往鞍馬方向)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>30 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥470</span><br>
+                        <span class="font-bold text-blue-700">特色：</span> 建議搭乘觀光列車 <strong>きらら (Kirara)</strong>，風景優美。
+                    </p>
+                </div>
+                
+                <!-- 步驟 4: Kibune-guchi Bus -->
+                <div class="border-l-4 border-pink-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">4</span> 🚌 貴船口 → 貴船神社
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">區間：</span> <strong>貴船口站</strong> → <strong>貴船</strong> (公車站)<br>
+                        <span class="font-bold text-blue-700">交通：</span> 貴船接駁公車<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥170</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 步行上坡約 30 分鐘，建議搭接駁公車以節省體力。
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- 區塊三：上午：宇治一日觀光行程 -->
+        <!-- 區塊三：貴船 → 鞍馬：健行路線 -->
         <div class="route-card bg-pink-50 border-t-4 border-pink-500">
             <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
-                <span class="mr-2">🍵</span> 上午：宇治一日觀光行程
+                <span class="mr-2">🌲</span> 貴船 → 鞍馬：山林健行路線
             </h3>
             
             <p class="text-sm text-gray-600 font-bold mb-4">
-                <strong>宇治</strong>景點主要圍繞在<strong>宇治川</strong>兩岸，景點之間皆為步行。
+                此為本日核心行程。建議由貴船神社後山進入，穿過鞍馬山抵達鞍馬寺。
             </p>
 
             <!-- 景點列表 -->
             <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
                 <li>
-                    <span class="font-bold text-pink-600">平等院 (Byōdō-in Temple)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>世界遺產，日本 10 元硬幣圖案，著名的<strong>鳳凰堂</strong>。
-                    </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">宇治橋 & 中之島公園</span>
+                    <span class="font-bold text-pink-600">貴船神社 (Kifune Shrine)</span>
                     <p class="text-sm text-gray-600 ml-5">
                         <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>跨越<strong>宇治川</strong>，從<strong>中之島</strong>可欣賞<strong>平等院</strong>全景，並參觀<strong>十三重石塔</strong>。
+                        <span class="font-bold text-pink-700">特色：</span>著名的<strong>水占卜</strong>與紅色階梯。
                     </p>
                 </li>
                 <li>
-                    <span class="font-bold text-pink-600">宇治橋通商店街</span>
+                    <span class="font-bold text-pink-600">鞍馬山健行步道 (Kibune → Kurama)</span>
                     <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span>彈性<br>
-                        <span class="font-bold text-pink-700">備註：</span><strong>宇治茶</strong>老店、點心店林立，可在這裡逛街並享用點心/午餐。
+                        <span class="font-bold text-pink-700">預計時長：</span><strong>1 小時 15 分鐘</strong> (純健行)<br>
+                        <span class="font-bold text-pink-700">特色：</span>沿途經過奧宮、<strong>魔王殿</strong>，最終抵達鞍馬寺本殿。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">鞍馬寺 (Kurama-dera)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong> (含參觀及下山)<br>
+                        <span class="font-bold text-pink-700">備註：</span>可選擇搭乘<strong>鞍馬山纜車</strong> (單程 ¥200) 下山，節省體力。
                     </p>
                 </li>
             </ol>
         </div>
 
-        <!-- 區塊四：下午：銀閣寺與哲學之道 -->
-        <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
-            <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
-                <span class="mr-2">🍁</span> 下午：銀閣寺與哲學之道
-            </h3>
-            
-            <p class="text-sm text-gray-600 font-bold mb-4">
-                從<strong>宇治</strong>回到<strong>京都市區</strong>後，搭乘公車前往<strong>洛東地區</strong>的<strong>銀閣寺</strong>。
-            </p>
-
-            <!-- 交通步驟 -->
-            <div class="space-y-3 text-gray-700 mb-6">
-                <h4 class="text-lg font-bold text-gray-900 mb-1">
-                    🚌 宇治 → 銀閣寺：分步導航
-                </h4>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從 JR <strong>宇治站</strong> 搭乘 JR <strong>奈良線</strong> (快速) 返回 <strong>京都車站</strong> (約 17 分鐘 / <strong>¥240</strong>)。</span>
-                </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
-                    <span class="ml-2">
-                        抵達<strong>京都車站</strong>後，前往<strong>公車總站</strong>轉乘公車。
-                        <br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> 市營公車 <strong>100 號</strong> 或 <strong>5 號</strong><br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
-                        <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 在 <strong>銀閣寺道</strong> 站下車。
-                    </span>
-                </div>
-            </div>
-
-            <!-- 景點列表 -->
-            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
-                <li>
-                    <span class="font-bold text-pink-600">銀閣寺 (Ginkaku-ji)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>世界遺產，<strong>銀閣</strong>與著名的<strong>銀沙灘</strong>、<strong>向月台</strong>枯山水庭園。
-                    </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">哲學之道 (Philosopher's Path)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong> (悠閒漫步)<br>
-                        <span class="font-bold text-pink-700">特色：</span>沿著<strong>運河邊</strong>的寧靜小徑，適合傍晚時分，氣氛靜謐。
-                    </p>
-                </li>
-            </ol>
-        </div>
-        
-        <!-- 區塊五：傍晚移動：哲學之道 → 飯店 (回程) -->
+        <!-- 區塊四：傍晚回程：鞍馬 → 飯店 -->
         <div class="route-card bg-red-50 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-                <span class="mr-2">🛌</span> 傍晚移動：哲學之道 → 飯店
+                <span class="mr-2">🛌</span> 傍晚回程：鞍馬 → 飯店
             </h3>
             
             <!-- 交通步驟 -->
             <div class="space-y-3 text-gray-700">
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從<strong>哲學之道</strong>步行至公車站。建議回到 <strong>銀閣寺道</strong> 站，或沿著<strong>東山通</strong>尋找合適公車站。</span>
+                    <span class="ml-2">從鞍馬寺步行或搭纜車至 <strong>鞍馬站</strong>。</span>
                 </div>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
                     <span class="ml-2">
-                        搭乘公車返回京都車站。
+                        搭乘叡山電車返回出町柳站。
                         <br>
-                        <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5 號</strong> (往京都車站方向)<br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>鞍馬站</strong> → <strong>出町柳站</strong>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>叡山本線</strong> (往出町柳方向)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>30 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">指示：</span> 抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥470</span>
                     </span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
+                    <span class="ml-2">
+                        從出町柳站轉乘京阪與公車返回飯店。
+                        <br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>出町柳站</strong> → <strong>九條河原町</strong>
+                        <br>
+                        <span class="font-bold text-blue-700">交通：</span> 京阪電車 (轉) 公車
+                        <br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 京阪本線至<strong>七条站</strong>，轉乘 <strong>207 號</strong>公車
+                        <br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>25-30 分鐘</strong>
+                        <br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥510</span> (京阪 ¥280 + 公車 ¥230)
+                    </span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 4：</span>
+                    <span class="ml-2">從<strong>九條河原町</strong>站下車後，步行約 <strong>5-7 分鐘</strong>回 <strong>CHISUN PREMIUM 京都九條</strong> 飯店。</span>
                 </div>
             </div>
             
         </div>
 
-        <!-- 區塊六：餐點規劃 (Meals) -->
+        <!-- 區塊五：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
                 <span class="mr-2">🍽️</span> 餐點規劃
@@ -253,11 +251,11 @@
             
             <!-- 午餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-                午餐：宇治地雞家心 (日式串燒)
+                午餐：Nagomiya Kotengu 和み家 心天狗
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> 位於京阪<strong>宇治站</strong>附近，是<strong>宇治地區</strong>知名的串燒店，提供高品質<strong>地雞料理</strong>。<br>
-                <span class="font-bold text-blue-700">備註：</span> 建議在上午<strong>平等院</strong>參觀結束後，步行前往用餐。
+                <span class="font-bold text-blue-700">特色：</span> 鞍馬地區的餐廳，提供京野菜與鄉土料理。<br>
+                <span class="font-bold text-blue-700">備註：</span> 建議在<strong>鞍馬寺</strong>或<strong>鞍馬站</strong>附近用餐，以銜接下午的行程或回程。
             </p>
             <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結 (待填)
@@ -265,11 +263,11 @@
 
             <!-- 點心 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-                點心：お肉のはりよし (可樂餅)
+                點心：鞍馬 多聞堂 (山椒餅)
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> <strong>宇治地區</strong>的人氣肉店，販售炸物可樂餅 (Croquette)，價格實惠，口味傳統。<br>
-                <span class="font-bold text-blue-700">地點：</span> 靠近 JR <strong>宇治站</strong>與<strong>宇治橋</strong>，適合離開<strong>宇治</strong>前作為輕食點心。
+                <span class="font-bold text-blue-700">特色：</span> 位於鞍馬站前，是著名的土產店，山椒餅是當地的特色點心，適合作為健行後的獎勵。<br>
+                <span class="font-bold text-blue-700">地點：</span> <strong>鞍馬站</strong>附近。
             </p>
             <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結 (待填)
@@ -280,8 +278,8 @@
                 晚餐：推薦選項 (京都車站周邊)
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">建議：</span> 晚上從<strong>銀閣寺</strong>回<strong>京都市區</strong>後，推薦在 <strong>JR 京都車站</strong> 周邊用餐。<br>
-                <span class="font-bold text-blue-700">選項：</span> 推薦車站內的<strong>和幸豬排</strong>或地下街的<strong>迴轉壽司</strong>，餐點選擇多且可快速用餐。
+                <span class="font-bold text-blue-700">建議：</span> 由於本日健行體力消耗大，推薦回到京都車站附近，選擇一家舒適的餐廳。<br>
+                <span class="font-bold text-blue-700">選項：</span> 京都車站<strong>地下街</strong>（Porta/The Cube）有眾多選擇，可快速享用日式/西式料理。
             </p>
             <a href="#" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結 (待填)

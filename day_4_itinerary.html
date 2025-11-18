@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4 行程規劃 (2/7)</title>
+    <title>Day 4 (2/7)：宇治與銀閣寺</title>
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -43,7 +43,7 @@
             <!-- Day 7 -->
             <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
             <!-- Day 8 (Active) -->
-            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
+            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
         </div>
     </div>
     
@@ -52,147 +52,190 @@
         <!-- 頁面標題 -->
         <header class="text-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
-                <span class="mr-2">📅</span> Day 4 (2/7)：天橋立與伊根舟屋
+                <span class="mr-2">📅</span> Day 4 (2/7)：宇治與銀閣寺
             </h1>
             <h2 class="text-xl text-gray-600 mt-1">
-                主要任務：前往「日本三景」之一的宮津灣
+                主要任務：探索宇治茶鄉與京都世界遺產
             </h2>
         </header>
 
         <!-- 區塊一：本日交通路線總覽 -->
         <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
-                <span class="mr-2">🚆</span> 本日交通路線總覽
+                <span class="mr-2">🍵</span> 本日交通路線總覽
             </h3>
             
             <p class="text-gray-700 mb-4">
-                本日移動路線：<strong>京都 → 天橋立 (特急火車) → 傘松公園/伊根舟屋 (公車/船) → 京都</strong>。
+                本日移動路線：<strong>飯店 → 東福寺站 (步行/JR) → 宇治 (JR) → 銀閣寺 (JR/公車) → 飯店 (公車)</strong>。
             </p>
 
             <!-- 關鍵數據列表 -->
             <div class="space-y-2">
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">⏱️ 單程時長：</span>
-                    <span>約 <strong>2 小時 1 分鐘</strong> (不含轉乘等待)</span>
+                    <span>約 <strong>30-35 分鐘</strong> (飯店至宇治，含步行)</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
-                    <span>約 <strong>¥12,000+</strong> (火車往返+當地交通, 依票券而異)</span>
+                    <span>約 <strong>¥940</strong> (JR 往返+公車)</span>
                 </div>
                 <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-32 text-indigo-600">🎯 票券建議：</span>
-                    <span>建議購買 <strong>JR 關西廣域鐵路周遊券</strong> 或 <strong>天橋立伊根周遊券</strong>，以節省費用。</span>
+                    <span class="font-bold w-32 text-indigo-600">🎯 交通優勢：</span>
+                    <span>利用 JR <strong>奈良線</strong>快速往返<strong>宇治</strong>。避開<strong>京都車站</strong>擁擠，從<strong>東福寺站</strong>轉乘。</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
-                    <span>本日行程極為緊湊，務必準時搭乘早班特急列車。</span>
+                    <span><strong>宇治</strong>景點密集，可將行李寄放在 JR <strong>宇治站</strong>。</span>
                 </div>
-            </div>
-            <!-- 新增丹後海陸交通公車網站連結按鈕 -->
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://www.tankai.jp/tw/bus/tankai-bus/" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gary-500 bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-150 shadow-md mt-4">
-                    🚌 丹後海陸交通公車官方網站
-            </a>
             </div>
         </div>
 
-        <!-- 區塊二：去程：京都 → 天橋立：分步導航 -->
+        <!-- 區塊二：飯店 → 宇治：分步導航 (去程) -->
         <div class="route-card">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
-                <span class="mr-2">🌅</span> 去程：京都 → 天橋立：火車時刻
+                <span class="mr-2">🌅</span> 飯店 → 宇治：分步導航
             </h3>
 
             <!-- 步驟容器 -->
             <div class="space-y-6">
-                <!-- 步驟 1: Hotel -> Kyoto Station Walk -->
+                <!-- 步驟 1: Hotel -> Tofuku-ji Station Walk -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 飯店 → JR 京都車站
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至東福寺站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>10 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">備註：</span> 請務必於 <strong>07:00</strong> 前抵達車站，預留找月台時間。
+                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 東福寺站</strong><br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>15-20 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">指示：</span> 沿著與 Day 5 相同的路線，步行至 **JR 東福寺站**月台。
                     </p>
                 </div>
 
-                <!-- 步驟 2: Kyoto -> Fukuchiyama Limited Express -->
-                <div class="border-l-4 border-sky-500 pl-4">
+                <!-- 步驟 2: Tofuku-ji -> Uji JR Line -->
+                <div class="border-l-4 border-green-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 京都 → 天橋立
+                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 東福寺站 → 宇治站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>京都</strong> 站 → <strong>天橋立</strong> 站<br>
-                        <span class="font-bold text-blue-700">交通：</span> 特急列車 (JR)<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>特急 喬立 1 号</strong><br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>2 小時 2 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥5,000</span> (含特急券與基本運費)<br>
-                        <span class="font-bold text-blue-700">時刻：</span> <strong>08:38 發車 → 10:40 抵達</strong>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>JR 東福寺站</strong> → <strong>JR 宇治站</strong><br>
+                        <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>奈良線</strong> (みやこ路快速/快速)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>15 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 找尋開往<strong>奈良</strong>方向的快速列車。JR <strong>宇治站</strong>步行至<strong>平等院</strong>約 10 分鐘。
                     </p>
                 </div>
-            	<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/3q5oVoDVKEHVoGK3A" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-400 rounded-lg hover:bg-gray-700 transition duration-150 shadow-md mt-4">
-                    🗺️ 乘車路線圖
-                </a>
-            	</div> 				
-          </div>
+            </div>
         </div>
-        
-        <!-- 區塊三：天橋立觀光行程 (景點資訊) -->
+
+        <!-- 區塊三：上午：宇治一日觀光行程 -->
         <div class="route-card bg-pink-50 border-t-4 border-pink-500">
             <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
-                <span class="mr-2">⛩️</span> 天橋立觀光行程
+                <span class="mr-2">🍵</span> 上午：宇治一日觀光行程
             </h3>
             
-          <p class="text-sm text-gray-600 font-bold mb-4">
-              抵達天橋立站後，建議沙洲步行後前往傘松公園觀景，再返回搭公車至伊根舟屋。
+            <p class="text-sm text-gray-600 font-bold mb-4">
+                <strong>宇治</strong>景點主要圍繞在<strong>宇治川</strong>兩岸，景點之間皆為步行。
+            </p>
+
+            <!-- 景點列表 -->
+            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
+                <li>
+                    <span class="font-bold text-pink-600">平等院 (Byōdō-in Temple)</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>世界遺產，日本 10 元硬幣圖案，著名的<strong>鳳凰堂</strong>。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">宇治橋 & 中之島公園</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
+                        <span class="font-bold text-pink-700">特色：</span>跨越<strong>宇治川</strong>，從<strong>中之島</strong>可欣賞<strong>平等院</strong>全景，並參觀<strong>十三重石塔</strong>。
+                    </p>
+                </li>
+                <li>
+                    <span class="font-bold text-pink-600">宇治橋通商店街</span>
+                    <p class="text-sm text-gray-600 ml-5">
+                        <span class="font-bold text-pink-700">預計停留：</span>彈性<br>
+                        <span class="font-bold text-pink-700">備註：</span><strong>宇治茶</strong>老店、點心店林立，可在這裡逛街並享用點心/午餐。
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- 區塊五：傍晚移動：哲學之道 → 飯店 (回程) -->
+        <div class="route-card bg-red-50 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+            <span class="mr-2">🛌</span> 移動路線：宇治 → 銀閣寺 </h3>
+            
+            <!-- 交通步驟 -->
+          <div class="space-y-3 text-gray-700 mb-6">
+                <h4 class="text-lg font-bold text-gray-900 mb-1">
+                    🚌 宇治 → 銀閣寺：分步導航
+                </h4>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
+                    <span class="ml-2">從 JR <strong>宇治站</strong> 搭乘 JR <strong>奈良線</strong> (快速) 返回 <strong>東福寺站</strong> (約 18分鐘 / <strong>¥240</strong>)。</span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
+                    <span class="ml-2">
+                        在<strong> 東福寺站 </strong>轉乘<strong class="font-bold text-red-900"> 京版本線(KH) </strong>到<strong class="font-bold text-red-900"> 出町柳 </strong>(約15分鐘)<br>
+                    </span>
+                </div>
+				<div class="flex items-start">
+                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
+                    <span class="ml-2">
+                        </strong>轉乘<strong class="font-bold text-red-900"> 203 City Bus </strong>從<strong class="font-bold text-red-900"> 出町柳車站前 </strong>到<strong class="font-bold text-red-900"> 銀閣寺道</strong>，再步行至<strong class="font-bold text-red-900"> 銀閣寺 </strong><br>
+                    </span>
+                </div>
+				<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="https://maps.app.goo.gl/ng1kmzWwn7AjjTRr5" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                🗺️ 路線圖
+            	</a>
+            	</div>
+          </div>
+	 
+      </div>		
+		
+      <!-- 區塊四：下午：銀閣寺與哲學之道 -->
+        <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
+            <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
+                <span class="mr-2">🍁</span> 下午：銀閣寺與哲學之道
+            </h3>
+            
+            <p class="text-sm text-gray-600 font-bold mb-4">
+              欣賞銀閣寺以及哲學之道漫步
           </p>
 
             <!-- 景點列表 -->
             <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
                 <li>
-                    <span class="font-bold text-pink-600">智恩寺文殊堂 &amp; 天橋立沙洲 (南側)</span>
+                    <span class="font-bold text-pink-600">銀閣寺 (Ginkaku-ji)</span>
                     <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>出站後步行可達，智恩寺是著名的求智慧寺廟。
-                    </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">觀光船：天橋立 → 一之宮棧橋</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">交通：</span> 觀光船<br>
-                        <span class="font-bold text-pink-700">時長：</span> 約 <strong>15分鐘
-                        </strong><br>
-                        <span class="font-bold text-pink-700">備註：</span> 觀光船只要短短15分鐘就能用一半的時間快速抵達目的地，還可從海上遠望天橋立的絕美景色。
-                    </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">傘松公園 (Kasamatsu Park)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">交通：</span> 纜車或吊椅<br>
                         <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">必看：</span> 天橋立北側展望台，著名的「胯下觀景」必試。
+                        <span class="font-bold text-pink-700">特色：</span>世界遺產，<strong>銀閣</strong>與著名的<strong>銀沙灘</strong>、<strong>向月台</strong>枯山水庭園。
                     </p>
                 </li>
                 <li>
-                    <span class="font-bold text-pink-600">伊根舟屋群 (Ine Funaya)</span>
+                    <span class="font-bold text-pink-600">哲學之道 (Philosopher's Path)</span>
                     <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">交通：</span> 丹後海陸交通公車，<strong>天橋立纜車下(傘松公園)</strong>→<strong>伊根</strong><br>
-<span class="font-bold text-pink-700">時長：</span> 約 <strong>1 小時</strong> (單程公車)<br>
-                        <span class="font-bold text-pink-700">備註：</span> 於<strong>傘松公園</strong>下山後，在纜車下方的公車站搭乘公車前往**伊根**，務必注意公車班次（冬季班次較少）。
+                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong> (悠閒漫步)<br>
+                        <span class="font-bold text-pink-700">特色：</span>沿著<strong>運河邊</strong>的寧靜小徑，適合傍晚時分，氣氛靜謐。
                     </p>
                 </li>
             </ol>
-			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/RCQi46JHQ98Garf26" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖(伊根特急バス)
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+              <a href="https://maps.app.goo.gl/VnqB8PzoZPoP1ogB8" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-300 rounded-lg hover:bg-yellow-500 transition duration-150 shadow-md mt-4">
+                🗺️ 路線圖
             </a>
-            </div>
-        </div>
-
-        <!-- 區塊四：回程：天橋立 → 京都：火車時刻 -->
+            </div>			
+      </div>
+        
+        <!-- 區塊五：傍晚移動：哲學之道 → 飯店 (回程) -->
         <div class="route-card bg-red-50 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-                <span class="mr-2">🛌</span> 傍晚回程：天橋立 → 京都
+                <span class="mr-2">🛌</span> 傍晚移動：哲學之道→晚餐餐廳 → 飯店搭乘 203 City Bus 到祇園站下車。
             </h3>
             
             <!-- 交通步驟 -->
@@ -200,43 +243,47 @@
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
                     <span class="ml-2">
-                        從<strong>伊根</strong>搭乘<strong>丹後海陸交通公車</strong>回到 <strong>天橋立站</strong>。
+                        搭乘公車返回京都車站。
                         <br>
-                        <span class="font-bold text-blue-700">交通：</span> 丹後海陸交通公車
+                        <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5 號</strong> (往京都車站方向)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時</strong> (請務必預留公車等待時間)
-						<br>
-					<span class="font-bold text-red-700">注意：</span> 要搭乘<strong class="font-bold text-red-700"> 15：08伊根站開 </strong>往天橋立(<strong class="font-bold text-red-700">最晚16:20</strong>)，來不及的話直接搭計程車。</span>
-                </div>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
+                        <br>
+                        <span class="font-bold text-blue-700">指示：</span> 抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
+                  </span>
+              </div>
+					
+					
+          </div>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
                     <span class="ml-2">
-                        搭乘特急列車直達京都。
+                        搭乘公車返回京都車站。
                         <br>
-                        <span class="font-bold text-blue-700">區間：</span> <strong>天橋立</strong> 站 → <strong>京都</strong> 站
+                        <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5 號</strong> (往京都車站方向)<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>特急 橋立 8 号或 10 号</strong> (直達)<br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>2 小時 12 分鐘</strong>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥5,000</span>
-                        <br>
-                        <span class="font-bold text-blue-700">時刻：</span> <strong>18:09 or 19:05 發車 → 20:21 or 21:19 抵達</strong>
+                        <span class="font-bold text-blue-700">指示：</span> 抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
                     </span>
                 </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
-                    <span class="ml-2">抵達京都車站後，步行回 <strong>CHISUN PREMIUM 京都九條</strong> 飯店。</span>
-                </div>
-            </div>
-			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/puSEvJEHYWm1uMn49" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖(伊根特急バス)
-            </a>
-            </div>			
+          </div>
+				<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                🗺️ 往餐廳
+            	</a>                
+				<a href="https://maps.app.goo.gl/JKKaaThgKNitNmB6A" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                🗺️ 回飯店
+            	</a>
+            	</div>		
             
-        </div>
+      </div>
 
-        <!-- 區塊五：餐點規劃 (Meals) -->
+        <!-- 區塊六：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
                 <span class="mr-2">🍽️</span> 餐點規劃
@@ -244,37 +291,40 @@
             
             <!-- 午餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-                午餐：Suginoya 本格手打ちうどん すぎのや
+                午餐：宇治地雞家心 (日式串燒)
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> 天橋立地區知名烏龍麵店，主打手工烏龍麵與日式料理。<br>
-                <span class="font-bold text-blue-700">備註：</span> 建議在上午景點結束後，步行前往用餐。
+                <span class="font-bold text-blue-700">特色：</span> 位於京阪<strong>宇治站</strong>附近，是<strong>宇治地區</strong>知名的串燒店，提供高品質<strong>地雞料理</strong>。<br>
+                <span class="font-bold text-blue-700">備註：</span> 建議在上午<strong>平等院</strong>參觀結束後，步行前往用餐。
             </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/fupaqhDGCp3dAN3T9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+			<a href="https://maps.app.goo.gl/coqHPWLMkGrTFxV36" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結
             </a></div>
 
-            <!-- 點心/輕食 -->
+            <!-- 點心 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-                點心/輕食：橋立茶屋 (はしだて茶屋)
+                點心：お肉のはりよし (可樂餅)
             </h4>
-            <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> 位於天橋立沙洲中間處，提供輕食、甜點與咖啡，是休息的好地方。<br>
-                <span class="font-bold text-blue-700">地點：</span> 位於天橋立沙洲上，適合騎自行車或步行穿越時休憩。
+          <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> <strong>宇治地區</strong>的人氣肉店，販售炸物可樂餅 (Croquette)，價格實惠，口味傳統。<br>
+                <span class="font-bold text-blue-700">地點：</span> 靠近 JR <strong>宇治站</strong>與<strong>宇治橋</strong>，適合離開<strong>宇治</strong>前作為輕食點心。
             </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/nyXw5hrqBCoW3Qsp6" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+			<a href="https://maps.app.goo.gl/MJwhiHzheWXEoujD9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結
             </a></div>
 
             <!-- 晚餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-                晚餐 (18:00前)：小田寿司(Oda Sushi)
-            </h4>
+              晚餐：Teppan Tavern Tenamonya(鐵板燒餐廳)
+          </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">建議：</span> 一家是日本天橋立的「小田壽司」，是間經營40年的在地壽司店，以新鮮的海鮮和壽司便當聞名<br>
-                <span class="font-bold text-blue-700">備註：</span> 使用當地新鮮海鮮，如甘蝦、鱧魚、丹後鯛魚等，提供從平價壽司到無菜單的 Omakase (主廚推薦) 等不同價位選擇。
-            </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/SKk29sy3qnh4ABkHA" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                <span class="font-bold text-blue-700">特色：</span> 是一間位於京都祇園、氣氛溫馨親切的日式鐵板燒居酒屋，由一對夫婦經營。它以提供高品質的鐵板料理和熱情好客的服務而聞名。<br>
+                <span class="font-bold text-blue-700">菜單：</span> 主打高品質的A5級和牛牛排，強調入口即化的口感，並以實惠的價格提供給顧客。其他受歡迎的菜品還包括手工餃子 (gyoza)、烤蝦、軟殼蟹、以及豬肉大阪燒 (Okonomiyaki) 等。
+          </p>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+			<a href="https://maps.app.goo.gl/UpNMnQNKQVNFa3hX9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
                 🗺️ 地圖連結
             </a></div>
         </div>
