@@ -66,7 +66,7 @@
             </h3>
             
             <p class="text-gray-700 mb-4">
-                本日移動路線：<strong>CHISUN PREMIUM 京都九條 → 嵐山地區 (JR) → 京都鐵道博物館 → 飯店</strong>。
+                本日移動路線：<strong>CHISUN PREMIUM 京都九條 → 嵐山地區 (JR) → 京都鐵道博物館 → 晚餐 → 飯店</strong>。
             </p>
 
             <!-- 關鍵數據列表 -->
@@ -77,7 +77,7 @@
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💰 總交通費用：</span>
-                    <span>約 <strong>¥670</strong> (JR 往返+公車)</span>
+                    <span>約 <strong class="text-red-600 font-extrabold">¥770</strong> (JR 往返+公車)</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">🎯 抵達目標：</span>
@@ -90,15 +90,15 @@
         <!-- 區塊二：飯店 → 嵐山：分步導航 (去程) -->
         <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
-                <span class="mr-2">🌅</span> 飯店 → 嵐山：分步導航
+                <span class="mr-2">🌅</span> 飯店 → 嵐山
             </h3>
 
             <!-- 步驟容器 -->
             <div class="space-y-6">
                 <!-- 步驟 1: Hotel -> Kyoto Station Walk -->
-                <div class="border-l-4 border-yellow-500 pl-4">
+                <div class="border-l-4 border-red-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至京都車站
+                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至京都車站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 京都車站</strong> (Kyoto Station)<br>
@@ -108,9 +108,9 @@
                 </div>
 
                 <!-- 步驟 2: Kyoto -> Saga-Arashiyama JR Line -->
-                <div class="border-l-4 border-green-500 pl-4">
+                <div class="border-l-4 border-yellow-500 pl-4">
                   <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 京都車站 → 嵯峨嵐山站
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 京都車站 → 嵯峨嵐山站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
@@ -131,102 +131,62 @@
 
         <!-- 區塊三：嵐山一日觀光行程 (景點資訊) -->
         <div class="route-card bg-pink-50 border-t-4 border-pink-500">
-            <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
                 <span class="mr-2">🎋</span> 嵐山、天龍寺漫步
             </h3>
-            
-            <p class="text-sm text-gray-600 italic mb-4">
-                *抵達 <strong>JR 嵯峨嵐山站</strong>後，步行約 10 分鐘進入嵐山主要景區，建議按照以下順序遊覽以節省體力。*
-            </p>
-
-            <!-- 景點列表 -->
-            <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
-                <li>
-                    <span class="font-bold text-pink-600">天龍寺 (Tenryu-ji)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>1.5 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>嵐山地區最重要的寺院，世界遺產，曹源池庭園是必看重點。
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <div class="border-l-4 border-pink-300 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-300 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            1</span> 🚶 野宮神社 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">停留：</span><strong> 0.5小時</strong><br>
+                        <span class="font-bold text-blue-700">特色：</span>以祈求締結良緣、學業進步、順利生產而聞名。神社最顯著的標誌是其入口處的「黑木鳥居」，這是日本最古老形式的鳥居之一。<br>
                     </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">嵐山竹林步道 & 野宮神社</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>從天龍寺北門出去即可直通竹林。<strong>野宮神社</strong>位於竹林中，是求良緣、學業的神社。
+                </div> 
+                <div class="border-l-4 border-pink-400 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-400 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            2</span> 🚶 嵐山竹林步道 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">停留：</span><strong> 1.5小時</strong><br>
+                        <span class="font-bold text-blue-700">特色：</span>位於京都市右京區嵯峨野的標誌性景點，以一條長約400公尺、兩旁種滿高聳竹子的步道聞名，步道從世界遺產「天龍寺」北門延伸至「野宮神社」，最終抵達「大河內山莊」。<br>
                     </p>
-                </li>
-                <li>
-                    <span class="font-bold text-pink-600">渡月橋 (Togetsukyo Bridge)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong> (含拍照)<br>
-                        <span class="font-bold text-pink-700">特色：</span>嵐山的象徵，橫跨桂川，風景壯闊。
+                </div>
+                <div class="border-l-4 border-pink-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            3</span> 🚶天龍寺 (Tenryu-ji)
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">停留：</span><strong> 1小時</strong><br>
+                        <span class="font-bold text-blue-700">特色：</span>臨濟宗天龍寺派的大本山，於1339年由足利尊氏為供養後醍醐天皇而創立，庭園以「曹源池庭園」聞名，是日本第一個被指定為「史跡及特別名勝」的庭園。 <br>
                     </p>
-                </li>
-
-                <li>
-                    <span class="font-bold text-pink-600">友禪的光林 (Kimono Forest)</span>
-                    <p class="text-sm text-gray-600 ml-5">
-                        <span class="font-bold text-pink-700">預計停留：</span><strong>0.5 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>位於 <strong>嵐電嵐山站</strong> (Randen Arashiyama) 內，是數百根友禪花色圓柱組成的小徑，適合拍照。
+                </div>
+ 
+                <div class="border-l-4 border-pink-600 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            4</span> 🚶 渡月橋 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">停留：</span><strong> 0.5小時</strong><br>
+                        <span class="font-bold text-blue-700">特色：</span>在鎌倉時代，龜山上皇看到月亮在橋上升起，感嘆道「形如彎月，渡橋如渡月」，因此將其命名為「渡月橋」（意為「渡過月亮」的橋）。<br>
                     </p>
-                </li>
-            </ol>
-			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/B6VdoNf6bNtpigcJ8" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                </div>                               
+            </div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                 🗺️ 路線圖
             </a>
             </div>
-        </div>
+        </div>          
 
-        <!-- 區塊四：下午：京都鐵道博物館 -->
-        <div class="route-card bg-gary-100 border-t-4 border-red-500">
-            <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
-                <span class="mr-2">🚂</span> 下午：京都鐵道博物館 (Kyoto Railway Museum)
-            </h3>
-            
-            <p class="text-sm text-gray-600 font-bold mb-4">
-                從嵐山搭乘 JR 嵯峨野線，在 **梅小路京都西站** 下車，步行前往博物館。
-            </p>
-
-            <!-- 交通步驟 -->
-            <div class="space-y-3 text-gray-700 mb-4">
-                <h4 class="text-lg font-bold text-gray-900 mb-1">
-                    🚅 嵐山 → 博物館：分步導航
-                </h4>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從 **JR 嵯峨嵐山站** 搭乘 JR <strong>嵯峨野線</strong> 至 <strong>梅小路京都西站</strong> (約 12 分鐘 / <strong>¥200</strong>)。</span>
-                </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
-                    <span class="ml-2">
-                        從 **梅小路京都西站** 步行前往博物館。<br>
-                        <span class="font-bold text-blue-700">步行時長：</span> 約 <strong>5-7 分鐘</strong>
-                        <br>
-                        <span class="font-bold text-blue-700">提示：</span> 博物館位於梅小路公園內，附近有京都水族館。
-                    </span>
-                </div>
-            </div>
-
-            <!-- 景點資訊 -->
-            <div class="space-y-2 text-gray-800 border-t pt-3">
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-20 text-pink-600">預計停留：</span>
-                    <span><strong>2.5 小時</strong> (建議參觀時間)</span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-20 text-pink-600">特色：</span>
-                    <span>展示多輛日本經典火車頭，可近距離觀看扇形車庫與蒸汽火車運行。</span>
-                </div>
-            </div>
-			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/mKgP4izVvnFVtguMA" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gary-500 bg-yellow-300 rounded-lg hover:bg-yellow-500 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖
-            </a>
-            </div>			
-        </div>
-
-        <!-- 區塊二：神戶機場 → 奈良：分步導航 -->
+        <!-- 區塊四：前往京都鐵道博物館 -->
         <div class="route-card bg-gary-100 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
                 <span class="mr-2">🚂</span> 京都鐵道博物館 (Kyoto Railway Museum)
@@ -256,20 +216,6 @@
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong>。
                     </p>
                 </div>
-
-                <!-- 步驟 3: Sannomiya -> Kintetsu Nara (關鍵段) -->
-                <div class="border-l-4 border-green-500 pl-4">
-                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🦌 阪神三宮站 → 近鐵奈良站
-                    </h4>
-                    <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">交通：</span> 電車 (直通)<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> 阪神本線 <strong>快速急行</strong> → <strong>近鐵奈良線</strong><br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 17 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> 約 <span class="text-red-600 font-extrabold">¥1,100</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 尋找開往<strong>快速急行近鐵奈良</strong>方向的快速急行列車，通常無需換乘即可直達，是前往奈良最方便的電車路線。
-                    </p>
-                </div>
             </div>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
                 <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" 
@@ -279,40 +225,83 @@
             </div>
         </div>        
 
-
-        <!-- 區塊五：傍晚移動：博物館 → 京都飯店 (回程) -->
-        <div class="route-card bg-gary-100 border-t-4 border-red-500">
-            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-                <span class="mr-2">🛌</span> 傍晚移動：博物館 → 飯店
+        <!-- 區塊三：嵐山一日觀光行程 (景點資訊) -->
+        <div class="route-card bg-pink-50 border-t-4 border-pink-500">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🚂</span> 京都鐵道博物館&梅小路公園
             </h3>
-            
-            <!-- 交通步驟 -->
-            <div class="space-y-3 text-gray-700">
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從博物館步行回 **JR 梅小路京都西站**。</span>
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <div class="border-l-4 border-pink-300 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-300 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            1</span> 🚶 梅小路公園 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">停留：</span><strong> 0.5小時</strong><br>
+                        <span class="font-bold text-blue-700">特色：</span><strong> 蒸汽火車體驗：</strong>在園內的軌道上，可以搭乘由真正蒸汽火車頭牽引的客車，體驗復古的鐵道風情。<br>
+                    </p>
+                </div> 
+                <div class="border-l-4 border-pink-400 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-pink-400 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                            2</span> 🚶 京都鐵道博物館 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">1樓：</span><strong> 扇形車庫：</strong>收藏著多達 20 輛珍貴的蒸汽火車頭，是日本現存最古老的鋼筋混凝土扇形車庫。<br>
+                        <span class="font-bold text-blue-700">2樓：</span><strong> 行駛模擬裝置：</strong>遊客可以體驗駕駛員訓練時使用的模擬裝置，學習鐵道運作原理。<br>
+                        <span class="font-bold text-blue-700">3樓：</span><strong> 天空露台（Sky Terrace）：</strong>在這裡可以眺望京都車站往返的新幹線和在來線列車，同時欣賞京都市區的風景。<br>
+                    </p>
+
+                </div>                               
+            </div>
+        </div>
+
+        <!-- 區塊四：前往京都鐵道博物館 -->
+        <div class="route-card bg-gary-100 border-t-4 border-red-500">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center border-b pb-3">
+                <span class="mr-2">🛌</span> 博物館 → 用餐 炸豬排一番 → 回飯店
+            </h3>
+            <!-- 步驟容器 -->
+            <div class="space-y-6">
+                <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至 炸豬排一番 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">路線：</span> 往木津屋橋通 左轉 黑門通<br>
+                        <span class="font-bold text-blue-700">時長：</span> 約 <strong> 5 分鐘</strong><br>
+                    </p>
                 </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
-                    <span class="ml-2">
-                        梅小路京都西站 → <strong>JR 京都車站</strong>。<br>
-                        <span class="font-bold text-blue-700">交通：</span> JR 嵯峨野線 (往京都方向)<br>
-                        <span class="font-bold text-blue-700">時長：</span> 約 <strong>3 分鐘</strong>
-                        <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
-                    </span>
+                <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                    <a href="https://maps.app.goo.gl/CyNQP2jv8Y5oFqHu6" target="_blank" 
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                    🗺️ 路線圖
+                </a>
                 </div>
-                <div class="flex items-start">
-                    <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
-                    <span class="ml-2">在<strong>炸豬排一番(とんかつ 一番)</strong>享用晚餐後，搭乘公車<strong>(207 City Bus )</strong>&nbsp;從<strong>七条大宮・京都水族館前</strong>上車到<strong>九条河原町</strong>下車，再步行<strong>CHISUN PREMIUM 京都九條</strong> 飯店 (約 20 分鐘)。</span>
+                <!-- 步驟 2: Sannomiya Walk -->
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
+                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🛌 從餐廳返回飯店 
+                    </h4>
+                    <p class="text-sm text-gray-600 ml-8">
+                        <span class="font-bold text-blue-700">指示：</span> 離開 餐廳 前往 公車站<strong>七条大宮・京都水族館前</strong> <br>
+                        <span class="font-bold text-blue-700">車種：</span> <strong class="font-bold text-white bg-red-500 rounded-full">207 City Bus </strong>往<strong class="font-bold text-blue-600">東福寺</strong>方向 <br>
+                        <span class="font-bold text-blue-700">終點：</span> <strong>九条河原町</strong> <br>
+                        <span class="font-bold text-blue-700">時長：</span> <strong>7站、約 20 分鐘</strong><br>
+                        <span class="font-bold text-blue-700">費用：</span> <strong class="text-red-600 font-extrabold">¥230</strong>
+                    </p>
                 </div>
             </div>
-			<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/nxfqHAt8JnLhPHdx7" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gary-500 bg-red-300 rounded-lg hover:bg-red-400 transition duration-150 shadow-md mt-4">
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="https://maps.app.goo.gl/omCRuaSufW5xnm5e7" target="_blank" 
+                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                 🗺️ 路線圖
             </a>
-            </div>	            
-        </div>
+            </div>
+        </div>         
+
 
         <!-- 區塊六：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
