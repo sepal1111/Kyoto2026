@@ -41,6 +41,62 @@ const itineraryData = {
                 items: ["個人常備藥 (感冒/腸胃/止痛)", "OK繃/外傷藥膏", "口罩 (備用)", "折疊傘 (必備)", "塑膠袋 (裝髒衣物)", "暖暖包"]
             }
         ],
+        // New Features Data
+        phrasebook: [
+            {
+                category: "基本用語 (Basic)",
+                phrases: [
+                    { ja: "こんにちは", ro: "Konnichiwa", zh: "你好" },
+                    { ja: "ありがとう", ro: "Arigatou", zh: "謝謝" },
+                    { ja: "すみません", ro: "Sumimasen", zh: "不好意思 / 請問" },
+                    { ja: "はい / いいえ", ro: "Hai / Iie", zh: "是 / 不是" }
+                ]
+            },
+            {
+                category: "購物 (Shopping)",
+                phrases: [
+                    { ja: "これください", ro: "Kore kudasai", zh: "請給我這個" },
+                    { ja: "いくらですか？", ro: "Ikura desu ka?", zh: "請問多少錢？" },
+                    { ja: "免税できますか？", ro: "Menzei dekimasu ka?", zh: "可以免稅嗎？" },
+                    { ja: "カードは使えますか？", ro: "Kaado wa tsukaemasu ka?", zh: "可以刷卡嗎？" }
+                ]
+            },
+            {
+                category: "餐廳 (Dining)",
+                phrases: [
+                    { ja: "メニューをください", ro: "Menyuu o kudasai", zh: "請給我菜單" },
+                    { ja: "お水ください", ro: "Omizu kudasai", zh: "請給我水" },
+                    { ja: "お会計お願いします", ro: "Okaikei onegaishimasu", zh: "麻煩結帳" },
+                    { ja: "トイレはどこですか？", ro: "Toire wa doko desu ka?", zh: "廁所在哪裡？" }
+                ]
+            },
+            {
+                category: "交通 (Transport)",
+                phrases: [
+                    { ja: "駅はどこですか？", ro: "Eki wa doko desu ka?", zh: "車站在哪裡？" },
+                    { ja: "切符売り場はどこですか？", ro: "Kippu uriba wa doko desu ka?", zh: "售票處在哪裡？" },
+                    { ja: "この電車は京都に行きますか？", ro: "Kono densha wa Kyoto ni ikimasu ka?", zh: "這班車去京都嗎？" }
+                ]
+            }
+        ],
+        emergency: {
+            police: "110",
+            ambulance: "119",
+            embassy: {
+                name: "台北駐大阪經濟文化辦事處",
+                phone: "+81-6-6227-8623",
+                address: "大阪市北區中之島2-3-18"
+            },
+            hospital: {
+                name: "京都武田病院",
+                address: "京都市下京区塩小路通西洞院東入東塩小路町841-5"
+            }
+        },
+        wallet: [
+            { name: "Haruka 車票", note: "請截圖 QR Code 存放於此", link: "#" },
+            { name: "Visit Japan Web", note: "入境審查 QR Code", link: "https://vjw-lp.digital.go.jp/zh-hant/" },
+            { name: "環球影城門票", note: "電子票券", link: "#" }
+        ],
         weather: {
             title: "2月京都氣候與穿搭建議",
             temp: "平均氣溫 1°C ~ 9°C",
