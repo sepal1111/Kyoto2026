@@ -483,71 +483,42 @@
                                         <li v-for="(item, lIndex) in section.items" :key="lIndex"
                                             class="flex items-center gap-2 text-sm text-slate-700">
                                             <i class="fa-solid fa-check text-green-500 text-xs"></i>
-                                            {{ item }}
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- End of Day Message -->
-                <div class="text-center py-8 opacity-50">
-                    class="absolute inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-end sm:items-center
-                    justify-center p-0 sm:p-4">
-                    <div
-                        class="bg-white w-full h-[90%] sm:h-auto sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-                        <!-- Modal Header -->
-                        <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-white z-10">
-                            <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">
-                                <i class="fa-solid fa-clipboard-check text-green-500"></i> 行李檢查表
-                            </h3>
-                            <button @click="showPackingList = false"
-                                class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </div>
-
-                        <!-- Modal Content -->
-                        <div class="flex-1 overflow-y-auto p-5 space-y-6 bg-slate-50">
-                            <div v-for="(category, index) in itinerary.overview.packingList" :key="index"
-                                class="bg-white rounded-xl p-4 shadow-sm border border-slate-100">
-                                <h4 class="font-bold text-slate-700 mb-3 text-sm border-b border-slate-50 pb-2">{{
-                                    category.category }}</h4>
-                                <div class="space-y-2">
-                                    <label v-for="(item, iIndex) in category.items" :key="iIndex"
-                                        class="flex items-start gap-3 cursor-pointer group">
-                                        <div class="relative flex items-center">
-                                            <input type="checkbox" class="peer sr-only" :value="item"
-                                                v-model="checkedItems">
-                                            <div
-                                                class="w-5 h-5 border-2 border-slate-300 rounded transition-colors peer-checked:bg-green-500 peer-checked:border-green-500">
+                                            <h4
+                                                class="font-bold text-slate-700 mb-3 text-sm border-b border-slate-50 pb-2">
+                                                {{
+                                                category.category }}</h4>
+                                            <div class="space-y-2">
+                                                <label v-for="(item, iIndex) in category.items" :key="iIndex"
+                                                    class="flex items-start gap-3 cursor-pointer group">
+                                                    <div class="relative flex items-center">
+                                                        <input type="checkbox" class="peer sr-only" :value="item"
+                                                            v-model="checkedItems">
+                                                        <div
+                                                            class="w-5 h-5 border-2 border-slate-300 rounded transition-colors peer-checked:bg-green-500 peer-checked:border-green-500">
+                                                        </div>
+                                                        <i
+                                                            class="fa-solid fa-check text-white text-xs absolute top-1 left-1 opacity-0 peer-checked:opacity-100 transition-opacity"></i>
+                                                    </div>
+                                                    <span
+                                                        class="text-sm text-slate-600 group-hover:text-slate-800 transition-colors select-none"
+                                                        :class="{'line-through text-slate-400': checkedItems.includes(item)}">{{
+                                                        item
+                                                        }}</span>
+                                                </label>
                                             </div>
-                                            <i
-                                                class="fa-solid fa-check text-white text-xs absolute top-1 left-1 opacity-0 peer-checked:opacity-100 transition-opacity"></i>
-                                        </div>
-                                        <span
-                                            class="text-sm text-slate-600 group-hover:text-slate-800 transition-colors select-none"
-                                            :class="{'line-through text-slate-400': checkedItems.includes(item)}">{{
-                                            item
-                                            }}</span>
-                                    </label>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Modal Footer -->
-                        <div class="p-4 border-t border-slate-100 bg-white flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-500">已完成 {{ checkedItems.length }} 項</span>
-                            <button @click="showPackingList = false"
-                                class="px-6 py-2 bg-slate-800 text-white text-sm font-bold rounded-full hover:bg-slate-700 transition-colors shadow-lg">
-                                完成
-                            </button>
+                            <!-- Modal Footer -->
+                            <div class="p-4 border-t border-slate-100 bg-white flex justify-between items-center">
+                                <span class="text-xs font-bold text-slate-500">已完成 {{ checkedItems.length }} 項</span>
+                                <button @click="showPackingList = false"
+                                    class="px-6 py-2 bg-slate-800 text-white text-sm font-bold rounded-full hover:bg-slate-700 transition-colors shadow-lg">
+                                    完成
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
             </transition>
 
             <!-- Phrasebook Modal -->
