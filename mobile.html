@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>2026 京都之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Roboto"', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        kyoto: {
+                            dark: '#2C3E50',
+                            red: '#C0392B',
+                            indigo: '#5D6D7E',
+                            bg: '#F8F9FA',
+                            card: '#FFFFFF'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'float': '0 8px 30px -4px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #F8F9FA;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth Transitions */
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .slide-enter-active,
+        .slide-leave-active {
+            transition: all 0.3s ease-out;
+        }
+
+        .slide-enter-from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .slide-leave-to {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Timeline Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 0;
+            left: 19px;
+            width: 2px;
+            background: #E2E8F0;
+            z-index: 0;
+        }
+
+        .timeline-item:last-child .timeline-line::before {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 h-screen flex flex-col overflow-hidden safe-area-pb">
+    <div id="app" class="flex flex-col h-full relative">
+
+        <!-- Sticky Header with Glassmorphism -->
+        <header class="glass z-30 flex-none pt-safe-top">
+            <div class="px-5 py-3 flex justify-between items-center">
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Kyoto Trip 2026</span>
+                    <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <span v-if="currentDayId" class="text-indigo-600">Day {{ currentDayId }}</span>
+                        <span v-else>行程總覽</span>
+                    </h1>
+                </div>
+                <button v-if="currentDayId" @click="currentDayId = null"
+                    class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Scrollable Tabs -->
+            <div class="overflow-x-auto hide-scrollbar pb-3 px-4 flex gap-3 snap-x">
+                <button @click="switchDay(null)"
+                    class="snap-start flex-none px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-sm"
+                    :class="currentDayId === null ? 'bg-slate-800 text-white shadow-lg scale-105' : 'bg-white text-slate-500 border border-slate-100'">
+                    總覽
+                </button>
+                <button v-for="day in itinerary.days" :key="day.id" @click="switchDay(day.id)"
+                    class="snap-start flex-none px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-sm"
+                    :class="currentDayId === day.id ? 'bg-indigo-600 text-white shadow-lg scale-105' : 'bg-white text-slate-500 border border-slate-100'">
+                    Day {{ day.id }}
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto scroll-smooth bg-slate-50" ref="mainContent">
+            <div class="pb-24 px-4 pt-4 max-w-md mx-auto">
+
+                <transition name="fade" mode="out-in">
+
+                    <!-- OVERVIEW VIEW -->
+                    <div v-if="!currentDayId" key="overview" class="space-y-6">
+
+                        <!-- Trip Hero Card -->
+                        <div
+                            class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 text-white shadow-float relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl">
+                            </div>
+                            <div class="relative z-10">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div>
+                                        <h2 class="text-3xl font-bold">{{ itinerary.tripName }}</h2>
+                                        <p class="text-slate-300 mt-1 text-sm font-medium">{{ itinerary.period }}</p>
+                                    </div>
+                                    <i class="fa-solid fa-torii-gate text-4xl opacity-20"></i>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                                            <i class="fa-solid fa-hotel text-sm"></i>
+                                        </div>
+                                        <div class="text-xs text-slate-300 uppercase tracking-wide font-bold">
+                                            Accommodation</div>
+                                    </div>
+                                    <div class="font-bold text-lg">{{ itinerary.overview.hotel.name }}</div>
+                                    <div class="text-xs text-slate-300 mt-1 truncate">{{
+                                        itinerary.overview.hotel.address }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flight Cards (Boarding Pass Style) -->
+                        <div class="space-y-4">
+                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider ml-1">Flights</h3>
+
+                            <!-- Outbound -->
+                            <div class="bg-white rounded-2xl shadow-soft overflow-hidden relative">
+                                <div class="absolute top-0 left-0 w-1.5 h-full bg-blue-500"></div>
+                                <div class="p-5">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-1 rounded">去程
+                                            OUTBOUND</span>
+                                        <span class="text-slate-400 text-xs font-mono">{{
+                                            itinerary.overview.flights.outbound.date }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-slate-800">TPE</div>
+                                            <div class="text-xs text-slate-500 mt-1">{{
+                                                itinerary.overview.flights.outbound.terminal }}</div>
+                                        </div>
+                                        <div class="flex-1 px-4 flex flex-col items-center">
+                                            <i class="fa-solid fa-plane text-slate-300 transform rotate-90 mb-1"></i>
+                                            <div
+                                                class="w-full h-px bg-slate-200 border-t border-dashed border-slate-300">
+                                            </div>
+                                            <div class="text-xs font-bold text-slate-600 mt-1">{{
+                                                itinerary.overview.flights.outbound.flight }}</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-2xl font-bold text-slate-800">UKB</div>
+                                            <div class="text-xs text-slate-500 mt-1">Kobe</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-4 pt-4 border-t border-slate-100">
+                                        <div>
+                                            <div class="text-xs text-slate-400">Departs</div>
+                                            <div class="font-bold text-slate-700">{{
+                                                itinerary.overview.flights.outbound.dep }}</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-xs text-slate-400">Arrives</div>
+                                            <div class="font-bold text-slate-700">{{
+                                                itinerary.overview.flights.outbound.arr }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Inbound -->
+                            <div class="bg-white rounded-2xl shadow-soft overflow-hidden relative">
+                                <div class="absolute top-0 left-0 w-1.5 h-full bg-indigo-500"></div>
+                                <div class="p-5">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span
+                                            class="bg-indigo-50 text-indigo-600 text-xs font-bold px-2 py-1 rounded">回程
+                                            INBOUND</span>
+                                        <span class="text-slate-400 text-xs font-mono">{{
+                                            itinerary.overview.flights.inbound.date }}</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-slate-800">KIX</div>
+                                            <div class="text-xs text-slate-500 mt-1">{{
+                                                itinerary.overview.flights.inbound.terminal }}</div>
+                                        </div>
+                                        <div class="flex-1 px-4 flex flex-col items-center">
+                                            <i class="fa-solid fa-plane text-slate-300 transform rotate-90 mb-1"></i>
+                                            <div
+                                                class="w-full h-px bg-slate-200 border-t border-dashed border-slate-300">
+                                            </div>
+                                            <div class="text-xs font-bold text-slate-600 mt-1">{{
+                                                itinerary.overview.flights.inbound.flight }}</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-2xl font-bold text-slate-800">TPE</div>
+                                            <div class="text-xs text-slate-500 mt-1">Taipei</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-4 pt-4 border-t border-slate-100">
+                                        <div>
+                                            <div class="text-xs text-slate-400">Departs</div>
+                                            <div class="font-bold text-slate-700">{{
+                                                itinerary.overview.flights.inbound.dep }}</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-xs text-slate-400">Arrives</div>
+                                            <div class="font-bold text-slate-700">{{
+                                                itinerary.overview.flights.inbound.arr }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weather Card -->
+                        <div class="bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl p-1 shadow-soft text-white">
+                            <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                                        <i class="fa-solid fa-snowflake text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">{{ itinerary.overview.weather.title }}</h3>
+                                        <p class="text-xs text-sky-100">{{ itinerary.overview.weather.temp }}</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-sky-50 mb-4 leading-relaxed opacity-90">{{
+                                    itinerary.overview.weather.desc }}</p>
+
+                                <div class="grid grid-cols-1 gap-3">
+                                    <div class="bg-black/20 rounded-lg p-3">
+                                        <h4 class="text-xs font-bold text-sky-200 uppercase mb-2">穿搭建議</h4>
+                                        <ul class="space-y-1">
+                                            <li v-for="item in itinerary.overview.weather.clothing"
+                                                class="text-xs flex items-start gap-2">
+                                                <span class="mt-1 w-1 h-1 bg-sky-300 rounded-full"></span>
+                                                {{ item }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <a :href="itinerary.overview.parking.mapLink" target="_blank"
+                                class="bg-white p-4 rounded-2xl shadow-soft flex flex-col items-center justify-center gap-3 active:scale-95 transition-transform h-32">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 text-xl">
+                                    <i class="fa-solid fa-square-parking"></i>
+                                </div>
+                                <span class="text-sm font-bold text-slate-600">機場停車</span>
+                            </a>
+                            <div @click="showPackingList = true"
+                                class="bg-white p-4 rounded-2xl shadow-soft flex flex-col items-center justify-center gap-3 active:scale-95 transition-transform h-32 cursor-pointer">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-500 text-xl">
+                                    <i class="fa-solid fa-suitcase-rolling"></i>
+                                </div>
+                                <span class="text-sm font-bold text-slate-600">行李清單</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- DAY DETAIL VIEW -->
+                    <div v-else key="day-detail" class="space-y-6">
+
+                        <!-- Day Header -->
+                        <div class="bg-white rounded-3xl p-6 shadow-soft border border-slate-100 text-center">
+                            <div
+                                class="inline-block px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-bold mb-3">
+                                {{ currentDay.date }}
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 mb-2">{{ currentDay.title }}</h2>
+                            <p class="text-slate-500 text-sm">{{ currentDay.mainTask }}</p>
+                        </div>
+
+                        <!-- Timeline Container -->
+                        <div class="space-y-8 relative">
+
+                            <!-- Loop through sections -->
+                            <div v-for="(section, index) in currentDay.sections" :key="index"
+                                class="timeline-item relative pl-10">
+
+                                <!-- Timeline Line & Icon -->
+                                <div
+                                    class="timeline-line absolute left-0 top-0 bottom-0 w-10 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full border-4 border-slate-50 flex items-center justify-center shadow-sm z-10"
+                                        :class="getSectionColor(section.type)">
+                                        <i :class="getIconForType(section.type)" class="text-white text-sm"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Content Card -->
+                                <div
+                                    class="bg-white rounded-2xl shadow-soft p-5 border border-slate-100 hover:shadow-md transition-shadow">
+
+                                    <!-- Header -->
+                                    <div class="flex justify-between items-start mb-3">
+                                        <h3 class="font-bold text-lg text-slate-800">{{ section.title }}</h3>
+                                        <a v-if="section.mapLink" :href="section.mapLink" target="_blank"
+                                            class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-blue-500 hover:bg-blue-50 transition-colors">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Summary Content -->
+                                    <div v-if="section.type === 'summary'" class="space-y-3">
+                                        <p class="text-sm text-slate-600 leading-relaxed">{{ section.content }}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <div v-for="stat in section.stats"
+                                                class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+                                                <div class="text-[10px] text-slate-400 uppercase font-bold">{{
+                                                    stat.label }}</div>
+                                                <div class="text-sm font-bold text-slate-700">{{ stat.value }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Transport Content -->
+                                    <div v-if="section.type === 'transport'" class="space-y-4 mt-2">
+                                        <div v-for="(step, sIndex) in section.steps" :key="sIndex"
+                                            class="relative pl-4 border-l-2 border-slate-100">
+                                            <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300">
+                                            </div>
+                                            <h4 class="font-bold text-sm text-slate-800">{{ step.title }}</h4>
+
+                                            <div class="flex flex-wrap gap-2 mt-1.5">
+                                                <span v-if="step.time"
+                                                    class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-medium">
+                                                    <i class="fa-regular fa-clock mr-1"></i>{{ step.time }}
+                                                </span>
+                                                <span v-if="step.cost"
+                                                    class="text-xs bg-orange-50 text-orange-600 px-2 py-0.5 rounded-md font-medium">
+                                                    <i class="fa-solid fa-yen-sign mr-1"></i>{{ step.cost }}
+                                                </span>
+                                            </div>
+
+                                            <p v-if="step.route" class="text-xs text-slate-500 mt-1.5">
+                                                <span class="font-bold text-indigo-500">路線：</span>{{ step.route }}
+                                            </p>
+                                            <p v-if="step.note" class="text-xs text-slate-400 mt-1 italic">{{ step.note
+                                                }}</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sightseeing Content -->
+                                    <div v-if="section.type === 'sightseeing'" class="space-y-3">
+                                        <div v-for="(spot, spIndex) in section.spots" :key="spIndex"
+                                            class="flex gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div class="mt-1 text-pink-500 flex-none"><i class="fa-solid fa-camera"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800 text-sm">{{ spot.name }}</h4>
+                                                <div class="text-xs text-slate-500 mt-0.5" v-if="spot.time">
+                                                    <i class="fa-regular fa-clock mr-1"></i>停留 {{ spot.time }}
+                                                </div>
+                                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">{{ spot.note }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Meals Content -->
+                                    <div v-if="section.type === 'meals'" class="space-y-3">
+                                        <div v-for="(item, mIndex) in section.items" :key="mIndex"
+                                            class="bg-lime-50/50 rounded-xl p-3 border border-lime-100/50">
+                                            <div class="flex justify-between items-start">
+                                                <div>
+                                                    <span
+                                                        class="text-[10px] font-bold text-lime-700 bg-lime-200/50 px-2 py-0.5 rounded-full mb-1 inline-block">{{
+                                                        item.type }}</span>
+                                                    <h4 class="font-bold text-slate-800 text-sm">{{ item.name }}</h4>
+                                                </div>
+                                                <a v-if="item.mapLink" :href="item.mapLink" target="_blank"
+                                                    class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-lime-600 shadow-sm">
+                                                    <i class="fa-solid fa-location-arrow text-xs"></i>
+                                                </a>
+                                            </div>
+                                            <p class="text-xs text-slate-600 mt-1">{{ item.note }}</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- List Content -->
+                                    <div v-if="section.type === 'list'" class="space-y-2">
+                                        <ul class="space-y-2">
+                                            <li v-for="(item, lIndex) in section.items" :key="lIndex"
+                                                class="flex items-center gap-2 text-sm text-slate-700">
+                                                <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                                                {{ item }}
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Day Message -->
+                        <div class="text-center py-8 opacity-50">
+                            <i class="fa-solid fa-moon text-indigo-300 text-2xl mb-2"></i>
+                            <p class="text-xs text-slate-400">Day {{ currentDayId }} Completed</p>
+                        </div>
+
+                    </div>
+                </transition>
+            </div>
+        </main>
+
+        <!-- Packing List Modal -->
+        <transition name="fade">
+            <div v-if="showPackingList"
+                class="absolute inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+                <div
+                    class="bg-white w-full h-[90%] sm:h-auto sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+                    <!-- Modal Header -->
+                    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-white z-10">
+                        <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-check text-green-500"></i> 行李檢查表
+                        </h3>
+                        <button @click="showPackingList = false"
+                            class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- Modal Content -->
+                    <div class="flex-1 overflow-y-auto p-5 space-y-6 bg-slate-50">
+                        <div v-for="(category, index) in itinerary.overview.packingList" :key="index"
+                            class="bg-white rounded-xl p-4 shadow-sm border border-slate-100">
+                            <h4 class="font-bold text-slate-700 mb-3 text-sm border-b border-slate-50 pb-2">{{
+                                category.category }}</h4>
+                            <div class="space-y-2">
+                                <label v-for="(item, iIndex) in category.items" :key="iIndex"
+                                    class="flex items-start gap-3 cursor-pointer group">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="peer sr-only" :value="item"
+                                            v-model="checkedItems">
+                                        <div
+                                            class="w-5 h-5 border-2 border-slate-300 rounded transition-colors peer-checked:bg-green-500 peer-checked:border-green-500">
+                                        </div>
+                                        <i
+                                            class="fa-solid fa-check text-white text-xs absolute top-1 left-1 opacity-0 peer-checked:opacity-100 transition-opacity"></i>
+                                    </div>
+                                    <span
+                                        class="text-sm text-slate-600 group-hover:text-slate-800 transition-colors select-none"
+                                        :class="{'line-through text-slate-400': checkedItems.includes(item)}">{{ item
+                                        }}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="p-4 border-t border-slate-100 bg-white flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-500">已完成 {{ checkedItems.length }} 項</span>
+                        <button @click="showPackingList = false"
+                            class="px-6 py-2 bg-slate-800 text-white text-sm font-bold rounded-full hover:bg-slate-700 transition-colors shadow-lg">
+                            完成
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
