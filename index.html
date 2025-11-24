@@ -36,6 +36,11 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+        /* 自定義 Checkbox 樣式 */
+        .checklist-item input:checked + span {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
     </style>
 </head>
 <body class="p-0 sm:p-6">
@@ -80,7 +85,7 @@
         <!-- 區塊一：桃園機場 (TPE) 停車資訊 -->
         <div class="route-card bg-cyan-50 border-t-4 border-cyan-500">
             <h3 class="text-2xl font-semibold text-cyan-800 mb-4 flex items-center">
-                <span class="mr-2">🅿️</span> 機場停車資訊
+                <span class="mr-2">🅿️</span> 台灣桃園機場 (TPE) 停車資訊
             </h3>
             
             <p class="text-sm text-gray-600 font-bold mb-4">
@@ -180,7 +185,7 @@
             </div>
         </div>
 
-        <!-- NEW: 7天天氣預報區塊 -->
+        <!-- 天氣預報區塊 -->
         <div class="route-card bg-sky-50 border-t-4 border-sky-400">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-2xl font-semibold text-sky-800 flex items-center">
@@ -198,6 +203,7 @@
             </div>
             <p class="text-xs text-gray-400 mt-2 text-right">*左右滑動查看更多日期</p>
         </div>
+
 
 
         <!-- 區塊四：旅遊注意事項與準備 -->
@@ -227,7 +233,175 @@
                 <li><span class="font-bold text-red-700">現金：</span> 雖然日本電子支付普及，但在許多小店或寺廟可能仍只收現金，建議準備足夠日幣。</li>
             </ul>
         </div>
-        
+
+        <!-- 互動檢查清單 (從 tools.html 移入) -->
+        <div class="route-card bg-green-50 border-t-4 border-green-500">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-semibold text-green-800 flex items-center">
+                    <span class="mr-2">✅</span> 行李檢查清單
+                </h3>
+                <button onclick="resetChecklist()" class="text-xs text-red-500 underline">重置清單</button>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">勾選狀態會自動儲存，關閉網頁後不會消失。</p>
+
+            <div class="space-y-4">
+                <!-- 證件錢包 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">重要證件與金流</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pass">
+                            <span class="text-gray-800">護照 (有效期限 > 6個月)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="visit-web">
+                            <span class="text-gray-800">Visit Japan Web (QR Code截圖)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="cash">
+                            <span class="text-gray-800">日幣現金 (建議分開放)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="creditcard">
+                            <span class="text-gray-800">信用卡 (海外回饋高、JCB)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="iccard">
+                            <span class="text-gray-800">IC卡 (Suica/ICOCA, 或手機綁定)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="sim">
+                            <span class="text-gray-800">SIM 卡 / eSIM / WiFi 機</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="insurance">
+                            <span class="text-gray-800">旅遊保險單 (電子檔或紙本)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 電子產品 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">電子產品</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="phone">
+                            <span class="text-gray-800">手機 & 充電線</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="powerbank">
+                            <span class="text-gray-800">行動電源 (需隨身攜帶)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="adapter">
+                            <span class="text-gray-800">轉接頭/多孔充電器 (日本100V)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="sim_pin">
+                            <span class="text-gray-800">取卡針 (換 SIM 卡用)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 衣物穿搭 (京都2月冬) -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">衣物穿搭 (京都2月冬)</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="coat">
+                            <span class="text-gray-800">防風保暖外套/羽絨衣</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="heattech">
+                            <span class="text-gray-800">發熱衣/褲 (洋蔥式穿法必備)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="clothes">
+                            <span class="text-gray-800">外衣/長褲/裙子 (足夠天數)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="underwear">
+                            <span class="text-gray-800">內衣褲/襪子 (建議多帶或免洗)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="accessories">
+                            <span class="text-gray-800">圍巾/手套/毛帽 (早晚溫差大)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pajamas">
+                            <span class="text-gray-800">睡衣 (若不習慣飯店浴衣)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="shoes">
+                            <span class="text-gray-800">好走的鞋/防水鞋 (每日2萬步起)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 盥洗與保養 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">盥洗保養 & 藥品</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="toiletries">
+                            <span class="text-gray-800">牙刷/牙膏 (部分飯店不主動提供)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="skincare">
+                            <span class="text-gray-800">保養品/化妝品/卸妝</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="lotion">
+                            <span class="text-gray-800">護唇膏/護手霜/乳液 (日本極乾)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="meds_daily">
+                            <span class="text-gray-800">個人常備藥 (高血壓/過敏等)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="meds_travel">
+                            <span class="text-gray-800">旅遊備藥 (感冒/腸胃/止痛/OK繃)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="mask">
+                            <span class="text-gray-800">口罩 (搭機/人多場所備用)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 雜物與其他 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">實用小物</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="umbrella">
+                            <span class="text-gray-800">摺疊傘 (必備)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="shopping_bag">
+                            <span class="text-gray-800">環保購物袋 (日本塑膠袋收費)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="coin_purse">
+                            <span class="text-gray-800">零錢包 (日本硬幣多)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="tissue">
+                            <span class="text-gray-800">面紙/濕紙巾</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="warmer">
+                            <span class="text-gray-800">暖暖包 (貼式/手握)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pen">
+                            <span class="text-gray-800">原子筆 (填寫入境卡備用)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 區塊五：每日行程連結 (Daily Itinerary Links) -->
         <div class="route-card bg-green-50 border-t-4 border-green-500">
             <h3 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
@@ -247,8 +421,6 @@
                 <li><a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 8 (2/11)：飯店 → 關西機場 (KIX)</a></li>
             </ul>
         </div>
-
-        <!-- REMOVED: 安全與緊急應變區塊 (Moved to tools.html) -->
         
     </div>
 
@@ -256,7 +428,35 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             fetchWeeklyWeather();
+            
+            // Checklist Logic
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
+            
+            // Load saved state
+            checkboxes.forEach(box => {
+                const id = box.getAttribute('data-id');
+                const saved = localStorage.getItem('checklist_' + id);
+                if (saved === 'true') {
+                    box.checked = true;
+                }
+                
+                // Add change listener
+                box.addEventListener('change', (e) => {
+                    localStorage.setItem('checklist_' + id, e.target.checked);
+                });
+            });
         });
+
+        function resetChecklist() {
+            if(confirm('確定要重置所有勾選項目嗎？')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
+                checkboxes.forEach(box => {
+                    box.checked = false;
+                    const id = box.getAttribute('data-id');
+                    localStorage.removeItem('checklist_' + id);
+                });
+            }
+        }
 
         async function fetchWeeklyWeather() {
             // 京都座標

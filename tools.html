@@ -18,11 +18,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 1.5rem;
         }
-        /* 自定義 Checkbox 樣式 */
-        .checklist-item input:checked + span {
-            text-decoration: line-through;
-            color: #9ca3af;
-        }
         .speak-btn:active {
             transform: scale(0.95);
         }
@@ -72,7 +67,7 @@
                 <span class="mr-2">🧰</span> 實用工具箱
             </h1>
             <h2 class="text-xl text-gray-600 mt-1">
-                緊急應變、語言溝通與行李檢查
+                緊急應變與語言溝通
             </h2>
         </header>
 
@@ -227,80 +222,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- 3. 互動檢查清單 -->
-        <div class="route-card bg-green-50 border-t-4 border-green-500">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-2xl font-semibold text-green-800 flex items-center">
-                    <span class="mr-2">✅</span> 行李檢查清單
-                </h3>
-                <button onclick="resetChecklist()" class="text-xs text-red-500 underline">重置清單</button>
-            </div>
-            <p class="text-sm text-gray-600 mb-4">勾選狀態會自動儲存，關閉網頁後不會消失。</p>
-
-            <div class="space-y-4">
-                <!-- 證件錢包 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">重要證件</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pass">
-                            <span class="text-gray-800">護照 (有效期限內)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="cash">
-                            <span class="text-gray-800">日幣現金 / 信用卡</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="sim">
-                            <span class="text-gray-800">SIM 卡 / WiFi 機</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="visit-web">
-                            <span class="text-gray-800">Visit Japan Web 截圖</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 電子產品 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">電子產品</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="phone">
-                            <span class="text-gray-800">手機 & 充電線</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="powerbank">
-                            <span class="text-gray-800">行動電源 (需隨身攜帶)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="adapter">
-                            <span class="text-gray-800">轉接頭 (日本電壓100V，插座同台灣)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 生活用品 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">生活用品</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="meds">
-                            <span class="text-gray-800">常備藥品 (感冒/腸胃/止痛)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="clothes">
-                            <span class="text-gray-800">換洗衣物 (洋蔥式穿搭)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="umbrella">
-                            <span class="text-gray-800">摺疊傘 (日本冬天常有雨雪)</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -444,36 +365,6 @@
             const text = document.getElementById('custom-text').value;
             if (text.trim() !== "") {
                 speak(text);
-            }
-        }
-
-        // --- Interactive Checklist Function (LocalStorage) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-            
-            // Load saved state
-            checkboxes.forEach(box => {
-                const id = box.getAttribute('data-id');
-                const saved = localStorage.getItem('checklist_' + id);
-                if (saved === 'true') {
-                    box.checked = true;
-                }
-                
-                // Add change listener
-                box.addEventListener('change', (e) => {
-                    localStorage.setItem('checklist_' + id, e.target.checked);
-                });
-            });
-        });
-
-        function resetChecklist() {
-            if(confirm('確定要重置所有勾選項目嗎？')) {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-                checkboxes.forEach(box => {
-                    box.checked = false;
-                    const id = box.getAttribute('data-id');
-                    localStorage.removeItem('checklist_' + id);
-                });
             }
         }
     </script>
