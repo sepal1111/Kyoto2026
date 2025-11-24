@@ -20,6 +20,14 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 1.5rem;
         }
+        /* 天氣載入動畫 */
+        .weather-loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
     </style>
 </head>
 <body class="p-0 sm:p-6">
@@ -28,6 +36,8 @@
         <div class="flex space-x-2 px-4 whitespace-nowrap">
             <!-- 總覽 (New Link) -->
             <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- NEW: 實用工具連結 -->
+            <a href="tools.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
             <!-- Day 1 -->
             <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
             <!-- Day 2 -->
@@ -43,7 +53,7 @@
             <!-- Day 7 -->
             <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
             <!-- Day 8 (Active) -->
-            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
+            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
         </div>
     </div>
     
@@ -94,6 +104,37 @@
                     🚌 丹後海陸交通公車官方網站
             </a>
             </div>
+        </div>
+
+        <!-- NEW: 天氣資訊區塊 (Open-Meteo JMA Source) -->
+        <div class="route-card bg-sky-50 border-t-4 border-sky-400">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-semibold text-sky-800 flex items-center">
+                    <span class="mr-2">🌥️</span> 目的地天氣
+                </h3>
+                <span class="text-xs text-gray-500 bg-white px-2 py-1 rounded border">Data: JMA (via Open-Meteo)</span>
+            </div>
+
+            <div id="weather-container" class="grid grid-cols-3 gap-2">
+                <!-- 京都 -->
+                <div id="weather-kyoto" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                    <p class="text-sm font-bold text-gray-700 mb-1">京都</p>
+                    <p class="text-xs text-gray-400">載入中...</p>
+                </div>
+                
+                <!-- 天橋立 -->
+                <div id="weather-amanohashidate" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                    <p class="text-sm font-bold text-gray-700 mb-1">天橋立</p>
+                    <p class="text-xs text-gray-400">載入中...</p>
+                </div>
+
+                <!-- 伊根 -->
+                <div id="weather-ine" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                    <p class="text-sm font-bold text-gray-700 mb-1">伊根</p>
+                    <p class="text-xs text-gray-400">載入中...</p>
+                </div>
+            </div>
+            <p class="text-xs text-gray-400 mt-2 text-right">*顯示今日即時預報</p>
         </div>
 
         <!-- 區塊二：去程：京都 → 天橋立：分步導航 -->
@@ -279,5 +320,93 @@
             </a></div>
         </div>
     </div>
+
+    <!-- Script to fetch Weather Data via Open-Meteo (Uses JMA models) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchWeather();
+        });
+
+        async function fetchWeather() {
+            // 定義地點與座標 (京都, 天橋立, 伊根)
+            const locations = [
+                { id: 'weather-kyoto', name: '京都', lat: 34.9858, lon: 135.7588 },
+                { id: 'weather-amanohashidate', name: '天橋立', lat: 35.5536, lon: 135.1966 },
+                { id: 'weather-ine', name: '伊根', lat: 35.6737, lon: 135.2905 }
+            ];
+
+            // 構建批量請求 URL
+            const lats = locations.map(l => l.lat).join(',');
+            const lons = locations.map(l => l.lon).join(',');
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&daily=weather_code,temperature_2m_max,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=1`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+
+                // Open-Meteo 對於單一地點回傳物件，多地點回傳陣列
+                const results = Array.isArray(data) ? data : [data];
+
+                results.forEach((result, index) => {
+                    const loc = locations[index];
+                    const daily = result.daily;
+                    const code = daily.weather_code[0];
+                    const maxTemp = Math.round(daily.temperature_2m_max[0]);
+                    const rainProb = daily.precipitation_probability_max[0];
+                    
+                    const weatherInfo = getWeatherInfo(code);
+                    
+                    const container = document.getElementById(loc.id);
+                    container.innerHTML = `
+                        <div class="flex flex-col items-center h-full justify-between py-1">
+                            <div class="text-center">
+                                <p class="text-base font-bold text-gray-800">${loc.name}</p>
+                                <div class="text-3xl my-1">${weatherInfo.icon}</div>
+                                <p class="text-xs text-gray-500 font-medium">${weatherInfo.text}</p>
+                            </div>
+                            <div class="flex space-x-2 mt-2 text-xs w-full justify-center bg-gray-50 rounded py-1">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-blue-500 font-bold">☔ ${rainProb}%</span>
+                                </div>
+                                <div class="border-l border-gray-300"></div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-red-500 font-bold">🌡️ ${maxTemp}°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.classList.remove('weather-loading');
+                });
+
+            } catch (error) {
+                console.error('Weather fetch error:', error);
+                locations.forEach(loc => {
+                    const el = document.getElementById(loc.id);
+                    if(el) {
+                        el.innerHTML = `<p class="text-xs text-red-400">暫時無法取得</p>`;
+                        el.classList.remove('weather-loading');
+                    }
+                });
+            }
+        }
+
+        // WMO Weather Code Mapping to Traditional Chinese & Icons
+        function getWeatherInfo(code) {
+            // WMO Weather interpretation codes (WW)
+            if (code === 0) return { text: '晴朗', icon: '☀️' };
+            if (code >= 1 && code <= 3) return { text: '多雲時晴', icon: '⛅' };
+            if (code === 45 || code === 48) return { text: '有霧', icon: '🌫️' };
+            if (code >= 51 && code <= 55) return { text: '毛毛雨', icon: '🌧️' };
+            if (code >= 56 && code <= 57) return { text: '凍雨', icon: '🌨️' };
+            if (code >= 61 && code <= 65) return { text: '下雨', icon: '☔' };
+            if (code >= 66 && code <= 67) return { text: '凍雨', icon: '🌨️' };
+            if (code >= 71 && code <= 77) return { text: '降雪', icon: '❄️' };
+            if (code >= 80 && code <= 82) return { text: '陣雨', icon: '🌦️' };
+            if (code >= 85 && code <= 86) return { text: '陣雪', icon: '🌨️' };
+            if (code >= 95 && code <= 99) return { text: '雷雨', icon: '⛈️' };
+            return { text: '未知', icon: '❓' };
+        }
+    </script>
 </body>
 </html>

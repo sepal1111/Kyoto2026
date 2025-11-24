@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實用工具 - 2026 京都八日遊</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .route-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+        /* 自定義 Checkbox 樣式 */
+        .checklist-item input:checked + span {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+        .speak-btn:active {
+            transform: scale(0.95);
+        }
+        /* 隱藏未使用的語音合成區塊 */
+        #synth-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6">
+    <!-- Navigation Bar -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
+        <div class="flex space-x-2 px-4 whitespace-nowrap">
+            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <!-- Active Link -->
+            <a href="tools.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-purple-600 text-white shadow-lg transition duration-150">實用工具</a>
+            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
+            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
+            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
+            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 4</a>
+            <a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 5</a>
+            <a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 6</a>
+            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
+            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-xl mx-auto px-4 sm:px-0">
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                <span class="mr-2">🧰</span> 實用工具箱
+            </h1>
+            <h2 class="text-xl text-gray-600 mt-1">
+                緊急應變、語言溝通與行李檢查
+            </h2>
+        </header>
+
+        <!-- 1. 安全與緊急應變 -->
+        <div class="route-card bg-red-100 border-t-4 border-red-600">
+            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
+                <span class="mr-2">🆘</span> 安全與緊急應變
+            </h3>
+            
+            <div class="grid grid-cols-1 gap-4">
+                <!-- 緊急聯絡卡 -->
+                <div class="bg-white p-4 rounded-lg shadow border border-red-200">
+                    <h4 class="text-lg font-bold text-gray-800 mb-3 border-b pb-1">📞 緊急聯絡電話</h4>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center justify-between">
+                            <span>👮 警察 (報案)</span>
+                            <a href="tel:110" class="font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">110</a>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>🚑 救護車/火警</span>
+                            <a href="tel:119" class="font-bold text-red-600 bg-red-50 px-3 py-1 rounded-full">119</a>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>🌊 海上保安廳</span>
+                            <a href="tel:118" class="font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">118</a>
+                        </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-gray-100">
+                        <p class="text-sm font-bold text-gray-800 mb-1">🇹🇼 台北駐大阪經濟文化辦事處</p>
+                        <p class="text-xs text-gray-500 mb-1">急難救助電話 (專供緊急求助之用)</p>
+                        <a href="tel:+81-90-8794-4568" class="block w-full text-center font-bold text-white bg-red-600 py-2 rounded-lg hover:bg-red-700 transition">
+                            +81-90-8794-4568
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 就醫指引 -->
+                <div class="bg-white p-4 rounded-lg shadow border border-blue-200">
+                    <h4 class="text-lg font-bold text-gray-800 mb-3 border-b pb-1">🏥 京都外語對應急診</h4>
+                    <ul class="space-y-4 text-gray-700">
+                        <li>
+                            <p class="font-bold text-blue-800">京都大學醫學部附屬醫院</p>
+                            <a href="https://maps.app.goo.gl/8jZ1Xy7z1y1z1z1z1" target="_blank" class="text-xs text-blue-500 hover:underline">📍 左京區聖護院川原町54</a>
+                            <a href="tel:+81-75-751-3111" class="block text-sm font-bold text-gray-800 mt-1">📞 075-751-3111</a>
+                        </li>
+                        <li>
+                            <p class="font-bold text-blue-800">京都第一赤十字醫院</p>
+                            <a href="https://maps.app.goo.gl/8jZ1Xy7z1y1z1z1z1" target="_blank" class="text-xs text-blue-500 hover:underline">📍 東山區本町15-749</a>
+                            <a href="tel:+81-75-561-1121" class="block text-sm font-bold text-gray-800 mt-1">📞 075-561-1121</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 實用旅遊日語指指通 -->
+        <div class="route-card bg-purple-50 border-t-4 border-purple-500">
+            <h3 class="text-2xl font-semibold text-purple-800 mb-4 flex items-center">
+                <span class="mr-2">🗣️</span> 日語指指通 (點擊發音)
+            </h3>
+            
+            <!-- Custom Text to Speech Input -->
+            <div class="mb-6 bg-white p-3 rounded-lg shadow border border-purple-200">
+                <label for="custom-text" class="block text-sm font-bold text-gray-700 mb-2">✍️ 手動輸入日文發音</label>
+                <div class="flex space-x-2">
+                    <input type="text" id="custom-text" placeholder="貼上或輸入日文句子..." class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button onclick="speakCustom()" class="bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-purple-700 transition flex items-center">
+                        <span class="mr-1">🔊</span> 播放
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">可用於 Google 翻譯後的日文句子播放給店員聽。</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3">
+                <!-- Group: Basic -->
+                <div class="space-y-2">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase border-b pb-1">基本用語</h4>
+                    <button onclick="speak('ありがとうございます')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">ありがとうございます</div>
+                            <div class="text-xs text-gray-500 font-medium">Arigato gozaimasu (謝謝)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                    <button onclick="speak('すみません')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">すみません</div>
+                            <div class="text-xs text-gray-500 font-medium">Sumimasen (不好意思 / 請問)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                </div>
+
+                <!-- Group: Dining -->
+                <div class="space-y-2 mt-2">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase border-b pb-1">餐廳用餐</h4>
+                    <button onclick="speak('これをください')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">これをください</div>
+                            <div class="text-xs text-gray-500 font-medium">Kore o kudasai (請給我這個)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                    <button onclick="speak('お水をください')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">お水をください</div>
+                            <div class="text-xs text-gray-500 font-medium">Omizu o kudasai (請給我冰水)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                    <button onclick="speak('お会計をお願いします')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">お会計をお願いします</div>
+                            <div class="text-xs text-gray-500 font-medium">Okaikei o onegaishimasu (請結帳)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                    <button onclick="speak('トイレはどこですか')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">トイレはどこですか</div>
+                            <div class="text-xs text-gray-500 font-medium">Toire wa doko desuka (請問廁所在哪裡？)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                    <button onclick="speak('ネギ抜きでお願いします')" class="speak-btn w-full bg-white p-3 rounded-lg shadow flex justify-between items-center hover:bg-gray-50 border border-gray-200">
+                        <div class="text-left">
+                            <div class="text-lg font-bold text-gray-800">ネギ抜きでお願いします</div>
+                            <div class="text-xs text-gray-500 font-medium">Negi nuki de onegaishimasu (請不要加蔥)</div>
+                        </div>
+                        <span class="text-2xl text-purple-500">🔊</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 互動檢查清單 -->
+        <div class="route-card bg-green-50 border-t-4 border-green-500">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-semibold text-green-800 flex items-center">
+                    <span class="mr-2">✅</span> 行李檢查清單
+                </h3>
+                <button onclick="resetChecklist()" class="text-xs text-red-500 underline">重置清單</button>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">勾選狀態會自動儲存，關閉網頁後不會消失。</p>
+
+            <div class="space-y-4">
+                <!-- 證件錢包 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">重要證件</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pass">
+                            <span class="text-gray-800">護照 (有效期限內)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="cash">
+                            <span class="text-gray-800">日幣現金 / 信用卡</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="sim">
+                            <span class="text-gray-800">SIM 卡 / WiFi 機</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="visit-web">
+                            <span class="text-gray-800">Visit Japan Web 截圖</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 電子產品 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">電子產品</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="phone">
+                            <span class="text-gray-800">手機 & 充電線</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="powerbank">
+                            <span class="text-gray-800">行動電源 (需隨身攜帶)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="adapter">
+                            <span class="text-gray-800">轉接頭 (日本電壓100V，插座同台灣)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 生活用品 -->
+                <div>
+                    <h4 class="font-bold text-green-700 mb-2">生活用品</h4>
+                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="meds">
+                            <span class="text-gray-800">常備藥品 (感冒/腸胃/止痛)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="clothes">
+                            <span class="text-gray-800">換洗衣物 (洋蔥式穿搭)</span>
+                        </label>
+                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="umbrella">
+                            <span class="text-gray-800">摺疊傘 (日本冬天常有雨雪)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Text-to-Speech Function ---
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                // Cancel current speech
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP'; // 設定為日語
+                utterance.rate = 0.9; // 稍微放慢語速
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('您的瀏覽器不支援語音播放功能。');
+            }
+        }
+
+        function speakCustom() {
+            const text = document.getElementById('custom-text').value;
+            if (text.trim() !== "") {
+                speak(text);
+            } else {
+                alert('請輸入要播放的日文。');
+            }
+        }
+
+        // --- Interactive Checklist Function (LocalStorage) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
+            
+            // Load saved state
+            checkboxes.forEach(box => {
+                const id = box.getAttribute('data-id');
+                const saved = localStorage.getItem('checklist_' + id);
+                if (saved === 'true') {
+                    box.checked = true;
+                }
+                
+                // Add change listener
+                box.addEventListener('change', (e) => {
+                    localStorage.setItem('checklist_' + id, e.target.checked);
+                });
+            });
+        });
+
+        function resetChecklist() {
+            if(confirm('確定要重置所有勾選項目嗎？')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
+                checkboxes.forEach(box => {
+                    box.checked = false;
+                    const id = box.getAttribute('data-id');
+                    localStorage.removeItem('checklist_' + id);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

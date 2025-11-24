@@ -20,6 +20,22 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 1.5rem; /* 增加區塊間距 */
         }
+        /* 天氣載入動畫 */
+        .weather-loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        /* 隱藏捲軸但保留功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="p-0 sm:p-6">
@@ -28,6 +44,8 @@
         <div class="flex space-x-2 px-4 whitespace-nowrap">
             <!-- 總覽 (New Link) -->
             <a href="index.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">總覽</a>
+            <!-- NEW: 實用工具連結 -->
+            <a href="tools.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
             <!-- Day 1 -->
             <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
             <!-- Day 2 -->
@@ -161,7 +179,25 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- NEW: 7天天氣預報區塊 -->
+        <div class="route-card bg-sky-50 border-t-4 border-sky-400">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-semibold text-sky-800 flex items-center">
+                    <span class="mr-2">🌦️</span> 京都未來 7 天天氣
+                </h3>
+                <span class="text-xs text-gray-500 bg-white px-2 py-1 rounded border">Data: JMA (via Open-Meteo)</span>
+            </div>
+            
+            <!-- 橫向捲動容器 -->
+            <div id="weather-forecast-container" class="flex overflow-x-auto no-scrollbar space-x-3 pb-2 weather-loading min-h-[140px]">
+                <!-- 天氣卡片將由 JS 動態插入 -->
+                <div class="flex-shrink-0 w-24 bg-white rounded-lg p-2 text-center shadow-sm flex flex-col justify-center items-center">
+                    <p class="text-xs text-gray-400">載入中...</p>
+                </div>
+            </div>
+            <p class="text-xs text-gray-400 mt-2 text-right">*左右滑動查看更多日期</p>
+        </div>
 
 
         <!-- 區塊四：旅遊注意事項與準備 -->
@@ -211,7 +247,92 @@
                 <li><a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day 8 (2/11)：飯店 → 關西機場 (KIX)</a></li>
             </ul>
         </div>
+
+        <!-- REMOVED: 安全與緊急應變區塊 (Moved to tools.html) -->
         
     </div>
+
+    <!-- Fetch 7-Day Weather Forecast Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchWeeklyWeather();
+        });
+
+        async function fetchWeeklyWeather() {
+            // 京都座標
+            const lat = 35.0116;
+            const lon = 135.7681;
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo`;
+
+            const container = document.getElementById('weather-forecast-container');
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                
+                const daily = data.daily;
+                let htmlContent = '';
+
+                // 迴圈處理 7 天的資料
+                for (let i = 0; i < 7; i++) {
+                    const dateStr = daily.time[i];
+                    const dateObj = new Date(dateStr);
+                    // 格式化日期: 2/4 (三)
+                    const month = dateObj.getMonth() + 1;
+                    const day = dateObj.getDate();
+                    const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][dateObj.getDay()];
+                    const formattedDate = `${month}/${day} (${dayOfWeek})`;
+
+                    const code = daily.weather_code[i];
+                    const maxTemp = Math.round(daily.temperature_2m_max[i]);
+                    const minTemp = Math.round(daily.temperature_2m_min[i]);
+                    const rainProb = daily.precipitation_probability_max[i];
+                    
+                    const weatherInfo = getWeatherInfo(code);
+
+                    htmlContent += `
+                        <div class="flex-shrink-0 w-28 bg-white rounded-lg p-2 text-center shadow border border-gray-100 flex flex-col justify-between h-36">
+                            <div>
+                                <p class="text-xs font-bold text-gray-600 mb-1">${formattedDate}</p>
+                                <div class="text-3xl my-1">${weatherInfo.icon}</div>
+                                <p class="text-xs text-gray-500 line-clamp-1">${weatherInfo.text}</p>
+                            </div>
+                            <div class="mt-2 space-y-1">
+                                <p class="text-xs font-bold text-blue-500">☔ ${rainProb}%</p>
+                                <p class="text-xs font-medium text-gray-700">
+                                    <span class="text-blue-600">${minTemp}°</span> - <span class="text-red-600">${maxTemp}°</span>
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = htmlContent;
+                container.classList.remove('weather-loading');
+
+            } catch (error) {
+                console.error('Weather fetch error:', error);
+                container.innerHTML = '<p class="text-sm text-red-400 w-full text-center">無法取得天氣資料</p>';
+                container.classList.remove('weather-loading');
+            }
+        }
+
+        // WMO Weather Code Mapping
+        function getWeatherInfo(code) {
+            if (code === 0) return { text: '晴朗', icon: '☀️' };
+            if (code >= 1 && code <= 3) return { text: '多雲時晴', icon: '⛅' };
+            if (code === 45 || code === 48) return { text: '有霧', icon: '🌫️' };
+            if (code >= 51 && code <= 55) return { text: '毛毛雨', icon: '🌧️' };
+            if (code >= 56 && code <= 57) return { text: '凍雨', icon: '🌨️' };
+            if (code >= 61 && code <= 65) return { text: '下雨', icon: '☔' };
+            if (code >= 66 && code <= 67) return { text: '凍雨', icon: '🌨️' };
+            if (code >= 71 && code <= 77) return { text: '降雪', icon: '❄️' };
+            if (code >= 80 && code <= 82) return { text: '陣雨', icon: '🌦️' };
+            if (code >= 85 && code <= 86) return { text: '陣雪', icon: '🌨️' };
+            if (code >= 95 && code <= 99) return { text: '雷雨', icon: '⛈️' };
+            return { text: '未知', icon: '❓' };
+        }
+    </script>
 </body>
 </html>
