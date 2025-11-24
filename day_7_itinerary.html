@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
+
         /* 定義卡片樣式 */
         .route-card {
             background-color: white;
@@ -20,61 +22,99 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 1.5rem;
         }
+
         /* 天氣載入動畫 */
         .weather-loading {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .5;
+            }
         }
     </style>
 </head>
+
 <body class="p-0 sm:p-6">
     <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
         <div class="flex space-x-2 px-4 whitespace-nowrap">
             <!-- 總覽 (New Link) -->
-            <a href="index.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
+            <a href="index.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
             <!-- NEW: 實用工具連結 -->
-            <a href="tools.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
+            <a href="tools.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
             <!-- Day 1 -->
-            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
+            <a href="day_1_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                1</a>
             <!-- Day 2 -->
-            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
+            <a href="day_2_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                2</a>
             <!-- Day 3 -->
-            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
+            <a href="day_3_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                3</a>
             <!-- Day 4 -->
-            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 4</a>
+            <a href="day_4_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                4</a>
             <!-- Day 5 -->
-            <a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 5</a>
+            <a href="day_5_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                5</a>
             <!-- Day 6 -->
-            <a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 6</a>
+            <a href="day_6_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                6</a>
             <!-- Day 7 -->
-            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 7</a>
+            <a href="day_7_itinerary.html"
+                class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day
+                7</a>
             <!-- Day 8 (Active) -->
-            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
+            <a href="day_8_itinerary.html"
+                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
+                8</a>
         </div>
     </div>
-    
+
     <!-- 主容器：限制最大寬度，適合手機螢幕 -->
     <div class="max-w-xl mx-auto px-4 sm:px-0">
         <!-- 頁面標題 -->
         <header class="text-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
-                <span class="mr-2">📅</span> Day 7 (2/10)：貴船、鞍馬健行與叡山電車
+                <span class="mr-2">📅</span> Day 7 (2/10)：貴船、鞍馬寺與叡山電車
             </h1>
             <h2 class="text-xl text-gray-600 mt-1">
                 主要任務：體驗京都郊區山林健行，參拜貴船與鞍馬寺
             </h2>
         </header>
 
+
+
+        <!-- 封面圖片 -->
+
+        <div class="mb-6">
+
+            <img src="image/day7.jpg" alt="Day 7 貴船封面" class="w-full rounded-2xl shadow-lg">
+
+        </div>
+
         <!-- 區塊一：本日交通路線總覽 -->
         <div class="route-card bg-indigo-50 border-t-4 border-indigo-500">
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
                 <span class="mr-2">🚞</span> 本日交通路線總覽
             </h3>
-            
+
             <p class="text-gray-700 mb-4">
                 本日移動路線：<strong>飯店 → 九條河原町 (公車) → 七條站 (京阪線) → 貴船口 (叡山電車) → 鞍馬 (健行/叡電) → 飯店</strong>。
             </p>
@@ -111,19 +151,22 @@
 
             <div id="weather-container" class="grid grid-cols-3 gap-2">
                 <!-- 京都 -->
-                <div id="weather-kyoto" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kyoto"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">京都</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
-                
+
                 <!-- 貴船 -->
-                <div id="weather-kibune" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kibune"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">貴船</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
 
                 <!-- 鞍馬 -->
-                <div id="weather-kurama" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kurama"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">鞍馬</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
@@ -142,57 +185,74 @@
                 <!-- 步驟 1: Hotel -> Kujo Kawaramachi Walk & Bus to Shichijo -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚌 飯店 → 七条京阪前
+                        <span
+                            class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
+                        🚌 飯店 → 七条京阪前
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>九條河原町</strong> 公車站 → <strong>七条京阪前</strong> 公車站<br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>九條河原町</strong> 公車站 →
+                        <strong>七条京阪前</strong> 公車站<br>
                         <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> 建議搭乘 <strong>207 號</strong>公車<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>10-15 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 在 <strong>七条京阪前</strong> 站下車，步行至京阪<strong>七條站</strong>。
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥230</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 在 <strong>七条京阪前</strong>
+                        站下車，步行至京阪<strong>七條站</strong>。
                     </p>
                 </div>
 
                 <!-- 步驟 2: Shichijo -> Demachiyanagi (Keihan Line) -->
                 <div class="border-l-4 border-green-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚇 七条站 → 出町柳站 (轉乘)
+                        <span
+                            class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span>
+                        🚇 七条站 → 出町柳站 (轉乘)
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>七条站</strong> → <strong>出町柳站</strong><br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>七条站</strong> →
+                        <strong>出町柳站</strong><br>
                         <span class="font-bold text-blue-700">交通：</span> 京阪電車<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> <strong>京阪本線</strong> (特急/急行 皆可搭乘)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>10-15 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥280</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 於<strong>七條京阪前</strong>公車站下車後步行 3 分鐘至京阪<strong>七條站</strong>搭乘。
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥280</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 於<strong>七條京阪前</strong>公車站下車後步行 3
+                        分鐘至京阪<strong>七條站</strong>搭乘。
                     </p>
                 </div>
 
                 <!-- 步驟 3: Demachiyanagi -> Kibune-guchi Eizan Line -->
                 <div class="border-l-4 border-sky-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🚞 出町柳 → 貴船口
+                        <span
+                            class="bg-sky-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span>
+                        🚞 出町柳 → 貴船口
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">交通：</span> 叡山電車<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> <strong>叡山本線</strong> (往鞍馬方向)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>30 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥470</span><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥470</span><br>
                         <span class="font-bold text-blue-700">特色：</span> 建議搭乘觀光列車 <strong>きらら (Kirara)</strong>，風景優美。
                     </p>
                 </div>
-                
+
                 <!-- 步驟 4: Kibune-guchi Bus -->
                 <div class="border-l-4 border-pink-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">4</span> 🚌 貴船口 → 貴船神社
+                        <span
+                            class="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">4</span>
+                        🚌 貴船口 → 貴船神社
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>貴船口站</strong> → <strong>貴船</strong> (公車站)<br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>貴船口站</strong> → <strong>貴船</strong>
+                        (公車站)<br>
                         <span class="font-bold text-blue-700">交通：</span> 貴船接駁公車<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥170</span><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥170</span><br>
                         <span class="font-bold text-blue-700">指示：</span> 步行上坡約 30 分鐘，建議搭接駁公車以節省體力。
                     </p>
                 </div>
@@ -204,7 +264,7 @@
             <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
                 <span class="mr-2">🌲</span> 貴船 → 鞍馬：山林健行路線
             </h3>
-            
+
             <p class="text-sm text-gray-600 font-bold mb-4">
                 此為本日核心行程。建議由貴船神社後山進入，穿過鞍馬山抵達鞍馬寺。
             </p>
@@ -240,7 +300,7 @@
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
                 <span class="mr-2">🛌</span> 傍晚回程：鞍馬 → 飯店
             </h3>
-            
+
             <!-- 交通步驟 -->
             <div class="space-y-3 text-gray-700">
                 <div class="flex items-start">
@@ -257,7 +317,8 @@
                         <span class="font-bold text-blue-700">車種/路線：</span> <strong>叡山本線</strong> (往出町柳方向)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>30 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥470</span>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥470</span>
                     </span>
                 </div>
                 <div class="flex items-start">
@@ -269,19 +330,22 @@
                         <br>
                         <span class="font-bold text-blue-700">交通：</span> 京阪電車 (轉) 公車
                         <br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> 京阪本線至<strong>七条站</strong>，轉乘 <strong>207 號</strong>公車
+                        <span class="font-bold text-blue-700">車種/路線：</span> 京阪本線至<strong>七条站</strong>，轉乘 <strong>207
+                            號</strong>公車
                         <br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>25-30 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約 ¥510</span> (京阪 ¥280 + 公車 ¥230)
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">約
+                            ¥510</span> (京阪 ¥280 + 公車 ¥230)
                     </span>
                 </div>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 4：</span>
-                    <span class="ml-2">從<strong>九條河原町</strong>站下車後，步行約 <strong>5-7 分鐘</strong>回 <strong>CHISUN PREMIUM 京都九條</strong> 飯店。</span>
+                    <span class="ml-2">從<strong>九條河原町</strong>站下車後，步行約 <strong>5-7 分鐘</strong>回 <strong>CHISUN PREMIUM
+                            京都九條</strong> 飯店。</span>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- 區塊五：餐點規劃 (Meals) -->
@@ -289,19 +353,22 @@
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
                 <span class="mr-2">🍽️</span> 餐點規劃
             </h3>
-            
+
             <!-- 午餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
                 午餐：Nagomiya Kotengu 和み家 心天狗
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
                 <span class="font-bold text-blue-700">特色：</span> 鞍馬地區的餐廳，提供京野菜與鄉土料理。<br>
-                <span class="font-bold text-blue-700">備註：</span> 建議在<strong>鞍馬寺</strong>或<strong>鞍馬站</strong>附近用餐，以銜接下午的行程或回程。
+                <span class="font-bold text-blue-700">備註：</span>
+                建議在<strong>鞍馬寺</strong>或<strong>鞍馬站</strong>附近用餐，以銜接下午的行程或回程。
             </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/yQY393133J599JtB8" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/yQY393133J599JtB8" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
 
             <!-- 點心 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
@@ -312,9 +379,11 @@
                 <span class="font-bold text-blue-700">地點：</span> <strong>鞍馬站</strong>附近。
             </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/173t189w3yQ82Lqv9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/173t189w3yQ82Lqv9" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
 
             <!-- 晚餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
@@ -325,9 +394,11 @@
                 <span class="font-bold text-blue-700">選項：</span> 氣氛溫馨的日式居酒屋，提供串燒、炸串等多樣化的料理，價格合理，是當地受歡迎的聚餐場所。
             </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/nA9UjbndcPrDNFWY8" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/nA9UjbndcPrDNFWY8" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
         </div>
     </div>
 
@@ -364,9 +435,9 @@
                     const code = daily.weather_code[0];
                     const maxTemp = Math.round(daily.temperature_2m_max[0]);
                     const rainProb = daily.precipitation_probability_max[0];
-                    
+
                     const weatherInfo = getWeatherInfo(code);
-                    
+
                     const container = document.getElementById(loc.id);
                     container.innerHTML = `
                         <div class="flex flex-col items-center h-full justify-between py-1">
@@ -393,7 +464,7 @@
                 console.error('Weather fetch error:', error);
                 locations.forEach(loc => {
                     const el = document.getElementById(loc.id);
-                    if(el) {
+                    if (el) {
                         el.innerHTML = `<p class="text-xs text-red-400">暫時無法取得</p>`;
                         el.classList.remove('weather-loading');
                     }
@@ -419,4 +490,5 @@
         }
     </script>
 </body>
+
 </html>
