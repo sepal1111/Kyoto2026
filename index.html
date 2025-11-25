@@ -4,668 +4,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 京都八日遊行程總覽</title>
-    <!-- 載入 Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>京都之旅</title>
     <style>
-        /* 設置 Inter 字體為主要字體，增加可讀性 */
+        :root {
+            --primary-color: #d4af37;
+            /* Gold */
+            --bg-color: #1a1a1a;
+            /* Dark Grey */
+            --text-color: #f0f0f0;
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-hover: rgba(212, 175, 55, 0.2);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            /* 淺灰色背景 */
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('pic/001.JPG');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* 定義卡片樣式 */
-        .route-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 1.5rem;
-            /* 增加區塊間距 */
+        .container {
+            text-align: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 90%;
+            width: 400px;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        /* 天氣載入動畫 */
-        .weather-loading {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes pulse {
+        p.subtitle {
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            color: #ccc;
+            letter-spacing: 2px;
+        }
 
-            0%,
-            100% {
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            background: var(--btn-bg);
+            border: 1px solid var(--primary-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
                 opacity: 1;
-            }
-
-            50% {
-                opacity: .5;
+                transform: translateY(0);
             }
         }
 
-        /* 隱藏捲軸但保留功能 */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-
-        /* 自定義 Checkbox 樣式 */
-        .checklist-item input:checked+span {
-            text-decoration: line-through;
-            color: #9ca3af;
+            .container {
+                padding: 3rem;
+                width: 500px;
+            }
         }
     </style>
 </head>
 
-<body class="p-0 sm:p-6">
-    <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
-    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
-        <div class="flex space-x-2 px-4 whitespace-nowrap">
-            <!-- 總覽 (New Link) -->
-            <a href="index.html"
-                class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">總覽</a>
-            <!-- NEW: 實用工具連結 -->
-            <a href="tools.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
-            <!-- Day 1 -->
-            <a href="day_1_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                1</a>
-            <!-- Day 2 -->
-            <a href="day_2_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                2</a>
-            <!-- Day 3 -->
-            <a href="day_3_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                3</a>
-            <!-- Day 4 -->
-            <a href="day_4_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                4</a>
-            <!-- Day 5 -->
-            <a href="day_5_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                5</a>
-            <!-- Day 6 -->
-            <a href="day_6_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                6</a>
-            <!-- Day 7 -->
-            <a href="day_7_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                7</a>
-            <!-- Day 8 (Active) -->
-            <a href="day_8_itinerary.html"
-                class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day
-                8</a>
+<body>
+
+    <div class="container">
+        <h1>KYOTO</h1>
+        <p class="subtitle">京都之旅</p>
+
+        <div class="btn-group">
+            <a href="itinerary.html" class="btn">詳細行程內容</a>
+            <a href="pic.html" class="btn">滑動圖片網頁</a>
         </div>
     </div>
 
-    <!-- 主容器：限制最大寬度，適合手機螢幕 -->
-    <div class="max-w-xl mx-auto px-4 sm:px-0">
-        <!-- 頁面標題 -->
-        <header class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
-                <span class="mr-2">🇯🇵</span> 2026 京都八日遊總覽
-            </h1>
-            <h2 class="text-xl text-gray-600 mt-1">
-                期間：2026/02/04 (三) - 02/11 (三)
-            </h2>
-        </header>
-
-
-
-        <!-- 封面圖片 -->
-
-        <div class="mb-6">
-
-            <img src="image/day0.jpg" alt="京都旅遊封面" class="w-full rounded-2xl shadow-lg">
-
-        </div>
-
-        <!-- 區塊一：桃園機場 (TPE) 停車資訊 -->
-        <div class="route-card bg-cyan-50 border-t-4 border-cyan-500">
-            <h3 class="text-2xl font-semibold text-cyan-800 mb-4 flex items-center">
-                <span class="mr-2">🅿️</span> 台灣桃園機場 (TPE) 停車資訊
-            </h3>
-
-            <p class="text-sm text-gray-600 font-bold mb-4">
-                出發前請將車輛停在以下特約停車場：
-            </p>
-
-            <!-- 停車資訊列表 -->
-            <div class="space-y-2">
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-cyan-600">特約銀行：</span>
-                    <span><strong>玉山銀行</strong></span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-cyan-600">停車場：</span>
-                    <span><strong>連勝停車場</strong></span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-cyan-600">地址：</span>
-                    <span><strong>33745桃園市大園區平安路80號</strong></span>
-                </div>
-            </div>
-
-            <!-- 地圖連結按鈕 -->
-            <a href="https://maps.app.goo.gl/UeD5YWFk3anYPHpF6" target="_blank"
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-cyan-600 rounded-lg hover:bg-cyan-700 transition duration-150 shadow-md mt-4">
-                🗺️ 導航至連勝停車場
-            </a>
-        </div>
-
-        <!-- 區塊二：航班資訊 (Flight Details) -->
-        <div class="route-card bg-blue-50 border-t-4 border-blue-500">
-            <h3 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
-                <span class="mr-2">✈️</span> 航班資訊 (長榮航空 EVA Air)
-            </h3>
-
-            <!-- 去程航班 -->
-            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-blue-200 pb-1">
-                去程 (2/4)：桃園 (TPE) → 神戶 (UKB)
-            </h4>
-            <div class="space-y-1 text-gray-700">
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">班機號碼：</span>
-                    <span class="font-bold">BR134</span>
-                </div>
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">起飛時間：</span>
-                    <span><strong>06:35</strong></span>
-                </div>
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">抵達時間：</span>
-                    <span><strong>10:00</strong></span>
-                </div>
-            </div>
-
-            <!-- 回程航班 -->
-            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-blue-200 pb-1">
-                回程 (2/11)：關西 (KIX) → 桃園 (TPE)
-            </h4>
-            <div class="space-y-1 text-gray-700">
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">班機號碼：</span>
-                    <span class="font-bold">BR177</span>
-                </div>
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">起飛時間：</span>
-                    <span><strong>10:55</strong></span>
-                </div>
-                <div class="flex items-center">
-                    <span class="font-bold w-24 text-blue-600">抵達時間：</span>
-                    <span><strong>13:10</strong></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 區塊三：住宿資訊 (Accommodation) -->
-        <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
-            <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
-                <span class="mr-2">🏨</span> 住宿資訊 (7 晚)
-            </h3>
-
-            <div class="space-y-2">
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-yellow-600">飯店名稱：</span>
-                    <span>CHISUN PREMIUM 京都九條</span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-yellow-600">地址：</span>
-                    <span>京都市南区東九条上御霊町15-1</span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-yellow-600">期間：</span>
-                    <span>2026/2/4 - 2/11</span>
-                </div>
-                <div class="flex items-center text-gray-700">
-                    <span class="font-bold w-24 text-yellow-600">備註：</span>
-                    <span>近 JR 京都車站，交通方便</span>
-                </div>
-            </div>
-            <div class="mb-6">
-
-                <img src="image/hotel.jpg" alt="京都飯店" class="w-full rounded-2xl shadow-lg">
-
-            </div>
-        </div>
-
-        <!-- 天氣預報區塊 -->
-        <div class="route-card bg-sky-50 border-t-4 border-sky-400">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-semibold text-sky-800 flex items-center">
-                    <span class="mr-2">🌦️</span> 京都未來 7 天天氣
-                </h3>
-                <span class="text-xs text-gray-500 bg-white px-2 py-1 rounded border">Data: JMA (via Open-Meteo)</span>
-            </div>
-
-            <!-- 橫向捲動容器 -->
-            <div id="weather-forecast-container"
-                class="flex overflow-x-auto no-scrollbar space-x-3 pb-2 weather-loading min-h-[140px]">
-                <!-- 天氣卡片將由 JS 動態插入 -->
-                <div
-                    class="flex-shrink-0 w-24 bg-white rounded-lg p-2 text-center shadow-sm flex flex-col justify-center items-center">
-                    <p class="text-xs text-gray-400">載入中...</p>
-                </div>
-            </div>
-            <p class="text-xs text-gray-400 mt-2 text-right">*左右滑動查看更多日期</p>
-        </div>
-
-
-
-        <!-- 區塊四：旅遊注意事項與準備 -->
-        <div class="route-card bg-red-50 border-t-4 border-red-500">
-            <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-                <span class="mr-2">💡</span> 旅遊注意事項與準備
-            </h3>
-
-            <!-- 天氣與穿著 -->
-            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-red-200 pb-1 flex items-center">
-                <span class="mr-1">❄️</span> 天氣與穿著準備 (2月：嚴冬)
-            </h4>
-            <ul class="list-disc list-inside text-sm text-gray-700 ml-4 space-y-1">
-                <li><span class="font-bold text-red-700">氣溫：</span> 2月是關西地區最冷的月份，平均溫度約 3°C ~ 9°C，早晚接近冰點。</li>
-                <li><span class="font-bold text-red-700">穿著：</span> 建議採<strong>洋蔥式穿法</strong>。準備保暖的<strong>羽絨外套、發熱衣</strong>、圍巾、帽子、手套。</li>
-                <li><span class="font-bold text-red-700">防濕：</span> 冬天偶有下雪或下雨，務必準備**防水防滑的鞋子**，並攜帶小型摺疊傘。</li>
-            </ul>
-
-            <!-- 交通與通用注意事項 -->
-            <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-red-200 pb-1 flex items-center">
-                <span class="mr-1">🚌</span> 交通與通用注意事項
-            </h4>
-            <ul class="list-disc list-inside text-sm text-gray-700 ml-4 space-y-1">
-                <li><span class="font-bold text-red-700">IC 卡：</span> 準備好 <strong>ICOCA</strong> 或
-                    <strong>Suica</strong> 卡，可通用於電車、巴士和部分便利商店，節省購票時間。
-                </li>
-                <li><span class="font-bold text-red-700">JR PASS：</span> 購買 <strong><a href="https://www.kkday.com/zh-tw/product/20317-japan-kansai-wide-area-pass" target="_blank">JR關西廣域鐵路周遊券</a></strong> &nbsp;出發前<strong>一個月</strong>才能線上購買。</li>				
-                <li><span class="font-bold text-red-700">京都巴士：</span> 京都市區巴士路網複雜，請搭配 Google Maps 導航，並在後門上車、前門下車並付費。</li>
-                <li><span class="font-bold text-red-700">電車禮儀：</span> 在車站內、車廂內或寺廟內，請將手機調至靜音，避免大聲通話。</li>
-                <li><span class="font-bold text-red-700">現金：</span> 雖然日本電子支付普及，但在許多小店或寺廟可能仍只收現金，建議準備足夠日幣。</li>
-            </ul>
-        </div>
-
-        <!-- 互動檢查清單 (從 tools.html 移入) -->
-        <div class="route-card bg-green-50 border-t-4 border-green-500">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-2xl font-semibold text-green-800 flex items-center">
-                    <span class="mr-2">✅</span> 行李檢查清單
-                </h3>
-                <button onclick="resetChecklist()" class="text-xs text-red-500 underline">重置清單</button>
-            </div>
-            <p class="text-sm text-gray-600 mb-4">勾選狀態會自動儲存，關閉網頁後不會消失。</p>
-
-            <div class="space-y-4">
-                <!-- 證件錢包 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">重要證件與金流</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="pass">
-                            <span class="text-gray-800">護照 (有效期限 > 6個月)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="visit-web">
-                            <span class="text-gray-800">Visit Japan Web (QR Code截圖)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="cash">
-                            <span class="text-gray-800">日幣現金 (建議分開放)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="creditcard">
-                            <span class="text-gray-800">信用卡 (海外回饋高、JCB)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="iccard">
-                            <span class="text-gray-800">IC卡 (Suica/ICOCA, 或手機綁定)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="sim">
-                            <span class="text-gray-800">SIM 卡 / eSIM / WiFi 機</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="insurance">
-                            <span class="text-gray-800">旅遊保險單 (電子檔或紙本)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 電子產品 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">電子產品</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="phone">
-                            <span class="text-gray-800">手機 & 充電線</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="powerbank">
-                            <span class="text-gray-800">行動電源 (需隨身攜帶)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="adapter">
-                            <span class="text-gray-800">轉接頭/多孔充電器 (日本100V)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="sim_pin">
-                            <span class="text-gray-800">取卡針 (換 SIM 卡用)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 衣物穿搭 (京都2月冬) -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">衣物穿搭 (京都2月冬)</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="coat">
-                            <span class="text-gray-800">防風保暖外套/羽絨衣</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="heattech">
-                            <span class="text-gray-800">發熱衣/褲 (洋蔥式穿法必備)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="clothes">
-                            <span class="text-gray-800">外衣/長褲/裙子 (足夠天數)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="underwear">
-                            <span class="text-gray-800">內衣褲/襪子 (建議多帶或免洗)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="accessories">
-                            <span class="text-gray-800">圍巾/手套/毛帽 (早晚溫差大)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="pajamas">
-                            <span class="text-gray-800">睡衣 (若不習慣飯店浴衣)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="shoes">
-                            <span class="text-gray-800">好走的鞋/防水鞋 (每日2萬步起)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 盥洗與保養 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">盥洗保養 & 藥品</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="toiletries">
-                            <span class="text-gray-800">牙刷/牙膏 (部分飯店不主動提供)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="skincare">
-                            <span class="text-gray-800">保養品/化妝品/卸妝</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="lotion">
-                            <span class="text-gray-800">護唇膏/護手霜/乳液 (日本極乾)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="meds_daily">
-                            <span class="text-gray-800">個人常備藥 (高血壓/過敏等)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="meds_travel">
-                            <span class="text-gray-800">旅遊備藥 (感冒/腸胃/止痛/OK繃)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="mask">
-                            <span class="text-gray-800">口罩 (搭機/人多場所備用)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 雜物與其他 -->
-                <div>
-                    <h4 class="font-bold text-green-700 mb-2">實用小物</h4>
-                    <div class="bg-white rounded-lg shadow p-3 space-y-2">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="umbrella">
-                            <span class="text-gray-800">摺疊傘 (必備)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="shopping_bag">
-                            <span class="text-gray-800">環保購物袋 (日本塑膠袋收費)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="coin_purse">
-                            <span class="text-gray-800">零錢包 (日本硬幣多)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="tissue">
-                            <span class="text-gray-800">面紙/濕紙巾</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500"
-                                data-id="warmer">
-                            <span class="text-gray-800">暖暖包 (貼式/手握)</span>
-                        </label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox"
-                                class="form-checkbox h-5 w-5 text-green-600 rounded focus:ring-green-500" data-id="pen">
-                            <span class="text-gray-800">原子筆 (填寫入境卡備用)</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 區塊五：每日行程連結 (Daily Itinerary Links) -->
-        <div class="route-card bg-green-50 border-t-4 border-green-500">
-            <h3 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
-                <span class="mr-2">📋</span> 每日行程 (點擊查看詳情)
-            </h3>
-            <p class="text-gray-600 mb-4">
-                *此處將連結至後續規劃的每日行程檔案*
-            </p>
-            <ul class="space-y-2 text-gray-700 font-medium">
-                <li><a href="day_1_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        1 (2/4)：抵達神戶與前往奈良觀光</a></li>
-                <li><a href="day_2_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        2 (2/5)：京都嵐山經典一日遊</a></li>
-                <li><a href="day_3_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        3 (2/6)：清水寺、東山古街與祇園</a></li>
-                <li><a href="day_4_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        4 (2/7)：宇治與銀閣寺</a></li>
-                <li><a href="day_5_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        5 (2/8)：伏見稻荷與東福寺)</a></li>
-                <li><a href="day_6_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        6 (2/9)：天橋立與伊根舟屋</a></li>
-                <li><a href="day_7_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        7 (2/10)：貴船、鞍馬健行與叡山電車</a></li>
-                <li><a href="day_8_itinerary.html"
-                        class="px-3 py-1 text-sm font-semibold rounded-full bg-green-600 text-white shadow-lg transition duration-150">Day
-                        8 (2/11)：飯店 → 關西機場 (KIX)</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- Fetch 7-Day Weather Forecast Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchWeeklyWeather();
-
-            // Checklist Logic
-            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-
-            // Load saved state
-            checkboxes.forEach(box => {
-                const id = box.getAttribute('data-id');
-                const saved = localStorage.getItem('checklist_' + id);
-                if (saved === 'true') {
-                    box.checked = true;
-                }
-
-                // Add change listener
-                box.addEventListener('change', (e) => {
-                    localStorage.setItem('checklist_' + id, e.target.checked);
-                });
-            });
-        });
-
-        function resetChecklist() {
-            if (confirm('確定要重置所有勾選項目嗎？')) {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-                checkboxes.forEach(box => {
-                    box.checked = false;
-                    const id = box.getAttribute('data-id');
-                    localStorage.removeItem('checklist_' + id);
-                });
-            }
-        }
-
-        async function fetchWeeklyWeather() {
-            // 京都座標
-            const lat = 35.0116;
-            const lon = 135.7681;
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo`;
-
-            const container = document.getElementById('weather-forecast-container');
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-
-                const daily = data.daily;
-                let htmlContent = '';
-
-                // 迴圈處理 7 天的資料
-                for (let i = 0; i < 7; i++) {
-                    const dateStr = daily.time[i];
-                    const dateObj = new Date(dateStr);
-                    // 格式化日期: 2/4 (三)
-                    const month = dateObj.getMonth() + 1;
-                    const day = dateObj.getDate();
-                    const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][dateObj.getDay()];
-                    const formattedDate = `${month}/${day} (${dayOfWeek})`;
-
-                    const code = daily.weather_code[i];
-                    const maxTemp = Math.round(daily.temperature_2m_max[i]);
-                    const minTemp = Math.round(daily.temperature_2m_min[i]);
-                    const rainProb = daily.precipitation_probability_max[i];
-
-                    const weatherInfo = getWeatherInfo(code);
-
-                    htmlContent += `
-                        <div class="flex-shrink-0 w-28 bg-white rounded-lg p-2 text-center shadow border border-gray-100 flex flex-col justify-between h-36">
-                            <div>
-                                <p class="text-xs font-bold text-gray-600 mb-1">${formattedDate}</p>
-                                <div class="text-3xl my-1">${weatherInfo.icon}</div>
-                                <p class="text-xs text-gray-500 line-clamp-1">${weatherInfo.text}</p>
-                            </div>
-                            <div class="mt-2 space-y-1">
-                                <p class="text-xs font-bold text-blue-500">☔ ${rainProb}%</p>
-                                <p class="text-xs font-medium text-gray-700">
-                                    <span class="text-blue-600">${minTemp}°</span> - <span class="text-red-600">${maxTemp}°</span>
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                container.innerHTML = htmlContent;
-                container.classList.remove('weather-loading');
-
-            } catch (error) {
-                console.error('Weather fetch error:', error);
-                container.innerHTML = '<p class="text-sm text-red-400 w-full text-center">無法取得天氣資料</p>';
-                container.classList.remove('weather-loading');
-            }
-        }
-
-        // WMO Weather Code Mapping
-        function getWeatherInfo(code) {
-            if (code === 0) return { text: '晴朗', icon: '☀️' };
-            if (code >= 1 && code <= 3) return { text: '多雲時晴', icon: '⛅' };
-            if (code === 45 || code === 48) return { text: '有霧', icon: '🌫️' };
-            if (code >= 51 && code <= 55) return { text: '毛毛雨', icon: '🌧️' };
-            if (code >= 56 && code <= 57) return { text: '凍雨', icon: '🌨️' };
-            if (code >= 61 && code <= 65) return { text: '下雨', icon: '☔' };
-            if (code >= 66 && code <= 67) return { text: '凍雨', icon: '🌨️' };
-            if (code >= 71 && code <= 77) return { text: '降雪', icon: '❄️' };
-            if (code >= 80 && code <= 82) return { text: '陣雨', icon: '🌦️' };
-            if (code >= 85 && code <= 86) return { text: '陣雪', icon: '🌨️' };
-            if (code >= 95 && code <= 99) return { text: '雷雨', icon: '⛈️' };
-            return { text: '未知', icon: '❓' };
-        }
-    </script>
 </body>
 
 </html>

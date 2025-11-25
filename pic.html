@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>京都行程圖片瀏覽</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #000;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="pic/001.JPG" alt="Day 0"></div>
+            <div class="swiper-slide"><img src="pic/002.JPG" alt="Day 1"></div>
+            <div class="swiper-slide"><img src="pic/003.JPG" alt="Day 2"></div>
+            <div class="swiper-slide"><img src="pic/004.JPG" alt="Day 3"></div>
+            <div class="swiper-slide"><img src="pic/005.JPG" alt="Day 4"></div>
+            <div class="swiper-slide"><img src="pic/006.JPG" alt="Day 5"></div>
+            <div class="swiper-slide"><img src="pic/007.JPG" alt="Day 6"></div>
+            <div class="swiper-slide"><img src="pic/008.JPG" alt="Day 7"></div>
+            <div class="swiper-slide"><img src="pic/009.JPG" alt="Day 8"></div>
+            <div class="swiper-slide"><img src="pic/010.JPG" alt="Day 8"></div>
+            <div class="swiper-slide"><img src="pic/011.JPG" alt="Day 8"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="index.html"
+        style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); padding: 12px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: background 0.3s;"
+        onmouseover="this.style.background='rgba(212, 175, 55, 0.8)'"
+        onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'" aria-label="返回首頁">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            loop: false,
+        });
+    </script>
+</body>
+
+</html>
