@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 3 (2/6)：清水寺、東山古街與祇園</title>
+    <title>Day 3 (2/6)：清水寺、東山古街與祇園</title>    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="鈭祇2026">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -465,6 +472,17 @@
             if (code >= 85 && code <= 86) return { text: '陣雪', icon: '🌨️' };
             if (code >= 95 && code <= 99) return { text: '雷雨', icon: '⛈️' };
             return { text: '未知', icon: '❓' };
+        }
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => console.log('??SW registered'))
+                    .catch((error) => console.log('??SW registration failed:', error));
+            });
         }
     </script>
 </body>

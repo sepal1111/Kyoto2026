@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>京都之旅</title>
+
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="京都2026">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
     <style>
         :root {
             --primary-color: #d4af37;
@@ -131,6 +140,72 @@
             <a href="pic.html" class="btn">滑動圖片網頁</a>
         </div>
     </div>
+
+    <!-- PWA Install Prompt -->
+    <div id="installPrompt"
+        style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(212, 175, 55, 0.95); backdrop-filter: blur(10px); padding: 15px 25px; border-radius: 50px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); z-index: 1000; max-width: 90%; text-align: center;">
+        <p style="margin: 0 0 10px 0; color: #1a1a1a; font-weight: 500;">📱 安裝京都2026旅遊指南到主畫面</p>
+        <button id="installBtn"
+            style="background: #1a1a1a; color: #d4af37; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 500; margin-right: 10px;">安裝</button>
+        <button id="dismissBtn"
+            style="background: transparent; color: #1a1a1a; border: 1px solid #1a1a1a; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 500;">稍後</button>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // 註冊 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker 註冊成功:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ Service Worker 註冊失敗:', error);
+                    });
+            });
+        }
+
+        // PWA 安裝提示
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installBtn = document.getElementById('installBtn');
+        const dismissBtn = document.getElementById('dismissBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // 防止 Chrome 67 及更早版本自動顯示提示
+            e.preventDefault();
+            // 儲存事件以便稍後觸發
+            deferredPrompt = e;
+            // 顯示自訂安裝提示
+            installPrompt.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                return;
+            }
+            // 顯示安裝提示
+            deferredPrompt.prompt();
+            // 等待用戶回應
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`用戶選擇: ${outcome}`);
+            // 清除 deferredPrompt
+            deferredPrompt = null;
+            // 隱藏提示
+            installPrompt.style.display = 'none';
+        });
+
+        dismissBtn.addEventListener('click', () => {
+            installPrompt.style.display = 'none';
+        });
+
+        // 監聽安裝成功事件
+        window.addEventListener('appinstalled', () => {
+            console.log('✅ PWA 已安裝');
+            installPrompt.style.display = 'none';
+        });
+    </script>
 
 </body>
 

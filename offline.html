@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>離線模式 - 京都2026</title>
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .offline-container {
+            padding: 2rem;
+            max-width: 500px;
+        }
+
+        .offline-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #000;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cached-pages {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cached-pages h2 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .cached-pages ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cached-pages li {
+            margin: 0.5rem 0;
+        }
+
+        .cached-pages a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .cached-pages a:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>目前離線中</h1>
+        <p>
+            您目前沒有網路連線,但別擔心!<br>
+            您仍然可以瀏覽已經載入過的頁面。
+        </p>
+        <button class="btn" onclick="window.location.reload()">重新連線</button>
+
+        <div class="cached-pages">
+            <h2>📚 可用的離線頁面</h2>
+            <ul>
+                <li><a href="index.html">🏠 首頁</a></li>
+                <li><a href="itinerary.html">📋 行程總覽</a></li>
+                <li><a href="pic.html">🖼️ 圖片瀏覽</a></li>
+                <li><a href="tools.html">🧰 實用工具</a></li>
+                <li><a href="day_1_itinerary.html">📅 Day 1 行程</a></li>
+                <li><a href="day_2_itinerary.html">📅 Day 2 行程</a></li>
+                <li><a href="day_3_itinerary.html">📅 Day 3 行程</a></li>
+                <li><a href="day_4_itinerary.html">📅 Day 4 行程</a></li>
+                <li><a href="day_5_itinerary.html">📅 Day 5 行程</a></li>
+                <li><a href="day_6_itinerary.html">📅 Day 6 行程</a></li>
+                <li><a href="day_7_itinerary.html">📅 Day 7 行程</a></li>
+                <li><a href="day_8_itinerary.html">📅 Day 8 行程</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 每5秒檢查一次網路狀態
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 5000);
+
+        // 監聽網路狀態變化
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+
+</html>
