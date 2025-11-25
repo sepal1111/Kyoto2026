@@ -1,0 +1,280 @@
+/* 
+ * 京都2026旅遊指南 - 共用樣式表
+ * 包含所有頁面共用的樣式定義
+ */
+
+/* ==================== CSS 變數定義 ==================== */
+:root {
+    /* 主題色彩 */
+    --primary-color: #d4af37;        /* 金色 */
+    --bg-color: #1a1a1a;             /* 深灰色背景 */
+    --text-color: #f0f0f0;           /* 淺色文字 */
+    --btn-bg: rgba(255, 255, 255, 0.1);
+    --btn-hover: rgba(212, 175, 55, 0.2);
+    
+    /* 行程頁面色彩 */
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-800: #1e40af;
+    
+    --sky-50: #f0f9ff;
+    --sky-400: #38bdf8;
+    --sky-800: #075985;
+    
+    --green-50: #f0fdf4;
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
+    
+    --red-50: #fef2f2;
+    --red-500: #ef4444;
+    --red-600: #dc2626;
+    --red-800: #991b1b;
+    
+    --yellow-500: #eab308;
+    --purple-500: #a855f7;
+    --pink-500: #ec4899;
+    --lime-500: #84cc16;
+    
+    /* 灰階 */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+}
+
+/* ==================== 基礎樣式 ==================== */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--gray-100);
+    margin: 0;
+    padding: 0;
+}
+
+/* ==================== 卡片樣式 ==================== */
+.route-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== 天氣相關樣式 ==================== */
+.weather-loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ==================== 捲軸隱藏 ==================== */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+/* ==================== 檢查清單樣式 ==================== */
+.checklist-item input:checked + span {
+    text-decoration: line-through;
+    color: var(--gray-400);
+}
+
+/* ==================== 浮動返回首頁按鈕 ==================== */
+.floating-home-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    padding: 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.floating-home-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.floating-home-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* ==================== PWA 安裝提示樣式 ==================== */
+.pwa-install-prompt {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(212, 175, 55, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+}
+
+.pwa-install-prompt p {
+    margin: 0 0 10px 0;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.pwa-install-btn {
+    background: #1a1a1a;
+    color: #d4af37;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.pwa-install-btn:hover {
+    transform: scale(1.05);
+}
+
+.pwa-dismiss-btn {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pwa-dismiss-btn:hover {
+    background: rgba(26, 26, 26, 0.1);
+}
+
+/* ==================== 導航列樣式 ==================== */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+}
+
+.nav-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    white-space: nowrap;
+}
+
+.nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    color: var(--gray-700);
+    background-color: var(--gray-100);
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--gray-200);
+}
+
+.nav-link.active {
+    font-weight: 600;
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== 響應式設計 ==================== */
+@media (max-width: 640px) {
+    .route-card {
+        padding: 1rem;
+        border-radius: 0.75rem;
+    }
+    
+    .floating-home-btn {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem;
+    }
+}
+
+/* ==================== 動畫效果 ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ==================== 工具類別 ==================== */
+.text-primary {
+    color: var(--primary-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.shadow-soft {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-medium {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-card {
+    border-radius: 1rem;
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}

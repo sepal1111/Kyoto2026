@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1 (2/4)：神戶 → 奈良 → 京都</title>    
+    <title>Day 1 (2/4)：神戶 → 奈良 → 京都</title>
     <!-- PWA Support -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#d4af37">
@@ -13,57 +14,22 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 設置 Inter 字體為主要字體，增加可讀性 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-        /* 定義卡片樣式 */
-        .route-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 1.5rem;
-        }
-        /* 天氣載入動畫 */
-        .weather-loading {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
-    </style>
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="p-0 sm:p-6">
     <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
-        <div class="flex space-x-2 px-4 whitespace-nowrap">
-            <!-- 總覽 (New Link) -->
-            <a href="itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
-            <!-- NEW: 實用工具連結 -->
-            <a href="tools.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
-            <!-- Day 1 -->
-            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 1</a>
-            <!-- Day 2 -->
-            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
-            <!-- Day 3 -->
-            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
-            <!-- Day 4 -->
-            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 4</a>
-            <!-- Day 5 -->
-            <a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 5</a>
-            <!-- Day 6 -->
-            <a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 6</a>
-            <!-- Day 7 -->
-            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
-            <!-- Day 8 (Active) -->
-            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
-        </div>
+        <div id="nav-container" class="flex space-x-2 px-4 whitespace-nowrap"></div>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            kyoto2026.renderNavigation('day_1_itinerary.html');
+        });
+    </script>
+
     <!-- 主容器：限制最大寬度，適合手機螢幕 -->
     <div class="max-w-xl mx-auto px-4 sm:px-0">
         <!-- 頁面標題 -->
@@ -75,8 +41,6 @@
                 主要任務：移動與奈良重點觀光
             </h2>
         </header>
-
-
 
         <!-- 封面圖片 -->
 
@@ -91,7 +55,7 @@
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
                 <span class="mr-2">🚄</span> 本日交通路線總覽
             </h3>
-            
+
             <p class="text-gray-700 mb-4">
                 本日移動路線：<strong>神戶機場 (UKB) → 奈良觀光區 → CHISUN PREMIUM 京都九條</strong> 飯店。
             </p>
@@ -128,19 +92,22 @@
 
             <div id="weather-container" class="grid grid-cols-3 gap-2">
                 <!-- 兵庫 (神戶) -->
-                <div id="weather-kobe" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kobe"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">神戶</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
-                
+
                 <!-- 奈良 -->
-                <div id="weather-nara" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-nara"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">奈良</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
 
                 <!-- 京都 -->
-                <div id="weather-kyoto" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kyoto"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">京都</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
@@ -159,14 +126,18 @@
                 <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
                 <div class="border-l-4 border-red-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚈 抵達神戶與 Port Liner
+                        <span
+                            class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
+                        🚈 抵達神戶與 Port Liner
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> 神戶機場 (UKB) → <strong>三宮站</strong> (Sannomiya)<br>
+                        <span class="font-bold text-blue-700">區間：</span> 神戶機場 (UKB) → <strong>三宮站</strong>
+                        (Sannomiya)<br>
                         <span class="font-bold text-blue-700">交通：</span> 輕軌 (Port Liner)<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> 新交通港灣人工島線 普通<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>18 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥340</span><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥340</span><br>
                         <span class="font-bold text-blue-700">指示：</span> 在<strong>三宮站</strong> (Sannomiya) 下車。
                     </p>
                 </div>
@@ -174,10 +145,13 @@
                 <!-- 步驟 2: Sannomiya Walk -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚶 步行至阪神三宮站
+                        <span
+                            class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span>
+                        🚶 步行至阪神三宮站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">指示：</span> 離開 Port Liner 站區後，依照指示牌步行至<strong>阪神三宮站</strong> (Hanshin Sannomiya)。<br>
+                        <span class="font-bold text-blue-700">指示：</span> 離開 Port Liner
+                        站區後，依照指示牌步行至<strong>阪神三宮站</strong> (Hanshin Sannomiya)。<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>5 分鐘</strong>。
                     </p>
                 </div>
@@ -185,22 +159,27 @@
                 <!-- 步驟 3: Sannomiya -> Kintetsu Nara (關鍵段) -->
                 <div class="border-l-4 border-green-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span> 🦌 阪神三宮站 → 近鐵奈良站
+                        <span
+                            class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">3</span>
+                        🦌 阪神三宮站 → 近鐵奈良站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">交通：</span> 電車 (直通)<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> 阪神本線 <strong>快速急行</strong> → <strong>近鐵奈良線</strong><br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> 阪神本線 <strong>快速急行</strong> →
+                        <strong>近鐵奈良線</strong><br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>1 小時 17 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> 約 <span class="text-red-600 font-extrabold">¥1,100</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 尋找開往<strong>快速急行近鐵奈良</strong>方向的快速急行列車，通常無需換乘即可直達，是前往奈良最方便的電車路線。
+                        <span class="font-bold text-blue-700">費用：</span> 約 <span
+                            class="text-red-600 font-extrabold">¥1,100</span><br>
+                        <span class="font-bold text-blue-700">指示：</span>
+                        尋找開往<strong>快速急行近鐵奈良</strong>方向的快速急行列車，通常無需換乘即可直達，是前往奈良最方便的電車路線。
                     </p>
                 </div>
             </div>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank" 
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖
-            </a>
+                <a href="https://maps.app.goo.gl/zATpNgRSXvVv14Xq8" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                    🗺️ 路線圖
+                </a>
             </div>
         </div>
 
@@ -209,7 +188,7 @@
             <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
                 <span class="mr-2">⛩️</span> 奈良下午觀光行程 (景點資訊)
             </h3>
-            
+
             <p class="text-sm text-gray-600 italic mb-4">
                 *抵達<strong>近鐵奈良站</strong>後，從 2 號出口出站，奈良公園和東大寺方向步行約 5-10 分鐘即可抵達。*
             </p>
@@ -258,14 +237,17 @@
                 <!-- 步驟 1: UKB -> Sannomiya Port Liner -->
                 <div class="border-l-4 border-red-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
-                         🚈 前往京都飯店
+                        <span
+                            class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
+                        🚈 前往京都飯店
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
                         <span class="font-bold text-blue-700">區間：</span> <strong>近鐵奈良 → 京都</strong><br>
-                        <span class="font-bold text-blue-700">車種：</span> <span class="font-bold text-orange-400">近鐵京都線</span> <br>
+                        <span class="font-bold text-blue-700">車種：</span> <span
+                            class="font-bold text-orange-400">近鐵京都線</span> <br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>57 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥ 760</span><br>
+                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥
+                            760</span><br>
                         <span class="font-bold text-blue-700">指示：</span> 在<strong>京都站</strong> 下車。
                     </p>
                 </div>
@@ -273,28 +255,31 @@
                 <!-- 步驟 2: Sannomiya Walk -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚶 步行至飯店 CHISUN PREMIUM 京都九條
+                        <span
+                            class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span>
+                        🚶 步行至飯店 CHISUN PREMIUM 京都九條
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">指示：</span>抵達京都車站後，從<strong>八條口</strong> (Hachijo Exit, 南側) 出站，步行約 <strong>7-10 分鐘</strong>至 <strong>CHISUN PREMIUM 京都九條</strong> 飯店辦理入住手續。<br>
+                        <span class="font-bold text-blue-700">指示：</span>抵達京都車站後，從<strong>八條口</strong> (Hachijo Exit, 南側)
+                        出站，步行約 <strong>7-10 分鐘</strong>至 <strong>CHISUN PREMIUM 京都九條</strong> 飯店辦理入住手續。<br>
                         <span class="font-bold text-blue-700">時間：</span> <strong>約 11 分鐘，約 800 公尺</strong><br>
                     </p>
                 </div>
             </div>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/pVb5GiGiX7N5pHuF9" target="_blank" 
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖
-            </a>
+                <a href="https://maps.app.goo.gl/pVb5GiGiX7N5pHuF9" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                    🗺️ 路線圖
+                </a>
             </div>
-        </div>      
+        </div>
 
         <!-- 區塊五：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
                 <span class="mr-2">🍽️</span> 餐點規劃
             </h3>
-            
+
             <!-- 午餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
                 午餐：志津香 釜飯 (公園店)
@@ -303,9 +288,11 @@
                 <span class="font-bold text-blue-700">特色：</span> 奈良地區知名的釜飯名店，口味清淡，鄰近奈良公園。<br>
                 <span class="font-bold text-blue-700">備註：</span> 人氣店鋪，建議在 11:30 前前往排隊，以節省時間。
             </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/DdXvLc3kLfp5QeuJ6" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a
+                    href="https://maps.app.goo.gl/DdXvLc3kLfp5QeuJ6" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a></div>
 
             <!-- 點心 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
@@ -315,9 +302,11 @@
                 <span class="font-bold text-blue-700">特色：</span> 位於近鐵奈良車站附近商店街，以現場高速搗麻糬聞名，麻糬口感軟糯。<br>
                 <span class="font-bold text-blue-700">地點：</span> 奈良商店街中，可順路經過。
             </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/L2eNX3uTigF75vPXA" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a
+                    href="https://maps.app.goo.gl/L2eNX3uTigF75vPXA" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a></div>
 
             <!-- 晚餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
@@ -327,9 +316,11 @@
                 <span class="font-bold text-blue-700">建議：</span> 位於九条站附近，日式居酒屋，內部有卡拉OK！<br>
                 <span class="font-bold text-blue-700">備註：</span> Check in後，放完行李，有體力的話再去吃，要不然就是簡單便利商店解決，準備明天的行程。
             </p>
-            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a href="https://maps.app.goo.gl/YaBUsv3QpMoDkwGx7" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end"><a
+                    href="https://maps.app.goo.gl/YaBUsv3QpMoDkwGx7" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a></div>
         </div>
     </div>
 
@@ -342,9 +333,9 @@
         async function fetchWeather() {
             // 定義地點與座標 (神戶, 奈良, 京都)
             const locations = [
-                { id: 'weather-kobe', name: '神戶', lat: 34.69, lon: 135.19 }, 
-                { id: 'weather-nara', name: '奈良', lat: 34.68, lon: 135.80 }, 
-                { id: 'weather-kyoto', name: '京都', lat: 35.01, lon: 135.77 }  
+                { id: 'weather-kobe', name: '神戶', lat: 34.69, lon: 135.19 },
+                { id: 'weather-nara', name: '奈良', lat: 34.68, lon: 135.80 },
+                { id: 'weather-kyoto', name: '京都', lat: 35.01, lon: 135.77 }
             ];
 
             // 構建批量請求 URL
@@ -366,9 +357,9 @@
                     const code = daily.weather_code[0];
                     const maxTemp = Math.round(daily.temperature_2m_max[0]);
                     const rainProb = daily.precipitation_probability_max[0];
-                    
+
                     const weatherInfo = getWeatherInfo(code);
-                    
+
                     const container = document.getElementById(loc.id);
                     container.innerHTML = `
                         <div class="flex flex-col items-center h-full justify-between py-1">
@@ -395,7 +386,7 @@
                 console.error('Weather fetch error:', error);
                 locations.forEach(loc => {
                     const el = document.getElementById(loc.id);
-                    if(el) {
+                    if (el) {
                         el.innerHTML = `<p class="text-xs text-red-400">暫時無法取得</p>`;
                         el.classList.remove('weather-loading');
                     }
@@ -431,5 +422,8 @@
             });
         }
     </script>
+    <!-- Shared JS -->
+    <script src="js/common.js"></script>
 </body>
+
 </html>

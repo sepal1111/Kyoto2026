@@ -13,56 +13,20 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 設置 Inter 字體為主要字體，增加可讀性 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-        /* 定義卡片樣式 */
-        .route-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 1.5rem;
-        }
-        /* 天氣載入動畫 */
-        .weather-loading {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
-    </style>
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="p-0 sm:p-6">
     <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
-        <div class="flex space-x-2 px-4 whitespace-nowrap">
-            <!-- 總覽 (New Link) -->
-            <a href="itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">總覽</a>
-            <!-- NEW: 實用工具連結 -->
-            <a href="tools.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">實用工具</a>
-            <!-- Day 1 -->
-            <a href="day_1_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 1</a>
-            <!-- Day 2 -->
-            <a href="day_2_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 2</a>
-            <!-- Day 3 -->
-            <a href="day_3_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 3</a>
-            <!-- Day 4 -->
-            <a href="day_4_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 4</a>
-            <!-- Day 5 -->
-            <a href="day_5_itinerary.html" class="px-3 py-1 text-sm font-semibold rounded-full bg-blue-600 text-white shadow-lg transition duration-150">Day 5</a>
-            <!-- Day 6 -->
-            <a href="day_6_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 6</a>
-            <!-- Day 7 -->
-            <a href="day_7_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 7</a>
-            <!-- Day 8 (Active) -->
-            <a href="day_8_itinerary.html" class="px-3 py-1 text-sm font-medium rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition duration-150">Day 8</a>
-        </div>
+        <div id="nav-container" class="flex space-x-2 px-4 whitespace-nowrap"></div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            kyoto2026.renderNavigation('day_5_itinerary.html');
+        });
+    </script>
     
     <!-- 主容器：限制最大寬度，適合手機螢幕 -->
     <div class="max-w-xl mx-auto px-4 sm:px-0">
@@ -75,8 +39,6 @@
                 主要任務：挑戰伏見稻荷大社環山參拜，欣賞東福寺禪意庭園
             </h2>
         </header>
-
-
 
         <!-- 封面圖片 -->
 
@@ -379,7 +341,6 @@
             
         </div>				
 
-
         <!-- 區塊六：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
@@ -538,5 +499,7 @@
             });
         }
     </script>
+    <!-- Shared JS -->
+    <script src="js/common.js"></script>
 </body>
 </html>
