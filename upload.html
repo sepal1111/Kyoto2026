@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上傳照片 - 京都之旅</title>
+
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="京都2026">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            /* Gold */
+            --bg-color: #1a1a1a;
+            /* Dark Grey */
+            --text-color: #f0f0f0;
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-hover: rgba(212, 175, 55, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('pic/005.JPG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeIn 1.0s ease-out;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            opacity: 0.9;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            background: var(--btn-bg);
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:hover span {
+            color: #000;
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Floating Home Button */
+        .home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 12px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: background 0.3s;
+        }
+
+        .home-btn:hover {
+            background: rgba(212, 175, 55, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="upload-icon">📸</div>
+        <h1>分享您的照片</h1>
+        <p>
+            請選擇對應的日期相簿進行上傳。<br>
+            點擊下方按鈕即可加入 Google Photos 共享相簿。
+        </p>
+
+        <div class="days-grid">
+            <!-- REPLACE THESE LINKS WITH YOUR ACTUAL GOOGLE PHOTOS ALBUM LINKS -->
+            <a href="https://photos.app.goo.gl/w42B29mpHTsK49Td8" target="_blank" class="btn">
+                Day 1
+                <span>抵達京都</span>
+            </a>
+            <a href="https://photos.app.goo.gl/B5Dd2m5yZjcjdjZ18" target="_blank" class="btn">
+                Day 2
+                <span>清水寺</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY3" target="_blank" class="btn">
+                Day 3
+                <span>嵐山</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY4" target="_blank" class="btn">
+                Day 4
+                <span>金閣寺</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY5" target="_blank" class="btn">
+                Day 5
+                <span>伏見稻荷</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY6" target="_blank" class="btn">
+                Day 6
+                <span>奈良</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY7" target="_blank" class="btn">
+                Day 7
+                <span>宇治</span>
+            </a>
+            <a href="https://photos.app.goo.gl/YOUR_ALBUM_ID_DAY8" target="_blank" class="btn">
+                Day 8
+                <span>返程</span>
+            </a>
+        </div>
+
+        <p class="note">
+            提示：您需要登入 Google 帳號才能加入相簿並上傳。
+        </p>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="index.html" class="home-btn" aria-label="返回首頁">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+    </a>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => console.log('✅ Service Worker registered'))
+                    .catch((error) => console.log('❌ Service Worker registration failed:', error));
+            });
+        }
+    </script>
+
+</body>
+
+</html>
