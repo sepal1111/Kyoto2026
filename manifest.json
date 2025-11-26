@@ -2,7 +2,7 @@
   "name": "京都2026八日遊",
   "short_name": "京都2026",
   "description": "2026年2月京都八日遊完整旅遊指南",
-  "start_url": "/index.html",
+  "start_url": "/Kyoto2026/index.html",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#d4af37",
@@ -21,7 +21,10 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["travel", "lifestyle"],
+  "categories": [
+    "travel",
+    "lifestyle"
+  ],
   "lang": "zh-TW",
   "dir": "ltr"
 }
