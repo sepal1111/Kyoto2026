@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4 (2/7)：宇治與銀閣寺</title>    
+    <title>Day 4 (2/7)：宇治與銀閣寺</title>
     <!-- PWA Support -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#d4af37">
@@ -13,10 +14,11 @@
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Shared CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="p-0 sm:p-6">
     <!-- Daily Navigation Bar (Fixed at top for mobile experience) -->
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-md mb-6 py-2 overflow-x-auto">
@@ -27,7 +29,7 @@
             kyoto2026.renderNavigation('day_4_itinerary.html');
         });
     </script>
-    
+
     <!-- 主容器：限制最大寬度，適合手機螢幕 -->
     <div class="max-w-xl mx-auto px-4 sm:px-0">
         <!-- 頁面標題 -->
@@ -53,7 +55,7 @@
             <h3 class="text-2xl font-semibold text-indigo-800 mb-4 flex items-center">
                 <span class="mr-2">🍵</span> 本日交通路線總覽
             </h3>
-            
+
             <p class="text-gray-700 mb-4">
                 本日移動路線：<strong>飯店 → 東福寺站 (步行/JR) → 宇治 (JR) → 銀閣寺 (JR/公車) → 飯店 (公車)</strong>。
             </p>
@@ -70,7 +72,8 @@
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">🎯 交通優勢：</span>
-                    <span>利用 JR <strong>奈良線</strong>快速往返<strong>宇治</strong>。避開<strong>京都車站</strong>擁擠，從<strong>東福寺站</strong>轉乘。</span>
+                    <span>利用 JR
+                        <strong>奈良線</strong>快速往返<strong>宇治</strong>。避開<strong>京都車站</strong>擁擠，從<strong>東福寺站</strong>轉乘。</span>
                 </div>
                 <div class="flex items-center text-gray-700">
                     <span class="font-bold w-32 text-indigo-600">💡 提示：</span>
@@ -90,19 +93,22 @@
 
             <div id="weather-container" class="grid grid-cols-3 gap-2">
                 <!-- 京都 -->
-                <div id="weather-kyoto" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-kyoto"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">京都</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
-                
+
                 <!-- 宇治 -->
-                <div id="weather-uji" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-uji"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">宇治</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
 
                 <!-- 銀閣寺 -->
-                <div id="weather-ginkakuji" class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
+                <div id="weather-ginkakuji"
+                    class="bg-white p-2 rounded-lg shadow-sm text-center weather-loading min-h-[120px] flex flex-col justify-center">
                     <p class="text-sm font-bold text-gray-700 mb-1">銀閣寺</p>
                     <p class="text-xs text-gray-400">載入中...</p>
                 </div>
@@ -121,34 +127,44 @@
                 <!-- 步驟 1: Hotel -> Tofuku-ji Station Walk -->
                 <div class="border-l-4 border-yellow-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span> 🚶 步行至東福寺站
+                        <span
+                            class="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">1</span>
+                        🚶 步行至東福寺站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR 東福寺站</strong><br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>飯店</strong> → <strong>JR
+                            東福寺站</strong><br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>15-20 分鐘</strong><br>
-                    <span class="font-bold text-blue-700">指示：</span> 沿著與 步行至 <strong>JR 東福寺站</strong>月台。 </p>
+                        <span class="font-bold text-blue-700">指示：</span> 沿著與 步行至 <strong>JR 東福寺站</strong>月台。
+                    </p>
                 </div>
 
                 <!-- 步驟 2: Tofuku-ji -> Uji JR Line -->
                 <div class="border-l-4 border-green-500 pl-4">
                     <h4 class="text-lg font-bold text-gray-900 flex items-center mb-1">
-                        <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span> 🚂 東福寺站 → 宇治站
+                        <span
+                            class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2">2</span>
+                        🚂 東福寺站 → 宇治站
                     </h4>
                     <p class="text-sm text-gray-600 ml-8">
-                        <span class="font-bold text-blue-700">區間：</span> <strong>JR 東福寺站</strong> → <strong>JR 宇治站</strong><br>
+                        <span class="font-bold text-blue-700">區間：</span> <strong>JR 東福寺站</strong> → <strong>JR
+                            宇治站</strong><br>
                         <span class="font-bold text-blue-700">交通：</span> JR 電車<br>
                         <span class="font-bold text-blue-700">車種/路線：</span> JR <strong>奈良線</strong> (みやこ路快速/快速)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>15 分鐘</strong><br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥240</span><br>
-                        <span class="font-bold text-blue-700">指示：</span> 找尋開往<strong>奈良</strong>方向的快速列車。JR <strong>宇治站</strong>步行至<strong>平等院</strong>約 10 分鐘。
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥240</span><br>
+                        <span class="font-bold text-blue-700">指示：</span> 找尋開往<strong>奈良</strong>方向的快速列車。JR
+                        <strong>宇治站</strong>步行至<strong>平等院</strong>約 10 分鐘。
                     </p>
                 </div>
             </div>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/3SZF5NdiT4tM8UVz9" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4"> 
+                <a href="https://maps.app.goo.gl/3SZF5NdiT4tM8UVz9" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
                     🗺️ 路線圖
                 </a>
-            </div> 			
+            </div>
         </div>
 
         <!-- 區塊三：上午：宇治一日觀光行程 -->
@@ -156,7 +172,7 @@
             <h3 class="text-2xl font-semibold text-pink-800 mb-4 flex items-center">
                 <span class="mr-2">🍵</span> 上午：宇治一日觀光行程
             </h3>
-            
+
             <p class="text-sm text-gray-600 font-bold mb-4">
                 <strong>宇治</strong>景點主要圍繞在<strong>宇治川</strong>兩岸，景點之間皆為步行。
             </p>
@@ -174,7 +190,8 @@
                     <span class="font-bold text-pink-600">宇治橋 & 中之島公園</span>
                     <p class="text-sm text-gray-600 ml-5">
                         <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>跨越<strong>宇治川</strong>，從<strong>中之島</strong>可欣賞<strong>平等院</strong>全景，並參觀<strong>十三重石塔</strong>。
+                        <span
+                            class="font-bold text-pink-700">特色：</span>跨越<strong>宇治川</strong>，從<strong>中之島</strong>可欣賞<strong>平等院</strong>全景，並參觀<strong>十三重石塔</strong>。
                     </p>
                 </li>
                 <li>
@@ -187,50 +204,56 @@
             </ol>
         </div>
 
-        <!-- 區塊五：傍晚移動：哲學之道 → 飯店 (回程) -->
+        <!-- 中途移動：宇治 → 銀閣寺 -->
         <div class="route-card bg-red-50 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
-            <span class="mr-2">🛌</span> 移動路線：宇治 → 銀閣寺 </h3>
-            
+                <span class="mr-2">🛌</span> 移動路線：宇治 → 銀閣寺
+            </h3>
+
             <!-- 交通步驟 -->
-          <div class="space-y-3 text-gray-700 mb-6">
+            <div class="space-y-3 text-gray-700 mb-6">
                 <h4 class="text-lg font-bold text-gray-900 mb-1">
                     🚌 宇治 → 銀閣寺：分步導航
                 </h4>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 1：</span>
-                    <span class="ml-2">從 JR <strong>宇治站</strong> 搭乘 JR <strong>奈良線</strong> (快速) 返回 <strong>東福寺站</strong> (約 18分鐘 / <strong>¥240</strong>)。</span>
+                    <span class="ml-2">從 JR <strong>宇治站</strong> 搭乘 JR <strong>奈良線</strong> (快速) 返回
+                        <strong>東福寺站</strong> (約 18分鐘 / <strong>¥240</strong>)。</span>
                 </div>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
                     <span class="ml-2">
-                        在<strong> 東福寺站 </strong>轉乘<strong class="font-bold text-red-900"> 京版本線(KH) </strong>到<strong class="font-bold text-red-900"> 出町柳 </strong>(約15分鐘)<br>
+                        在<strong> 東福寺站 </strong>轉乘<strong class="font-bold text-red-900"> 京版本線(KH) </strong>到<strong
+                            class="font-bold text-red-900"> 出町柳 </strong>(約15分鐘)<br>
                     </span>
                 </div>
-				<div class="flex items-start">
+                <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 3：</span>
                     <span class="ml-2">
-                        </strong>轉乘<strong class="font-bold text-red-900"> 203 City Bus </strong>從<strong class="font-bold text-red-900"> 出町柳車站前 </strong>到<strong class="font-bold text-red-900"> 銀閣寺道</strong>，再步行至<strong class="font-bold text-red-900"> 銀閣寺 </strong><br>
+                        轉乘<strong class="font-bold text-red-900"> 203 City Bus </strong>從<strong
+                            class="font-bold text-red-900"> 出町柳車站前 </strong>到<strong class="font-bold text-red-900">
+                            銀閣寺道</strong>，再步行至<strong class="font-bold text-red-900"> 銀閣寺 </strong><br>
                     </span>
                 </div>
-				<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="https://maps.app.goo.gl/ng1kmzWwn7AjjTRr5" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖
-            	</a>
-            	</div>
-          </div>
-	 
-      </div>		
-		
-      <!-- 區塊四：下午：銀閣寺與哲學之道 -->
+                <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                    <a href="https://maps.app.goo.gl/ng1kmzWwn7AjjTRr5" target="_blank"
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                        🗺️ 路線圖
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 區塊四：下午：銀閣寺與哲學之道 -->
         <div class="route-card bg-yellow-50 border-t-4 border-yellow-500">
             <h3 class="text-2xl font-semibold text-yellow-800 mb-4 flex items-center">
                 <span class="mr-2">🍁</span> 下午：銀閣寺與哲學之道
             </h3>
-            
+
             <p class="text-sm text-gray-600 font-bold mb-4">
-              欣賞銀閣寺以及哲學之道漫步
-          </p>
+                欣賞銀閣寺以及哲學之道漫步
+            </p>
 
             <!-- 景點列表 -->
             <ol class="space-y-4 text-gray-800 list-decimal list-inside pl-4">
@@ -238,7 +261,8 @@
                     <span class="font-bold text-pink-600">銀閣寺 (Ginkaku-ji)</span>
                     <p class="text-sm text-gray-600 ml-5">
                         <span class="font-bold text-pink-700">預計停留：</span><strong>1 小時</strong><br>
-                        <span class="font-bold text-pink-700">特色：</span>世界遺產，<strong>銀閣</strong>與著名的<strong>銀沙灘</strong>、<strong>向月台</strong>枯山水庭園。
+                        <span
+                            class="font-bold text-pink-700">特色：</span>世界遺產，<strong>銀閣</strong>與著名的<strong>銀沙灘</strong>、<strong>向月台</strong>枯山水庭園。
                     </p>
                 </li>
                 <li>
@@ -250,18 +274,19 @@
                 </li>
             </ol>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-              <a href="https://maps.app.goo.gl/VnqB8PzoZPoP1ogB8" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-300 rounded-lg hover:bg-yellow-500 transition duration-150 shadow-md mt-4">
-                🗺️ 路線圖
-            </a>
-            </div>			
-      </div>
-        
+                <a href="https://maps.app.goo.gl/VnqB8PzoZPoP1ogB8" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-yellow-300 rounded-lg hover:bg-yellow-500 transition duration-150 shadow-md mt-4">
+                    🗺️ 路線圖
+                </a>
+            </div>
+        </div>
+
         <!-- 區塊五：傍晚移動：哲學之道 → 飯店 (回程) -->
         <div class="route-card bg-red-50 border-t-4 border-red-500">
             <h3 class="text-2xl font-semibold text-red-800 mb-4 flex items-center">
                 <span class="mr-2">🛌</span> 傍晚移動：哲學之道→晚餐餐廳 → 飯店搭乘 203 City Bus 到祇園站下車。
             </h3>
-            
+
             <!-- 交通步驟 -->
             <div class="space-y-3 text-gray-700">
                 <div class="flex items-start">
@@ -270,86 +295,104 @@
                         搭乘公車返回京都車站。
                         <br>
                         <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5 號</strong> (往京都車站方向)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5
+                            號</strong> (往京都車站方向)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥230</span>
                         <br>
-                        <span class="font-bold text-blue-700">指示：</span> 抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
-                  </span>
-              </div>
+                        <span class="font-bold text-blue-700">指示：</span>
+                        抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
+                    </span>
+                </div>
 
-          </div>
                 <div class="flex items-start">
                     <span class="font-bold w-16 flex-shrink-0 text-red-600">步驟 2：</span>
                     <span class="ml-2">
                         搭乘公車返回京都車站。
                         <br>
                         <span class="font-bold text-blue-700">交通：</span> 京都市營公車<br>
-                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5 號</strong> (往京都車站方向)<br>
+                        <span class="font-bold text-blue-700">車種/路線：</span> <strong>100 號</strong> 或 <strong>5
+                            號</strong> (往京都車站方向)<br>
                         <span class="font-bold text-blue-700">時長：</span> 約 <strong>35-45 分鐘</strong>
                         <br>
-                        <span class="font-bold text-blue-700">費用：</span> <span class="text-red-600 font-extrabold">¥230</span>
+                        <span class="font-bold text-blue-700">費用：</span> <span
+                            class="text-red-600 font-extrabold">¥230</span>
                         <br>
-                        <span class="font-bold text-blue-700">指示：</span> 抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
+                        <span class="font-bold text-blue-700">指示：</span>
+                        抵達<strong>京都車站</strong>後，從<strong>八條口</strong>步行回飯店。
                     </span>
                 </div>
-          </div>
-				<div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-                <a href="" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 往餐廳
-            	</a>                
-				<a href="https://maps.app.goo.gl/JKKaaThgKNitNmB6A" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
-                🗺️ 回飯店
-            	</a>
-            	</div>		
-            
-      </div>
+            </div>
+            <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
+                <a href="" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                    🗺️ 往餐廳
+                </a>
+                <a href="https://maps.app.goo.gl/JKKaaThgKNitNmB6A" target="_blank"
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-400 rounded-lg hover:bg-red-700 transition duration-150 shadow-md mt-4">
+                    🗺️ 回飯店
+                </a>
+            </div>
+
+        </div>
 
         <!-- 區塊六：餐點規劃 (Meals) -->
         <div class="route-card bg-lime-50 border-t-4 border-lime-500">
             <h3 class="text-2xl font-semibold text-lime-800 mb-4 flex items-center">
                 <span class="mr-2">🍽️</span> 餐點規劃
             </h3>
-            
+
             <!-- 午餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
                 午餐：宇治地雞家心 (日式串燒)
             </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> 位於京阪<strong>宇治站</strong>附近，是<strong>宇治地區</strong>知名的串燒店，提供高品質<strong>地雞料理</strong>。<br>
+                <span class="font-bold text-blue-700">特色：</span>
+                位於京阪<strong>宇治站</strong>附近，是<strong>宇治地區</strong>知名的串燒店，提供高品質<strong>地雞料理</strong>。<br>
                 <span class="font-bold text-blue-700">備註：</span> 建議在上午<strong>平等院</strong>參觀結束後，步行前往用餐。
             </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/coqHPWLMkGrTFxV36" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/coqHPWLMkGrTFxV36" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
 
             <!-- 點心 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
                 點心：お肉のはりよし (可樂餅)
             </h4>
-          <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> <strong>宇治地區</strong>的人氣肉店，販售炸物可樂餅 (Croquette)，價格實惠，口味傳統。<br>
-                <span class="font-bold text-blue-700">地點：</span> 靠近 JR <strong>宇治站</strong>與<strong>宇治橋</strong>，適合離開<strong>宇治</strong>前作為輕食點心。
+            <p class="text-sm text-gray-700 ml-4 space-y-1">
+                <span class="font-bold text-blue-700">特色：</span> <strong>宇治地區</strong>的人氣肉店，販售炸物可樂餅
+                (Croquette)，價格實惠，口味傳統。<br>
+                <span class="font-bold text-blue-700">地點：</span> 靠近 JR
+                <strong>宇治站</strong>與<strong>宇治橋</strong>，適合離開<strong>宇治</strong>前作為輕食點心。
             </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/MJwhiHzheWXEoujD9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/MJwhiHzheWXEoujD9" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
 
             <!-- 晚餐 -->
             <h4 class="text-lg font-bold text-gray-900 mb-2 mt-4 border-b border-lime-200 pb-1">
-              晚餐：Teppan Tavern Tenamonya(鐵板燒餐廳)
-          </h4>
+                晚餐：Teppan Tavern Tenamonya(鐵板燒餐廳)
+            </h4>
             <p class="text-sm text-gray-700 ml-4 space-y-1">
-                <span class="font-bold text-blue-700">特色：</span> 是一間位於京都祇園、氣氛溫馨親切的日式鐵板燒居酒屋，由一對夫婦經營。它以提供高品質的鐵板料理和熱情好客的服務而聞名。<br>
-                <span class="font-bold text-blue-700">菜單：</span> 主打高品質的A5級和牛牛排，強調入口即化的口感，並以實惠的價格提供給顧客。其他受歡迎的菜品還包括手工餃子 (gyoza)、烤蝦、軟殼蟹、以及豬肉大阪燒 (Okonomiyaki) 等。
-          </p>
+                <span class="font-bold text-blue-700">特色：</span>
+                是一間位於京都祇園、氣氛溫馨親切的日式鐵板燒居酒屋，由一對夫婦經營。它以提供高品質的鐵板料理和熱情好客的服務而聞名。<br>
+                <span class="font-bold text-blue-700">菜單：</span> 主打高品質的A5級和牛牛排，強調入口即化的口感，並以實惠的價格提供給顧客。其他受歡迎的菜品還包括手工餃子
+                (gyoza)、烤蝦、軟殼蟹、以及豬肉大阪燒 (Okonomiyaki) 等。
+            </p>
             <div class="flex space-x-2 px-4 whitespace-nowrap justify-end">
-			<a href="https://maps.app.goo.gl/UpNMnQNKQVNFa3hX9" target="_blank" class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
-                🗺️ 地圖連結
-            </a></div>
+                <a href="https://maps.app.goo.gl/UpNMnQNKQVNFa3hX9" target="_blank"
+                    class="inline-flex items-center justify-center px-3 py-1 text-sm font-medium text-white bg-lime-600 rounded-lg hover:bg-lime-700 transition duration-150 shadow-md mt-2 ml-4">
+                    🗺️ 地圖連結
+                </a>
+            </div>
         </div>
     </div>
 
@@ -386,9 +429,9 @@
                     const code = daily.weather_code[0];
                     const maxTemp = Math.round(daily.temperature_2m_max[0]);
                     const rainProb = daily.precipitation_probability_max[0];
-                    
+
                     const weatherInfo = getWeatherInfo(code);
-                    
+
                     const container = document.getElementById(loc.id);
                     container.innerHTML = `
                         <div class="flex flex-col items-center h-full justify-between py-1">
@@ -415,7 +458,7 @@
                 console.error('Weather fetch error:', error);
                 locations.forEach(loc => {
                     const el = document.getElementById(loc.id);
-                    if(el) {
+                    if (el) {
                         el.innerHTML = `<p class="text-xs text-red-400">暫時無法取得</p>`;
                         el.classList.remove('weather-loading');
                     }
@@ -454,4 +497,5 @@
     <!-- Shared JS -->
     <script src="js/common.js"></script>
 </body>
+
 </html>
